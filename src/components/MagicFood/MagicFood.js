@@ -10,7 +10,7 @@ function MagicFood() {
       <SpinningTable>
         <img src={GlasTable} alt="Glas table" width="90%" />
       </SpinningTable>
-      <GrowingAlice onClick={() => setIsClicked(isClicked)}>alice</GrowingAlice>
+      {/* <GrowingAlice onClick={() => setIsClicked(isClicked)}>alice</GrowingAlice> */}
     </MagicArea>
   );
 }
