@@ -1,8 +1,10 @@
 import React from "react";
-import TestBox from "./components/TestBox";
+import Intro from "./components/Intro/Intro";
 
-function App() {
-  return <TestBox />;
+export default function App() {
+  return (
+    <>
+      <Intro />
+    </>
+  );
 }
-
-export default App;
