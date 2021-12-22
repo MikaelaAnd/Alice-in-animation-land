@@ -1,22 +1,34 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import { useState } from "react";
 import Background from "./background.jpeg";
 import GlasTable from "./glasTable.png";
+import Bottle from "./bottle.png";
 
 function MagicFood() {
+  const [isClicked, setIsClicked] = useState();
+
+  console.log(isClicked);
 
   return (
-    <MagicArea>
-      <SpinningTable>
-        <img src={GlasTable} alt="Glas table" width="90%" />
-      </SpinningTable>
-      {/* <GrowingAlice onClick={() => setIsClicked(isClicked)}>alice</GrowingAlice> */}
-    </MagicArea>
+    <Room>
+      <div>
+        <Foods>
+          <Drink onClick={() => setIsClicked(!isClicked)}>
+            <img src={Bottle} alt="Bottle that Alice drinks" width="20%" />
+          </Drink>
+          <Cookie onClick={() => setIsClicked(!isClicked)}></Cookie>
+        </Foods>
+        <SpinningTable>
+          <img src={GlasTable} alt="Glas table" width="90%" />
+        </SpinningTable>
+      </div>
+    </Room>
   );
 }
 export default MagicFood;
 
-const MagicArea = styled.div`
+const Room = styled.div`
   display: flex;
   justify-content: center;
   align-items: end;
@@ -26,6 +38,19 @@ const MagicArea = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
+`;
+
+const Foods = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+`;
+
+const Drink = styled.div``;
+const Cookie = styled.div`
+  width: 2rem;
+  height: 2rem;
+  background: brown;
 `;
 
 const table = keyframes`
