@@ -1,8 +1,12 @@
 import React from "react";
-import TestBox from "./components/TestBox";
+import GlobalFonts from './fonts/fonts';
+import Intro from "./components/Intro/Intro";
 
-function App() {
-  return <TestBox />;
+export default function App() {
+  return (
+    <>
+      <GlobalFonts />
+      <Intro />
+    </>
+  );
 }
-
-export default App;
