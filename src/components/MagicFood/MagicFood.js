@@ -4,25 +4,49 @@ import { useState } from "react";
 import Background from "./background.jpeg";
 import GlasTable from "./glasTable.png";
 import Bottle from "./bottle.png";
+import Alice from "./alice.png";
 
 function MagicFood() {
-  const [isClicked, setIsClicked] = useState();
+  const [totalHeight, setTotalHeight] = useState(50);
 
-  console.log(isClicked);
+  const aliceMoving = (height) => {
+    console.log("heighten", totalHeight);
+
+    if (
+      (height && totalHeight > 10 && totalHeight < 210) ||
+      (totalHeight === 210 && height < 0) ||
+      (totalHeight === 10 && height > 0)
+    ) {
+      setTotalHeight(totalHeight + height);
+      return totalHeight;
+    }
+    return totalHeight;
+  };
 
   return (
     <Room>
       <div>
         <Foods>
-          <Drink onClick={() => setIsClicked(!isClicked)}>
+          <Drink
+            onClick={() => {
+              aliceMoving(-20);
+            }}
+          >
             <img src={Bottle} alt="Bottle that Alice drinks" width="20%" />
           </Drink>
-          <Cookie onClick={() => setIsClicked(!isClicked)}></Cookie>
+          <Cookie
+            onClick={() => {
+              aliceMoving(+20);
+            }}
+          ></Cookie>
         </Foods>
         <SpinningTable>
           <img src={GlasTable} alt="Glas table" width="90%" />
         </SpinningTable>
       </div>
+      <GrowingAlice>
+        <img src={Alice} alt="" height={aliceMoving()} />
+      </GrowingAlice>
     </Room>
   );
 }
@@ -38,6 +62,8 @@ const Room = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
+
+  position: relative;
 `;
 
 const Foods = styled.div`
@@ -47,9 +73,10 @@ const Foods = styled.div`
 `;
 
 const Drink = styled.div``;
+
 const Cookie = styled.div`
   width: 2rem;
-  height: 2rem;
+  height: 3rem;
   background: brown;
 `;
 
@@ -67,6 +94,15 @@ const table = keyframes`
 
 const SpinningTable = styled.div`
   animation-name: ${table};
-  animation-duration: 7s;
+  animation-duration: 5s;
 `;
+
+const GrowingAlice = styled.div((props) => ({
+  height: props.height,
+  width: "auto",
+  position: "absolute",
+  bottom: "1rem",
+  right: "20%",
+  transform: "translate(50%, 0%)",
+}));
 
