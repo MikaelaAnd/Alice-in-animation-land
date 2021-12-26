@@ -13,7 +13,7 @@ export default function Intro() {
     <CanvasContainer>
       <Canvas camera={{ position: [0, 30, 70] }}>
         <OrbitControls />
-        <ambientLight intensity={0.1} />
+        <ambientLight intensity={0.3} />
         <Ground />
         <Rabbit />
         <RabbitHole />

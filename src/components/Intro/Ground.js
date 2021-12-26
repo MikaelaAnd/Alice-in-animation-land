@@ -3,8 +3,8 @@ import React from "react";
 export default function Ground() {
   const Circle = () => {
     return (
-      <mesh position={[0, -0.6, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <circleGeometry args={[25, 30]} />
+      <mesh position={[0, -1.55, 0]}>
+        <cylinderGeometry args={[21, 21, 2, 40]} />
         <meshLambertMaterial color={"#1D1F1D"} />
       </mesh>
     );
