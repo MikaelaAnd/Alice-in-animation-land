@@ -28,8 +28,7 @@ function MagicFood() {
   };
 
   return (
-    <Room>
-      <div ref={ref} />
+    <Room ref={ref}>
       {isVisible && (
         <>
           <div>
@@ -89,7 +88,6 @@ const pulse = keyframes`
   } 
   50% {
     transform: scale(1.1);
-    /* transform-origin: center; */ // den går från center bara det att diven är stor. 
   }
   100% {
     transform: scale(1);
