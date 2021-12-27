@@ -1,5 +1,5 @@
 import { PositionItem } from "./styles";
-import { BounceComponent } from "../Animations/Animations";
+import { BounceComponent, PulseComponent } from "../Animations/Animations";
 import PaintingLeft from "./images/doublePaintingLeft.png";
 import PaintingRight from "./images/doublePaintingRight.png";
 
@@ -13,7 +13,7 @@ export function LargeDoublePaintingLeft() {
 export function SmallDoublePaintingLeft() {
   return (
     <PositionItem>
-      <BounceComponent image={PaintingLeft} alt="" width="5rem" />
+      <PulseComponent image={PaintingLeft} alt="" width="5rem" />
     </PositionItem>
   );
 }
