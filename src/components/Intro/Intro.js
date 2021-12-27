@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import styled from "styled-components";
@@ -8,16 +8,27 @@ import RabbitHole from "./RabbitHole";
 import Ground from "./Ground";
 
 export default function Intro() {
-  
+  const [lightOn, setLightOn] = useState(false);
+
+  setTimeout(() => setLightOn(true), 2000);
+
+  const renderOnLight = () => {
+    return (
+      <>
+        <Ground />
+        <RabbitHole />
+      </>
+    );
+  };
+
   return (
     <CanvasContainer>
       <Canvas camera={{ position: [0, 30, 70] }}>
         <OrbitControls />
-        <ambientLight intensity={0.3} />
-        <Ground />
+        <ambientLight intensity={lightOn ? 0.3 : 0} />
         <Rabbit />
-        <RabbitHole />
-        <CeilingLamp />
+        <CeilingLamp lightOn={lightOn} />
+        {lightOn && renderOnLight()}
       </Canvas>
     </CanvasContainer>
   );
