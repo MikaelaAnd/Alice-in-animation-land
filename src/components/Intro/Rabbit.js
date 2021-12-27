@@ -8,7 +8,7 @@ export default function Rabbit() {
   const { nodes, materials } = useGLTF('../../rabbitModel.glb');
   const group = useRef();
   const rabbitRef = useRef();
-  const [moveUp, setMoveUp] = useState(true)
+  const [moveUp, setMoveUp] = useState(true);
   
   useFrame(() => {
     if (moveUp && rabbitRef.current.position.y < 4) {
