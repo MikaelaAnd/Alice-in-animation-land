@@ -40,7 +40,7 @@ export const BackgroundImage = styled.div`
 `;
 
 export const AliceImg = styled.img`
-  height: 15rem;
+  height: 10rem;
   width: auto;
   position: fixed;
   top: 0;
