@@ -28,7 +28,7 @@ export default function Intro() {
  
 const CanvasContainer = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
   background: black;
 `;
  
