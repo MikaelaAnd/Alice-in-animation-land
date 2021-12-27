@@ -3,7 +3,7 @@ import { BounceComponent } from "../Animations/Animations";
 import PaintingLeft from "./images/paintingLeft.png";
 import PaintingRight from "./images/paintingRight.png";
 
-export function LargePaintingStart() {
+export function LargePaintingLeft() {
     return(
         <>
         <PositionItem>
@@ -12,7 +12,7 @@ export function LargePaintingStart() {
         </>
     )
 }
-export function LargePaintingEnd() {
+export function LargePaintingRight() {
     return(
         <>
         <PositionItem position="flex-end">
@@ -22,7 +22,7 @@ export function LargePaintingEnd() {
     )
 }
 
-export function SmallPaintingStart() {
+export function SmallPaintingLeft() {
     return(
         <>
         <PositionItem>
@@ -31,7 +31,7 @@ export function SmallPaintingStart() {
         </>
     ) 
 }
-export function SmallPaintingEnd() {
+export function SmallPaintingRight() {
     return(
         <>
         <PositionItem position="flex-end">

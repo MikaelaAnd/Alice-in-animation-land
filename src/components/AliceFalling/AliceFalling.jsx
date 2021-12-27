@@ -6,15 +6,28 @@ import {
   GreenLampSmall,
   YellowLampLarge,
 } from "./Lamp";
-import { TeaPotDarkStart, TeaPotDarkEnd, TeaPotLightStart, TeaPotLightEnd } from "./TeaPot";
+import {
+  TeaPotDarkStart,
+  TeaPotDarkEnd,
+  TeaPotLightStart,
+  TeaPotLightEnd,
+} from "./TeaPot";
 import {
   AliceImg,
   BackgroundImage,
   Container,
   FurnitureContainer,
+  FurnitureRow,
 } from "./styles";
-import { LargePaintingEnd, LargePaintingStart, SmallPaintingEnd } from "./Painting";
-import { LargeDoublePaintingLeft, SmallDoublePaintingRight } from "./DoublePainting";
+import {
+  LargePaintingRight,
+  LargePaintingLeft,
+  SmallPaintingRight,
+} from "./Painting";
+import {
+  LargeDoublePaintingLeft,
+  SmallDoublePaintingRight,
+} from "./DoublePainting";
 
 export default function AliceFalling() {
   return (
@@ -22,29 +35,33 @@ export default function AliceFalling() {
       <BackgroundImage>
         <AliceImg src={Alice} alt="" />
         <FurnitureContainer>
-          <SmallPaintingEnd />
-          <TeaPotLightStart />
-          <LargeDoublePaintingLeft />
+          <FurnitureRow>
+            <SmallPaintingRight />
+            <TeaPotLightStart />
+            <LargeDoublePaintingLeft />
+          </FurnitureRow>
           <FlowerLampLarge />
           <TeaPotDarkStart />
           <YellowLampLarge />
           <TeaPotLightEnd />
-          <GreenLampSmall />
-          <TeaPotDarkEnd />
-          <FlowerLampSmall />
-          <LargePaintingStart />
-          <SmallPaintingEnd />
+          <FurnitureRow>
+            <GreenLampSmall />
+            <TeaPotDarkEnd />
+            <FlowerLampSmall />
+            <LargePaintingLeft />
+          </FurnitureRow>
+          <SmallPaintingRight />
           <TeaPotLightStart />
           <FlowerLampLarge />
           <TeaPotDarkStart />
           <YellowLampLarge />
-          <LargePaintingEnd />
+          <LargePaintingRight />
           <TeaPotLightEnd />
           <TeaPotDarkStart />
           <SmallDoublePaintingRight />
           <TeaPotDarkEnd />
           <FlowerLampSmall />
-          <LargePaintingStart />
+          <LargePaintingLeft />
         </FurnitureContainer>
       </BackgroundImage>
     </Container>

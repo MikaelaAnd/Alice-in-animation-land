@@ -44,11 +44,18 @@ export const AliceImg = styled.img`
   width: auto;
   position: fixed;
   top: 10px;
+  z-index: 100;
 `;
 
 export const FurnitureContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 85%;
+`;
+
+export const FurnitureRow = styled.div`
+  display: flex;
+  flex-direction: row;
   width: 85%;
 `;
 
