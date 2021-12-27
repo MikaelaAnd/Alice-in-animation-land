@@ -2,25 +2,58 @@ import greenLamp from "./images/greenLamp.png";
 import yellowLamp from "./images/yellowLamp.png";
 import flowerLamp from "./images/flowerLamp.png";
 import { PositionItem } from "./styles";
-import { BounceComponent, RotateComponent } from "../Animations/Animations";
+import { BounceComponent } from "../Animations/Animations";
 
-export function Lamp() {
+export function GreenLampLarge() {
   return (
     <>
       <PositionItem>
-        <RotateComponent image={greenLamp} width="5rem" height="6rem" />
+        <BounceComponent image={greenLamp} width="7rem" height="8rem" />
       </PositionItem>
+    </>
+  );
+}
+export function GreenLampSmall() {
+  return (
+    <>
       <PositionItem position="flex-end">
-        <BounceComponent image={greenLamp} width="5rem" height="6rem" />
+        <BounceComponent image={greenLamp} width="4rem" height="5rem" />
       </PositionItem>
-      <PositionItem position="flex-start">
-        <BounceComponent image={flowerLamp} width="5rem" height="6rem" />
-      </PositionItem>
+    </>
+  );
+}
+export function FlowerLampLarge() {
+  return (
+    <>
       <PositionItem position="flex-end">
-        <RotateComponent image={flowerLamp} width="7rem" height="9rem" />
+        <BounceComponent image={flowerLamp} width="6rem" height="7rem" />
       </PositionItem>
+    </>
+  );
+}
+export function FlowerLampSmall() {
+  return (
+    <>
       <PositionItem>
-        <BounceComponent image={yellowLamp} width="5rem" height="6rem" />
+        <BounceComponent image={flowerLamp} width="4rem" height="5rem" />
+      </PositionItem>
+    </>
+  );
+}
+export function YellowLampLarge() {
+  return (
+    <>
+      <PositionItem>
+        <BounceComponent image={yellowLamp} width="8rem" height="9rem" />
+      </PositionItem>
+    </>
+  );
+}
+export function YellowLampSmall() {
+  return (
+    <>
+      <PositionItem position="flex-end">
+        <BounceComponent image={yellowLamp} width="3rem" height="4rem" />
       </PositionItem>
     </>
   );
