@@ -13,6 +13,8 @@ import {
   Container,
   FurnitureContainer,
 } from "./styles";
+import { LargePaintingEnd, LargePaintingStart, SmallPaintingEnd } from "./Painting";
+import { LargeDoublePaintingLeft, SmallDoublePaintingRight } from "./DoublePainting";
 
 export default function AliceFalling() {
   return (
@@ -20,7 +22,9 @@ export default function AliceFalling() {
       <BackgroundImage>
         <AliceImg src={Alice} alt="" />
         <FurnitureContainer>
+          <SmallPaintingEnd />
           <TeaPotLightStart />
+          <LargeDoublePaintingLeft />
           <FlowerLampLarge />
           <TeaPotDarkStart />
           <YellowLampLarge />
@@ -28,6 +32,19 @@ export default function AliceFalling() {
           <GreenLampSmall />
           <TeaPotDarkEnd />
           <FlowerLampSmall />
+          <LargePaintingStart />
+          <SmallPaintingEnd />
+          <TeaPotLightStart />
+          <FlowerLampLarge />
+          <TeaPotDarkStart />
+          <YellowLampLarge />
+          <LargePaintingEnd />
+          <TeaPotLightEnd />
+          <TeaPotDarkStart />
+          <SmallDoublePaintingRight />
+          <TeaPotDarkEnd />
+          <FlowerLampSmall />
+          <LargePaintingStart />
         </FurnitureContainer>
       </BackgroundImage>
     </Container>
