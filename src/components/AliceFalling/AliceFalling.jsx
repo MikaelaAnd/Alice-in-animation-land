@@ -1,6 +1,12 @@
 import React from "react";
 import Alice from "./images/Alice.png";
-import { Lamp } from "./Lamp";
+import {
+  FlowerLampLarge,
+  FlowerLampSmall,
+  GreenLampSmall,
+  YellowLampLarge,
+} from "./Lamp";
+import { TeaPotDarkStart, TeaPotDarkEnd, TeaPotLightStart, TeaPotLightEnd } from "./TeaPot";
 import {
   AliceImg,
   BackgroundImage,
@@ -14,7 +20,14 @@ export default function AliceFalling() {
       <BackgroundImage>
         <AliceImg src={Alice} alt="" />
         <FurnitureContainer>
-          <Lamp />
+          <TeaPotLightStart />
+          <FlowerLampLarge />
+          <TeaPotDarkStart />
+          <YellowLampLarge />
+          <TeaPotLightEnd />
+          <GreenLampSmall />
+          <TeaPotDarkEnd />
+          <FlowerLampSmall />
         </FurnitureContainer>
       </BackgroundImage>
     </Container>

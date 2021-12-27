@@ -43,7 +43,7 @@ export const AliceImg = styled.img`
   height: 10rem;
   width: auto;
   position: fixed;
-  top: 0;
+  top: 10px;
 `;
 
 export const FurnitureContainer = styled.div`
