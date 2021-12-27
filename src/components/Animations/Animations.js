@@ -1,9 +1,9 @@
-import { Bounce, Rotate, ItemSize } from "../AliceFalling/styles";
+import { Bounce, Rotate, Item, Pulse } from "../AliceFalling/styles";
 
 export function BounceComponent({ image, width, height }) {
   return (
     <Bounce>
-      <ItemSize src={image} width={width} height={height} />
+      <Item src={image} width={width} height={height} />
     </Bounce>
   );
 }
@@ -11,7 +11,15 @@ export function BounceComponent({ image, width, height }) {
 export function RotateComponent({ image, width, height }) {
   return (
     <Rotate>
-      <ItemSize src={image} width={width} height={height} />
+      <Item src={image} width={width} height={height} />
     </Rotate>
   );
+}
+
+export function PulseComponent({ image, width, height }) {
+  return(
+    <Pulse>
+      <Item src={image} width={width} height={height} />
+    </Pulse>
+  )
 }

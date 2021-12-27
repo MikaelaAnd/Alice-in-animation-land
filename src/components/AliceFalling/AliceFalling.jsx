@@ -1,28 +1,97 @@
 import React from "react";
-import greenLamp from "./images/greenLamp.png";
-import yellowLamp from "./images/yellowLamp.png";
-import flowerLamp from "./images/flowerLamp.png";
 import Alice from "./images/Alice.png";
+import {
+  FlowerLampLarge,
+  FlowerLampSmall,
+  GreenLampSmall,
+  YellowLampLarge,
+} from "./Lamp";
+import {
+  TeaPotDarkStart,
+  TeaPotDarkEnd,
+  TeaPotLightStart,
+  TeaPotLightEnd,
+} from "./TeaPot";
 import {
   AliceImg,
   BackgroundImage,
-  Center,
   Container,
+  FurnitureContainer,
+  FurnitureRow,
 } from "./styles";
-import { BounceComponent, RotateComponent } from "../Animations/Animations";
+import {
+  LargePaintingRight,
+  LargePaintingLeft,
+  SmallPaintingRight,
+} from "./Painting";
+import {
+  LargeDoublePaintingLeft,
+  SmallDoublePaintingLeft,
+} from "./DoublePainting";
+import { LargeClockLeft, SmallClockLeft, SmallClockRight } from "./Clock";
+import { CupDarkLeft, CupLightRight } from "./Cup";
 
 export default function AliceFalling() {
   return (
     <Container>
       <BackgroundImage>
-        <Center>
-          <AliceImg src={Alice} alt="" />
-        </Center>
-        <div>
-        <BounceComponent image={greenLamp} width="5rem" height="6rem" />
-        <RotateComponent image={flowerLamp} width="7rem" height="9rem" />
-        <BounceComponent image={yellowLamp} width="5rem" height="6rem" />
-        </div>
+        <AliceImg src={Alice} alt="" />
+        <FurnitureContainer>
+          <FurnitureRow>
+            <SmallPaintingRight />
+            <TeaPotLightStart />
+            <LargeDoublePaintingLeft />
+          </FurnitureRow>
+
+          <FurnitureRow>
+            <FlowerLampLarge />
+            <TeaPotDarkStart />
+            <YellowLampLarge />
+          </FurnitureRow>
+
+          <FurnitureRow>
+            <LargeClockLeft />
+            <LargePaintingRight />
+          </FurnitureRow>
+          <FurnitureRow>
+            <CupDarkLeft />
+          </FurnitureRow>
+          <FurnitureRow>
+          <TeaPotLightEnd />
+          <SmallClockRight />
+          <CupLightRight />
+          </FurnitureRow>
+          <LargeDoublePaintingLeft />
+          <FurnitureRow>
+            <GreenLampSmall />
+            <TeaPotDarkEnd />
+            <FlowerLampSmall />
+            <LargePaintingLeft />
+          </FurnitureRow>
+
+          <SmallPaintingRight />
+          <TeaPotLightStart />
+          <FlowerLampLarge />
+          <FurnitureRow>
+            <TeaPotDarkStart />
+            <YellowLampLarge />
+            <LargePaintingRight />
+            <TeaPotLightEnd />
+          </FurnitureRow>
+          <FurnitureRow>
+            <SmallDoublePaintingLeft />
+            <CupDarkLeft />
+          </FurnitureRow>
+          <FurnitureRow>
+            <TeaPotLightStart />
+            <TeaPotDarkEnd />
+            <LargePaintingLeft />
+          </FurnitureRow>
+          <FurnitureRow>
+            <SmallClockLeft />
+            <CupLightRight />
+          </FurnitureRow>
+        </FurnitureContainer>
       </BackgroundImage>
     </Container>
   );

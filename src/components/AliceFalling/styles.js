@@ -1,8 +1,7 @@
-import styled, { keyframes } from "styled-components"; 
+import styled, { keyframes } from "styled-components";
 import background from "./images/background.png";
- 
- 
- export const rotate = keyframes`
+
+export const rotate = keyframes`
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg) }
 `;
@@ -13,14 +12,22 @@ export const bounce = keyframes`
   100% { transform: translateY(0); }
 `;
 
+export const pulse = keyframes`
+0% { transform: scale(1); } 
+50% { transform: scale(1.1); }
+100% { transform: scale(1); }
+`;
+
 export const Rotate = styled.div`
-  display: inline-block;
   animation: ${rotate} 2s linear infinite;
 `;
 
 export const Bounce = styled.div`
-  display: flex;
   animation: ${bounce} 2s linear infinite;
+`;
+
+export const Pulse = styled.div`
+  animation: ${pulse} 2s infinite;
 `;
 
 export const Container = styled.div`
@@ -33,29 +40,43 @@ export const Container = styled.div`
 
 export const BackgroundImage = styled.div`
   background-image: url(${background});
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   display: flex;
-  height: 400vh;
-  width: 50%;
-`;
-
-export const Center = styled.div`
-  display: flex;
   justify-content: center;
-  position: fixed;
-  top: 0;
-  width: 50%;
+  height: 400vh;
+  width: 50vw;
 `;
 
 export const AliceImg = styled.img`
-  height: 15rem;
+  height: 10rem;
   width: auto;
+  position: fixed;
+  top: 10px;
+  z-index: 100;
 `;
 
-export const ItemSize = styled.img((props) => ({
-    height: props.height,  
-    position: "relative", 
-    width: props.width  
-    }));
+export const FurnitureContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+`;
+
+export const FurnitureRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 85%;
+`;
+
+export const Item = styled.img((props) => ({
+  height: props.height,
+  width: props.width,
+}));
+
+export const PositionItem = styled.div((props) => ({
+  display: "flex",
+  justifyContent: props.position,
+  width: "90%"
+}));
+
