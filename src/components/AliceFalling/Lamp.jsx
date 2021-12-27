@@ -44,7 +44,7 @@ export function YellowLampLarge() {
   return (
     <>
       <PositionItem>
-        <BounceComponent image={yellowLamp} width="8rem" height="9rem" />
+        <BounceComponent image={yellowLamp} width="4rem" height="6rem" />
       </PositionItem>
     </>
   );
