@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import CeilingLamp from "./CeilingLamp";
 import Rabbit from "./Rabbit";
 import RabbitHole from "./RabbitHole";
@@ -9,8 +9,11 @@ import Ground from "./Ground";
  
 export default function Intro() {
   const [lightOn, setLightOn] = useState(false);
+  const [clicked, setClicked] = useState(false);
+  const [showButton, setShowButton] = useState(false);
 
   setTimeout(() => setLightOn(true), 2000);
+  setTimeout(() => setShowButton(true), 5000);
 
   const renderOnLight = () => {
     return (
@@ -32,42 +35,51 @@ export default function Intro() {
           {lightOn && renderOnLight()}
         </Canvas>
       </CanvasContainer>
-      <TitleTextLarge>Alice</TitleTextLarge>
-      <TitleTextSmall>in animation land</TitleTextSmall>
+      <Button display={showButton}>Follow Rabbit</Button>
+      <Text large>Alice</Text>
+      <Text>in animation land</Text>
     </>
   );
 }
  
 const CanvasContainer = styled.div`
-  width: 100vw;
-  height: 90vh;
+  width: 100%;
+  height: 100vh;
   background: black;
 `;
- 
-const TitleTextLarge = styled.p`
+
+const Text = styled.p((props) => ({
+  position: 'absolute',
+  bottom: props.large ? '6rem' : '2rem',
+  left: 0,
+  right: 0,
+  textAlign: 'center',
+  color: 'white',
+  fontFamily: "TitleFont",
+  fontSize: props.large ? '5rem' : '4rem',
+  userSelect: 'none',
+}));
+
+const Button = styled.button`
+  display: ${props => props.display ? 'block' : 'none'};
   position: absolute;
-  bottom: 6rem;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  text-align: center;
-  color: white;
-  font-family: "TitleFont";
-  font-size: 5rem;
-  user-select: none;
-`;
- 
-const TitleTextSmall = styled.p`
-  position: absolute;
-  bottom: 2rem;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  text-align: center;
-  color: white;
-  font-family: "TitleFont";
-  font-size: 4rem;
-  user-select: none;
+  bottom: 25rem;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  background: none;
+  color: orange;
+  font-size: 2rem;
+  font-family: TitleFont;
+  border: none;
+  cursor: pointer; 
+  animation: ${props =>
+    props.display &&
+    css`
+      ${opacity} 3s ease-in
+    `};
+`
+
+const opacity = keyframes`
+  0% { opacity: 0; } 
+  100% { opacity: 1; }
 `;
