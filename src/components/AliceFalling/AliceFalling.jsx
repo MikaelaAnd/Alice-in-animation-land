@@ -26,8 +26,10 @@ import {
 } from "./Painting";
 import {
   LargeDoublePaintingLeft,
-  SmallDoublePaintingRight,
+  SmallDoublePaintingLeft,
 } from "./DoublePainting";
+import { LargeClockLeft, SmallClockLeft, SmallClockRight } from "./Clock";
+import { CupDarkLeft, CupLightRight } from "./Cup";
 
 export default function AliceFalling() {
   return (
@@ -40,28 +42,55 @@ export default function AliceFalling() {
             <TeaPotLightStart />
             <LargeDoublePaintingLeft />
           </FurnitureRow>
-          <FlowerLampLarge />
-          <TeaPotDarkStart />
-          <YellowLampLarge />
+
+          <FurnitureRow>
+            <FlowerLampLarge />
+            <TeaPotDarkStart />
+            <YellowLampLarge />
+          </FurnitureRow>
+
+          <FurnitureRow>
+            <LargeClockLeft />
+            <LargePaintingRight />
+          </FurnitureRow>
+          <FurnitureRow>
+            <CupDarkLeft />
+          </FurnitureRow>
+          <FurnitureRow>
           <TeaPotLightEnd />
+          <SmallClockRight />
+          <CupLightRight />
+          </FurnitureRow>
+          <LargeDoublePaintingLeft />
           <FurnitureRow>
             <GreenLampSmall />
             <TeaPotDarkEnd />
             <FlowerLampSmall />
             <LargePaintingLeft />
           </FurnitureRow>
+
           <SmallPaintingRight />
           <TeaPotLightStart />
           <FlowerLampLarge />
-          <TeaPotDarkStart />
-          <YellowLampLarge />
-          <LargePaintingRight />
-          <TeaPotLightEnd />
-          <TeaPotDarkStart />
-          <SmallDoublePaintingRight />
-          <TeaPotDarkEnd />
-          <FlowerLampSmall />
-          <LargePaintingLeft />
+          <FurnitureRow>
+            <TeaPotDarkStart />
+            <YellowLampLarge />
+            <LargePaintingRight />
+            <TeaPotLightEnd />
+          </FurnitureRow>
+          <FurnitureRow>
+            <SmallDoublePaintingLeft />
+            <CupDarkLeft />
+          </FurnitureRow>
+          <FurnitureRow>
+            <TeaPotLightStart />
+            <TeaPotDarkEnd />
+            <LargePaintingLeft />
+          </FurnitureRow>
+          <FurnitureRow>
+            <SmallClockLeft />
+            <CupLightRight />
+          </FurnitureRow>
         </FurnitureContainer>
       </BackgroundImage>
     </Container>

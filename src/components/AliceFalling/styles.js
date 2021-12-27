@@ -12,12 +12,22 @@ export const bounce = keyframes`
   100% { transform: translateY(0); }
 `;
 
+export const pulse = keyframes`
+0% { transform: scale(1); } 
+50% { transform: scale(1.1); }
+100% { transform: scale(1); }
+`;
+
 export const Rotate = styled.div`
   animation: ${rotate} 2s linear infinite;
 `;
 
 export const Bounce = styled.div`
   animation: ${bounce} 2s linear infinite;
+`;
+
+export const Pulse = styled.div`
+  animation: ${pulse} 2s infinite;
 `;
 
 export const Container = styled.div`
