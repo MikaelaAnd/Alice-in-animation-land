@@ -17,6 +17,7 @@ export default function Intro() {
       <>
         <Ground />
         <RabbitHole />
+        <Rabbit />
       </>
     );
   };
@@ -27,7 +28,6 @@ export default function Intro() {
         <Canvas camera={{ position: [0, 30, 70] }}>
           <OrbitControls />
           <ambientLight intensity={lightOn ? 0.3 : 0} />
-          <Rabbit />
           <CeilingLamp lightOn={lightOn} />
           {lightOn && renderOnLight()}
         </Canvas>
