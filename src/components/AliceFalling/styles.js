@@ -45,7 +45,7 @@ export const BackgroundImage = styled.div`
   background-size: cover;
   display: flex;
   justify-content: center;
-  height: 400vh;
+  height: 330vh;
   width: 50vw;
 `;
 
