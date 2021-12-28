@@ -52,9 +52,12 @@ export const BackgroundImage = styled.div`
 export const AliceImg = styled.img`
   height: 10rem;
   width: auto;
-  position: fixed;
-  top: 10px;
-  z-index: 100;
+  position: sticky;
+  top: 20rem;
+  z-index: 10;
+  /* Något som centrerar Alice */
+  left: 45%;
+  /* transform: translate(-50%, 50%); */
 `;
 
 export const FurnitureContainer = styled.div`
