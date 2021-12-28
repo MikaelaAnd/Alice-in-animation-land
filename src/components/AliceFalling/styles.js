@@ -42,8 +42,9 @@ export function PulseComponent({ image, width, height }) {
 export const Container = styled.div`
   background-color: black;
   display: flex;
-  height: 100%;
+  height: 330vh;
   justify-content: center;
+  position: relative;
   width: 100%;
 `;
 
@@ -55,6 +56,7 @@ export const BackgroundImage = styled.div`
   display: flex;
   justify-content: center;
   height: 330vh;
+  position: absolute;
   width: 50vw;
 `;
 
