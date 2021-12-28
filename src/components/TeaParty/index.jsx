@@ -20,7 +20,7 @@ export const Box1 = () => {
   return (
     <mesh position={[0, -13, 0]}>
       <cylinderGeometry args={[30, 30, 3, 30]} />
-      <meshLambertMaterial color={"hotpink"} />
+      <meshLambertMaterial color={"blue"} />
     </mesh>
   );
 };
