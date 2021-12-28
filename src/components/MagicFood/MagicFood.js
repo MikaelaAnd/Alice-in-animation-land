@@ -1,17 +1,17 @@
 import React, { useRef } from "react";
 import styled, { keyframes } from "styled-components";
 import { useState } from "react";
-import Background from "./MagicFood/background.jpeg";
-import GlasTable from "./MagicFood/glasTable.png";
-import Bottle from "./MagicFood/bottle.png";
-import Alice from "./MagicFood/alice.png";
-import Cake from "./MagicFood/cake2.png";
+import Background from "./assets/background.jpeg";
+import GlasTable from "./assets/glasTable.png";
+import Bottle from "./assets/bottle.png";
+import Alice from "./assets/alice.png";
+import Cake from "./assets/cake2.png";
 import useOnScreen from "./useOnScreen";
 
 function MagicFood() {
   const [totalHeight, setTotalHeight] = useState(450);
-  const ref = useRef();
-  const isVisible = useOnScreen(ref);
+  const MagicFoodRef = useRef();
+  const isVisible = useOnScreen(MagicFoodRef);
 
   const aliceMoving = (height) => {
     console.log("heighten", totalHeight);
@@ -28,8 +28,7 @@ function MagicFood() {
   };
 
   return (
-    <Room>
-      <div ref={ref} />
+    <Room ref={MagicFoodRef}>
       {isVisible && (
         <>
           <div>
@@ -89,7 +88,6 @@ const pulse = keyframes`
   } 
   50% {
     transform: scale(1.1);
-    /* transform-origin: center; */ // den går från center bara det att diven är stor. 
   }
   100% {
     transform: scale(1);
@@ -106,7 +104,7 @@ const display = keyframes`
 `;
 
 const Drink = styled.div`
-  animation: ${display} 5s ease-in, ${pulse} 2s infinite;
+  animation: ${display} 6s ease-in, ${pulse} 2s infinite;
   width: 3rem;
   margin-bottom: -0.9rem;
 
@@ -118,7 +116,7 @@ const Drink = styled.div`
 `;
 
 const Cookie = styled.div`
-  animation: ${display} 5s ease-in, ${pulse} 2s infinite;
+  animation: ${display} 6s ease-in, ${pulse} 2s infinite;
   width: 3rem;
   margin-bottom: -0.7rem;
 
@@ -143,7 +141,7 @@ const table = keyframes`
 
 const SpinningTable = styled.div`
   animation-name: ${table};
-  animation-duration: 5s;
+  animation-duration: 6s;
   width: 15rem;
 `;
 
@@ -163,5 +161,5 @@ const GrowingAlice = styled.div`
   bottom: 1rem;
   right: 20%;
   transform: translate(50%, 0%);
-  animation: ${display} 5s;
+  animation: ${display} 6s;
 `;
