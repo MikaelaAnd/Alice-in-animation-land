@@ -1,5 +1,4 @@
-import { PositionItem } from "./styles";
-import { BounceComponent } from "../Animations/Animations";
+import { BounceComponent, PositionItem } from "./styles";
 import dark from "./images/teaPotDark.png";
 import light from "./images/teaPotLight.png";
 

@@ -1,5 +1,4 @@
-import { PositionItem } from "./styles";
-import { BounceComponent } from "../Animations/Animations";
+import { BounceComponent, PositionItem } from "./styles";
 import PaintingLeft from "./images/paintingLeft.png";
 import PaintingRight from "./images/paintingRight.png";
 

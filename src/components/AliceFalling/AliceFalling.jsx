@@ -30,10 +30,15 @@ import {
 } from "./DoublePainting";
 import { LargeClockLeft, SmallClockLeft, SmallClockRight } from "./Clock";
 import { CupDarkLeft, CupLightRight } from "./Cup";
+import { Canvas } from "@react-three/fiber";
+import { Stars } from "@react-three/drei";
 
 export default function AliceFalling() {
   return (
     <Container>
+      <Canvas>
+        <Stars />
+      </Canvas>
       <BackgroundImage>
         <AliceImg src={Alice} alt="" />
         <FurnitureContainer>
