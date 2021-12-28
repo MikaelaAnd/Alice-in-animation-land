@@ -1,48 +1,26 @@
 import { Background } from "./styles";
+import { Canvas } from "@react-three/fiber";
 
-import { Canvas, useFrame } from "@react-three/fiber";
-import { useRef, useState } from "react";
+import { Sky, Stars } from "@react-three/drei";
+
+// PLANE SOM BORD FÖR ATT SKY SER UT SOM HIMMEL
 
 export function TeaParty() {
   return (
-      <Background>
-          <Canvas>
-              <Box1 />
-          </Canvas>
+    <Background>
+      <Canvas camera={{ position: [0, 0, 0], fov: 80 }}>
+        <Sky />
+        <Stars />
+      </Canvas>
     </Background>
   );
 }
 
-export const Box1 = (props) => {
-  const boxRef = useRef();
-  const [active, setActive] = useState(false);
-  const [hover, setHover] = useState(false);
-
-  useFrame(() => {
-    if (hover) {
-      boxRef.current.position.y += 0.01;
-    }
-  });
-
+export const Box1 = () => {
   return (
-    <group ref={boxRef} position={props.position}>
-      <mesh
-        onClick={() => {
-          setActive(!active);
-        }}
-        onPointerOver={() => {
-          setHover(true);
-        }}
-        onPointerOut={() => {
-          setHover(false);
-        }}
-      >
-        <boxGeometry attach="geometry" />
-        <meshLambertMaterial
-          attach="material"
-          color={active ? "green" : "red"}
-        />
-      </mesh>
-    </group>
+    <mesh position={[0, -13, 0]}>
+      <cylinderGeometry args={[30, 30, 3, 30]} />
+      <meshLambertMaterial color={"hotpink"} />
+    </mesh>
   );
 };
