@@ -6,21 +6,27 @@ import CeilingLamp from "./CeilingLamp";
 import Rabbit from "./Rabbit";
 import RabbitHole from "./RabbitHole";
 import Ground from "./Ground";
- 
+
 export default function Intro() {
   const [lightOn, setLightOn] = useState(false);
   const [clicked, setClicked] = useState(false);
   const [showButton, setShowButton] = useState(false);
+  const [showRabbit, setShowRabbit] = useState(true);
 
   setTimeout(() => setLightOn(true), 2000);
   setTimeout(() => setShowButton(true), 5000);
+
+  const handleClick = () => {
+    setShowRabbit(false);
+    setClicked(true);
+  };
 
   const renderOnLight = () => {
     return (
       <>
         <Ground />
-        <RabbitHole />
-        <Rabbit />
+        <RabbitHole zoom={clicked} />
+        <Rabbit show={showRabbit} hide={() => handleClick()} />
       </>
     );
   };
@@ -28,20 +34,22 @@ export default function Intro() {
   return (
     <>
       <CanvasContainer>
-        <Canvas camera={{ position: [0, 30, 70] }}>
-          <OrbitControls />
+        <Canvas camera={{ position: [0, 30, 100], fov: 100 }}>
+          {!clicked && <OrbitControls />}
           <ambientLight intensity={lightOn ? 0.3 : 0} />
           <CeilingLamp lightOn={lightOn} />
           {lightOn && renderOnLight()}
         </Canvas>
       </CanvasContainer>
-      <Button display={showButton}>Follow Rabbit</Button>
+      <Button show={showButton} onClick={() => handleClick()}>
+        Follow Rabbit
+      </Button>
       <Text large>Alice</Text>
-      <Text>in animation land</Text>
+      <Text show={showButton}>in animation land</Text>
     </>
   );
 }
- 
+
 const CanvasContainer = styled.div`
   width: 100%;
   height: 100vh;
@@ -49,19 +57,19 @@ const CanvasContainer = styled.div`
 `;
 
 const Text = styled.p((props) => ({
-  position: 'absolute',
-  bottom: props.large ? '6rem' : '2rem',
+  position: "absolute",
+  bottom: props.large ? "6rem" : "2rem",
   left: 0,
   right: 0,
-  textAlign: 'center',
-  color: 'white',
+  textAlign: "center",
+  color: "white",
   fontFamily: "TitleFont",
-  fontSize: props.large ? '5rem' : '4rem',
-  userSelect: 'none',
+  fontSize: props.large ? "5rem" : "4rem",
+  userSelect: "none",
 }));
 
 const Button = styled.button`
-  display: ${props => props.display ? 'block' : 'none'};
+  display: ${(props) => (props.show ? "block" : "none")};
   position: absolute;
   bottom: 25rem;
   left: 50%;
@@ -71,13 +79,13 @@ const Button = styled.button`
   font-size: 2rem;
   font-family: TitleFont;
   border: none;
-  cursor: pointer; 
-  animation: ${props =>
-    props.display &&
+  cursor: pointer;
+  animation: ${(props) =>
+    props.show &&
     css`
       ${opacity} 3s ease-in
     `};
-`
+`;
 
 const opacity = keyframes`
   0% { opacity: 0; } 
