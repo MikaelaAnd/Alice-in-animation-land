@@ -10,7 +10,7 @@ export default function Button({ hideButton, onClick}) {
 
     return (
         <TextButton show={showButton} onClick={onClick}>
-          Klick to follow Rabbit
+          Click to follow Rabbit
         </TextButton>
     );
 };
