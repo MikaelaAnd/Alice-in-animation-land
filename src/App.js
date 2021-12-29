@@ -4,6 +4,7 @@ import Intro from "./components/Intro/Intro";
 import AliceFalling from "./components/AliceFalling/AliceFalling";
 import MagicFood from "./components/MagicFood/MagicFood";
 import { TeaParty } from "./components/TeaParty";
+import CheshireCat from "./components/CheshireCat";
 
 
 
@@ -14,6 +15,7 @@ export default function App() {
       <Intro />
       <AliceFalling />
       <MagicFood />
+      <CheshireCat />
       <TeaParty />
     </>
   );
