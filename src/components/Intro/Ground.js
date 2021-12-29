@@ -7,7 +7,7 @@ export default function Ground() {
 
   useFrame((state) => {
     const step = 0.01;
-    state.camera.fov = THREE.MathUtils.lerp(state.camera.fov, zoom ? 50 : 75, step);
+    state.camera.fov = THREE.MathUtils.lerp(state.camera.fov, zoom ? 50 : 100, step);
     state.camera.updateProjectionMatrix();
   });
   

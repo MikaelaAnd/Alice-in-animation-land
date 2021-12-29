@@ -4,7 +4,7 @@ import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
-export default function Rabbit({show, hide}) {
+export default function Rabbit({ show }) {
   const { nodes, materials } = useGLTF('../../rabbitModel.glb');
   const group = useRef();
   const rabbitRef = useRef();
@@ -16,13 +16,13 @@ export default function Rabbit({show, hide}) {
     } 
 
     if (!show && rabbitRef.current.position.y > -4){
-      rabbitRef.current.position.y -= 0.08
+      rabbitRef.current.position.y -= 0.1
     }
   });  
 
   return (
     <group ref={group} dispose={null}>
-      <group onClick={() => hide()} ref={rabbitRef} position={[-1.2, -8, 0.8]} rotation={[0.18, -1.9, -1]} scale={[1.47*4, 0.67*4, 0.91*4]}>
+      <group ref={rabbitRef} position={[-1.2, -8, 0.8]} rotation={[0.18, -1.9, -1]} scale={[1.47*4, 0.67*4, 0.91*4]}>
         <mesh geometry={nodes.Cylinder003.geometry} material={materials.vit} />
         <mesh geometry={nodes.Cylinder003_1.geometry} material={materials['Material.002']} />
         <mesh geometry={nodes.Cylinder003_2.geometry} material={materials.grå} />
