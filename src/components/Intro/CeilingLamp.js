@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function CeilingLamp(lightOn) {
+export default function CeilingLamp({ lightOn }) {
   const Lamp = () => {
     return (
       <>
@@ -31,14 +31,16 @@ export default function CeilingLamp(lightOn) {
     <>
       <Lamp />
       <pointLight intensity={lightOn ? 5 : 0} color={"white"}>
-        <mesh position={[0, 15, 0]}>
-          <coneGeometry args={[20, 34, 30]} />
-          <meshPhongMaterial
-            color={lightOn ? "white" : "black"}
-            opacity={0.1}
-            transparent
-          />
-        </mesh>
+        {lightOn && (
+          <mesh position={[0, 15, 0]}>
+            <coneGeometry args={[20, 34, 30]} />
+            <meshPhongMaterial
+              color={'white'}
+              opacity={0.1}
+              transparent
+            />
+          </mesh>
+        )}
       </pointLight>
     </>
   );
