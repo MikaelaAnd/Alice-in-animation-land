@@ -1,26 +1,33 @@
-import { Background } from "./styles";
+import { Background, MadHatter, Hatter, BouncingArm } from "./styles";
 import { Canvas } from "@react-three/fiber";
-
+import HatterImg from "./MadHatter.png";
+import ArmImg from "./Arm.png";
 import { Sky, Stars } from "@react-three/drei";
-
-// PLANE SOM BORD FÖR ATT SKY SER UT SOM HIMMEL
 
 export function TeaParty() {
   return (
     <Background>
       <Canvas camera={{ position: [0, 0, 0], fov: 80 }}>
+        <ambientLight />
         <Sky />
         <Stars />
+        <Table />
       </Canvas>
+      <MadHatter>
+        <BouncingArm image={ArmImg} />
+        <Hatter src={HatterImg} alt="" />
+      </MadHatter>
     </Background>
   );
 }
 
-export const Box1 = () => {
+export const Table = () => {
   return (
     <mesh position={[0, -13, 0]}>
       <cylinderGeometry args={[30, 30, 3, 30]} />
-      <meshLambertMaterial color={"blue"} />
+      <meshLambertMaterial color={"#CA9088"} />
     </mesh>
   );
 };
+
+
