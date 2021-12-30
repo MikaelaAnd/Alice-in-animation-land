@@ -9,7 +9,7 @@ import Cake from "./assets/cake2.png";
 import useOnScreen from "./useOnScreen";
 
 function MagicFood() {
-  const [totalHeight, setTotalHeight] = useState(450);
+  const [totalHeight, setTotalHeight] = useState(550);
   const MagicFoodRef = useRef();
   const isVisible = useOnScreen(MagicFoodRef);
 
@@ -17,8 +17,8 @@ function MagicFood() {
     console.log("heighten", totalHeight);
 
     if (
-      (height && totalHeight > 50 && totalHeight < 750) ||
-      (totalHeight === 750 && height < 0) ||
+      (height && totalHeight > 50 && totalHeight < 950) ||
+      (totalHeight === 950 && height < 0) ||
       (totalHeight === 50 && height > 0)
     ) {
       setTotalHeight(totalHeight + height);
