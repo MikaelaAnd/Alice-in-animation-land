@@ -17,14 +17,12 @@ export const MadHatter = styled.div`
 `;
 
 export const Hatter = styled.img`
-  margin: 0;
   height: 20rem;
   width: auto;
   position: absolute;
 `;
 
 export const Arm = styled.img`
-  margin: 0;
   height: auto;
   width: 10rem;
   left: -9rem;
