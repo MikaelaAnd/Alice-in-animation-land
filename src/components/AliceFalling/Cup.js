@@ -1,5 +1,4 @@
-import { PositionItem } from "./styles";
-import { BounceComponent, PulseComponent } from "../Animations/Animations";
+import { BounceComponent, PositionItem, PulseComponent } from "./styles";
 import darkRight from "./images/cupDarkRight.png";
 import darkLeft from "./images/cupDarkLeft.png";
 import lightLeft from "./images/cupLightLeft.png";

@@ -1,5 +1,4 @@
-import { PositionItem } from "./styles";
-import { BounceComponent } from "../Animations/Animations";
+import { BounceComponent, PositionItem } from "./styles";
 import clock from "./images/clock.png";
 
 export function LargeClockLeft() {

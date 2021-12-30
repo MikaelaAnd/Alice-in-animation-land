@@ -1,8 +1,8 @@
 import greenLamp from "./images/greenLamp.png";
 import yellowLamp from "./images/yellowLamp.png";
 import flowerLamp from "./images/flowerLamp.png";
-import { PositionItem } from "./styles";
-import { BounceComponent, PulseComponent } from "../Animations/Animations";
+import { BounceComponent, PositionItem, PulseComponent } from "./styles";
+
 
 export function GreenLampLarge() {
   return (

@@ -1,22 +1,6 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
+import { bounce, pulse, rotate } from "../Animations";
 import background from "./images/background.png";
-
-export const rotate = keyframes`
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg) }
-`;
-
-export const bounce = keyframes`
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0); }
-`;
-
-export const pulse = keyframes`
-0% { transform: scale(1); } 
-50% { transform: scale(1.1); }
-100% { transform: scale(1); }
-`;
 
 export const Rotate = styled.div`
   animation: ${rotate} 2s linear infinite;
@@ -30,11 +14,37 @@ export const Pulse = styled.div`
   animation: ${pulse} 2s infinite;
 `;
 
+
+export function BounceComponent({ image, width, height }) {
+  return (
+    <Bounce>
+      <Item src={image} width={width} height={height} />
+    </Bounce>
+  );
+}
+
+export function RotateComponent({ image, width, height }) {
+  return (
+    <Rotate>
+      <Item src={image} width={width} height={height} />
+    </Rotate>
+  );
+}
+
+export function PulseComponent({ image, width, height }) {
+  return (
+    <Pulse>
+      <Item src={image} width={width} height={height} />
+    </Pulse>
+  );
+}
+
 export const Container = styled.div`
   background-color: black;
   display: flex;
-  height: 100%;
+  height: 330vh;
   justify-content: center;
+  position: relative;
   width: 100%;
 `;
 
@@ -46,6 +56,7 @@ export const BackgroundImage = styled.div`
   display: flex;
   justify-content: center;
   height: 330vh;
+  position: absolute;
   width: 50vw;
 `;
 
@@ -80,6 +91,5 @@ export const Item = styled.img((props) => ({
 export const PositionItem = styled.div((props) => ({
   display: "flex",
   justifyContent: props.position,
-  width: "90%"
+  width: "90%",
 }));
-
