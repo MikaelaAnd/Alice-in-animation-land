@@ -1,9 +1,9 @@
 import { Background, Bunny, MadHatter, Character, RightArm, LeftArm } from "./styles";
 import { Canvas } from "@react-three/fiber";
-import HatterImg from "./MadHatter.png";
-import ArmImg from "./Arm.png";
-import BunnyImg from "./Bunny.png";
-import BunnyArm from "./BunnyArm.png";
+import HatterImg from "./images/MadHatter.png";
+import ArmImg from "./images/Arm.png";
+import BunnyImg from "./images/Bunny.png";
+import BunnyArm from "./images/BunnyArm.png";
 import { Sky, Stars } from "@react-three/drei";
 
 export function TeaParty() {
