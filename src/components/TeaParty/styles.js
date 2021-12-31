@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { bounce } from "../Animations";
+import { bounceX } from "../Animations";
 
 export const Background = styled.div`
   background-color: lavenderblush;
@@ -14,6 +14,7 @@ export const Container = styled.div`
 export const MadHatter = styled.div`
   display: flex;
   justify-content: center;
+  background-color: lavender;
 `;
 
 export const Hatter = styled.img`
@@ -26,12 +27,12 @@ export const Arm = styled.img`
   height: auto;
   width: 10rem;
   left: -9rem;
-  top: 8rem;
+  top: 4rem;
   position: relative;
 `;
 
 export const Bounce = styled.div`
-  animation: ${bounce} 2s linear infinite;
+  animation: ${bounceX} 2s linear infinite;
 `;
 
 export function BouncingArm({ image }) {
