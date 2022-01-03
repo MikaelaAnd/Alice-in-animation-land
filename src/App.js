@@ -5,6 +5,7 @@ import AliceFalling from "./components/AliceFalling";
 import MagicFood from "./components/MagicFood/MagicFood";
 import SingingFlowers from "./components/SingingFlowers/SingingFlowers";
 import { TeaParty } from "./components/TeaParty";
+import CheshireCat from "./components/CheshireCat";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
       <AliceFalling />
       <MagicFood />
       <SingingFlowers />
+      <CheshireCat />
       <TeaParty />
     </>
   );
