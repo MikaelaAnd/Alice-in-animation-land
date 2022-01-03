@@ -65,8 +65,8 @@ export const ArmRight = styled.img`
 export const ArmLeft = styled.img`
   height: auto;
   width: 12rem;
-  right: -10rem;
-  top: 4rem;
+  right: -9rem;
+  top: 5rem;
   position: absolute;
   z-index: 10;
 `;
