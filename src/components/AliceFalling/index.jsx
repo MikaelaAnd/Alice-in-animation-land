@@ -26,6 +26,7 @@ import {
 } from "./Painting";
 import {
   LargeDoublePaintingLeft,
+  LargeDoublePaintingRight,
   SmallDoublePaintingLeft,
 } from "./DoublePainting";
 import { LargeClockLeft, SmallClockLeft, SmallClockRight } from "./Clock";
@@ -84,6 +85,7 @@ export default function AliceFalling() {
             <TeaPotLightEnd />
           </FurnitureRow>
           <FurnitureRow>
+          <LargeDoublePaintingRight />
             <SmallDoublePaintingLeft />
             <CupDarkLeft />
           </FurnitureRow>
