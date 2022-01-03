@@ -1,7 +1,9 @@
-import { Background, MadHatter, Hatter, BouncingArm } from "./styles";
+import { Background, Bunny, MadHatter, Character, RightArm, LeftArm } from "./styles";
 import { Canvas } from "@react-three/fiber";
-import HatterImg from "./MadHatter.png";
-import ArmImg from "./Arm.png";
+import HatterImg from "./images/MadHatter.png";
+import ArmImg from "./images/Arm.png";
+import BunnyImg from "./images/Bunny.png";
+import BunnyArm from "./images/BunnyArm.png";
 import { Sky, Stars } from "@react-three/drei";
 
 export function TeaParty() {
@@ -13,10 +15,16 @@ export function TeaParty() {
         <Stars />
         <Table />
       </Canvas>
-      <MadHatter>
-        <BouncingArm image={ArmImg} />
-        <Hatter src={HatterImg} alt="" />
-      </MadHatter>
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <Bunny>
+          <Character src={BunnyImg} alt="" />
+          <LeftArm image={BunnyArm} alt="" />
+        </Bunny>
+        <MadHatter>
+          <RightArm image={ArmImg} />
+          <Character src={HatterImg} alt="" />
+        </MadHatter>
+      </div>
     </Background>
   );
 }
