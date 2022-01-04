@@ -2,7 +2,6 @@ import styled, { keyframes } from "styled-components";
 // import Rose from "./assets/rose.png";
 import Rose from "./assets/rose-after-fill.png";
 import Alice from "./assets/alice.png";
-import Background from "./assets/background.png";
 import Trumpet1 from "./assets/trumpet1.png";
 import Trumpet2 from "./assets/trumpet2.png";
 import Flower1 from "./assets/flower1.png";
