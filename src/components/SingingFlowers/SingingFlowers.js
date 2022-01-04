@@ -1,4 +1,8 @@
 import styled, { keyframes } from "styled-components";
+import { Canvas } from "@react-three/fiber";
+import React from "react";
+import Stem from "./Stem";
+
 // import Rose from "./assets/rose.png";
 import Rose from "./assets/rose-after-fill.png";
 import Alice from "./assets/alice.png";
@@ -10,9 +14,51 @@ import Flower2 from "./assets/flower2.png";
 import FlowersBackground from "./assets/background-flowers.png";
 import BigFLowers from "./assets/big-flowers.png";
 
+import { OrbitControls } from "@react-three/drei";
+
 function SingingFlowers() {
+  const oneStem = 32;
+  let windowSize = window.innerWidth;
+  const numberOfStems = windowSize / oneStem;
+  let allStems = [];
+
+  for (let i = 0; i < numberOfStems; i++) {
+    allStems.push(i);
+  }
+  console.log("test", allStems);
+  console.log(windowSize);
+  //    camera={{ position: [0, 0, 0.5] }}
+
+  //   let startOfScreen = window.innerWidth
+
+  let i;
+
+  let y = (10 + 0.6, 0, i * 2 + 0.6);
+
   return (
     <Root>
+      <CanvasContainer>
+        <Canvas
+        //   camera={{
+        //     position: [0, 0, 10],
+        //     // fov: 100,
+        //     // aspect: 1,
+        //     // near: 40,
+        //     // far: 50,
+        //   }}
+        //   PerspectiveCamera={
+        //     (40, window.innerWidth / window.innerHeight, 1, 10000)
+        //   }
+        >
+          <OrbitControls />
+          <mesh position={[-6, 0, 0]}>
+            {allStems.map((positionX, index) => (
+              <Stem x={positionX} key={index} />
+            ))}
+          </mesh>
+        </Canvas>
+      </CanvasContainer>
+
       <img
         src={FlowersBackground}
         alt=""
@@ -55,6 +101,13 @@ const Root = styled.div`
   /* flex-direction: column; */
   align-items: flex-end;
   position: relative;
+`;
+
+const CanvasContainer = styled.div`
+  /* background: pink; */
+  position: absolute;
+  width: 100%;
+  z-index: 0;
 `;
 
 const FlowerContent = styled.div`
