@@ -8,14 +8,14 @@ import Trumpet2 from "./assets/trumpet2.png";
 import Flower1 from "./assets/flower1.png";
 import Flower2 from "./assets/flower2.png";
 // import Flower3 from "./assets/flower3.png";
-import Background from "./assets/background-flowers.png";
+import FlowersBackground from "./assets/background-flowers.png";
 import BigFLowers from "./assets/big-flowers.png";
 
 function SingingFlowers() {
   return (
     <Root>
       <img
-        src={Background}
+        src={FlowersBackground}
         alt=""
         height="100%"
         style={{ position: "absolute", pointerEvents: "none", width: "100%" }}
@@ -46,7 +46,7 @@ function SingingFlowers() {
 export default SingingFlowers;
 
 const Root = styled.div`
-  /* background: url(${Background});
+  /* background: url();
   background-size: cover;
   background-repeat: no-repeat; */
   background: gray;
