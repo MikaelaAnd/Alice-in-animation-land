@@ -25,7 +25,7 @@ export const CharacterContainer = styled.div`
 `;
 
 export const Table = styled.div`
-  background-color: #CA9088;
+  background-color: #ca9088;
   bottom: 0;
   width: 100%;
   height: 8rem;
@@ -70,6 +70,19 @@ export const ArmLeft = styled.img`
   position: absolute;
   z-index: 10;
 `;
+
+export const Thing = styled.img((props) => ({
+  height: props.height,
+  width: props.width,
+}));
+
+export const PositionThing = styled.div((props) => ({
+  display: "flex",
+  justifyContent: props.position,
+  width: "100%",
+  position: "absolute",
+  zIndex: "100",
+}));
 
 /* ANIMATIONS */
 export const Bounce = styled.div`
