@@ -12,12 +12,10 @@ import { useCursor } from "@react-three/drei";
 // }));
 
 function Stem({ x }) {
-  // HowManyStems();
   //   const setTarget = useStore((state) => state.setTarget);
   const [hovered, setHovered] = useState(false);
   const [stemHeight, setStemHeight] = useState(5);
   const [stemDepth, setStemDepth] = useState(0.5);
-  //   const [flowerSize, setFlowerSize] = useState(0.5);
 
   useCursor(hovered);
 
@@ -27,7 +25,6 @@ function Stem({ x }) {
     if (stemDepth === 0.5) {
       setStemDepth(stemDepth + 1);
       setStemHeight(stemHeight + 1);
-      //   setFlowerSize(flowerSize + 0.9);
       return { stemDepth, stemHeight };
     }
     return { stemDepth, stemHeight };
@@ -39,7 +36,6 @@ function Stem({ x }) {
     if (stemDepth > 0.5) {
       setStemDepth(stemDepth - 1);
       setStemHeight(stemHeight - 1);
-      //   setFlowerSize(flowerSize - 0.9);
       return { stemDepth, stemHeight };
     }
     return { stemDepth, stemHeight };

@@ -51,7 +51,7 @@ function SingingFlowers() {
         //   }
         >
           <OrbitControls />
-          <mesh position={[-6, 0, 0]}>
+          <mesh position={[-5, 0, 0]}>
             {allStems.map((positionX, index) => (
               <Stem x={positionX} key={index} />
             ))}
@@ -59,17 +59,15 @@ function SingingFlowers() {
         </Canvas>
       </CanvasContainer>
 
-      <img
+      <BigBackgroundImage
         src={FlowersBackground}
-        alt=""
+        alt="Many green stems"
         height="100%"
-        style={{ position: "absolute", pointerEvents: "none", width: "100%" }}
       />
-      <img
+      <BigBackgroundImage
         src={BigFLowers}
-        alt=""
+        alt="Big red flowers"
         height="100%"
-        style={{ position: "absolute", pointerEvents: "none", width: "100%" }}
       />
 
       <FlowerContent>
@@ -108,6 +106,13 @@ const CanvasContainer = styled.div`
   position: absolute;
   width: 100%;
   z-index: 0;
+  height: 100vh;
+`;
+
+const BigBackgroundImage = styled.img`
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
 `;
 
 const FlowerContent = styled.div`
