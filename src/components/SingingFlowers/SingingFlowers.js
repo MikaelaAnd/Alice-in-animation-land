@@ -57,7 +57,7 @@ const Root = styled.div`
   align-items: flex-end;
   position: relative;
 `;
-  height: 100vh;
+
 const FlowerContent = styled.div`
   display: flex;
   align-items: flex-end;
