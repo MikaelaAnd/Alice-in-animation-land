@@ -1,4 +1,3 @@
-// import * as THREE from "three";
 // import { useLoader } from "@react-three/fiber";
 import React, { useState } from "react";
 import { useCursor } from "@react-three/drei";
@@ -14,7 +13,7 @@ import { useCursor } from "@react-three/drei";
 function Stem({ x }) {
   //   const setTarget = useStore((state) => state.setTarget);
   const [hovered, setHovered] = useState(false);
-  const [stemHeight, setStemHeight] = useState(5);
+  const [stemHeight, setStemHeight] = useState(window.innerHeight);
   const [stemDepth, setStemDepth] = useState(0.5);
 
   useCursor(hovered);
@@ -46,7 +45,7 @@ function Stem({ x }) {
       //   onClick={(e) => setTarget(e.object)}
       onPointerOver={() => zoomIn()}
       onPointerOut={() => zoomOut()}
-      position={[x / 2, 1.1, 0]}
+      position={[x / 2, 0, 0]}
       // .setPixelRatio ( value : number ) : undefined
       // Sets device pixel ratio. This is usually used for HiDPI device to prevent bluring output canvas.
     >

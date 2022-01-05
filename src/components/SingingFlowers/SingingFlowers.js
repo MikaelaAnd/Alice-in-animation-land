@@ -2,6 +2,12 @@ import styled, { keyframes } from "styled-components";
 import { Canvas } from "@react-three/fiber";
 import React from "react";
 import Stem from "./Stem";
+import { OrbitControls } from "@react-three/drei";
+import {
+  Center,
+  OrthographicCamera,
+  PerspectiveCamera,
+} from "@react-three/drei";
 
 // import Rose from "./assets/rose.png";
 import Rose from "./assets/rose-after-fill.png";
@@ -14,9 +20,8 @@ import Flower2 from "./assets/flower2.png";
 import FlowersBackground from "./assets/background-flowers.png";
 import BigFLowers from "./assets/big-flowers.png";
 
-import { OrbitControls } from "@react-three/drei";
-
 function SingingFlowers() {
+  // const TotalStems = () => {
   const oneStem = 32;
   let windowSize = window.innerWidth;
   const numberOfStems = windowSize / oneStem;
@@ -27,35 +32,23 @@ function SingingFlowers() {
   }
   console.log("test", allStems);
   console.log(windowSize);
-  //    camera={{ position: [0, 0, 0.5] }}
-
-  //   let startOfScreen = window.innerWidth
-
-  let i;
-
-  let y = (10 + 0.6, 0, i * 2 + 0.6);
+  // }
 
   return (
     <Root>
       <CanvasContainer>
-        <Canvas
-        //   camera={{
-        //     position: [0, 0, 10],
-        //     // fov: 100,
-        //     // aspect: 1,
-        //     // near: 40,
-        //     // far: 50,
-        //   }}
-        //   PerspectiveCamera={
-        //     (40, window.innerWidth / window.innerHeight, 1, 10000)
-        //   }
-        >
+        <Canvas>
           <OrbitControls />
-          <mesh position={[-5, 0, 0]}>
-            {allStems.map((positionX, index) => (
-              <Stem x={positionX} key={index} />
-            ))}
-          </mesh>
+          <OrthographicCamera makeDefault position={[0, 0, 10]} zoom={70} />
+          {/* <PerspectiveCamera makeDefault position={[0, 0, 10]} /> */}
+          <Center alignBottom>
+            <mesh>
+              {/* <mesh position={[0, 0, 0]}> */}
+              {allStems.map((positionX, index) => (
+                <Stem x={positionX} key={index} />
+              ))}
+            </mesh>
+          </Center>
         </Canvas>
       </CanvasContainer>
 
@@ -102,11 +95,12 @@ const Root = styled.div`
 `;
 
 const CanvasContainer = styled.div`
-  /* background: pink; */
+  background: black;
   position: absolute;
   width: 100%;
   z-index: 0;
   height: 100vh;
+  // {hovered ? aktuell stem = z-index: +1}
 `;
 
 const BigBackgroundImage = styled.img`
@@ -116,7 +110,7 @@ const BigBackgroundImage = styled.img`
 `;
 
 const FlowerContent = styled.div`
-  display: flex;
+  display: none;
   align-items: flex-end;
   width: 100%;
   height: 50%;
