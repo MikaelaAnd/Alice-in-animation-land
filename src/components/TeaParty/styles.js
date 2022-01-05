@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { bounce } from "../Animations";
+import { arise, bounce } from "../Animations";
 
 export const Background = styled.div`
   display: flex;
@@ -31,7 +31,7 @@ export const Table = styled.div`
   height: 8rem;
   border-top-left-radius: 100%;
   border-top-right-radius: 100%;
-  z-index: 100;
+  z-index: 80;
 `;
 
 export const MadHatter = styled.div`
@@ -50,7 +50,7 @@ export const Character = styled.img`
   height: 24rem;
   width: auto;
   position: relative;
-  z-index: 100;
+  z-index: 70;
   margin: 0;
 `;
 
@@ -71,17 +71,35 @@ export const ArmLeft = styled.img`
   z-index: 10;
 `;
 
+export const TeaCup = styled.div`
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 12rem;
+`;
+
+export const DrunkMouseContainer = styled.img`
+  animation: ${arise} 10s linear 1;
+  display: flex;
+  left: 3.5rem;
+  width: 4rem;
+  position: absolute;
+  z-index: 80;
+  top: 2rem;
+`;
+
 export const Thing = styled.img((props) => ({
   height: props.height,
   width: props.width,
+  zIndex: 80,
+  bottom: 0
 }));
 
 export const PositionThing = styled.div((props) => ({
   display: "flex",
   justifyContent: props.position,
-  width: "100%",
   position: "absolute",
-  zIndex: "100",
+  width: "100%",
 }));
 
 /* ANIMATIONS */
@@ -103,3 +121,11 @@ export function LeftArm({ image }) {
     </Bounce>
   );
 }
+
+// export function ShowMouse({ image }) {
+//   return (
+//     <Arise>
+//       <DrunkMouseContainer src={image} alt="" />
+//     </Arise>
+//   );
+// }
