@@ -1,29 +1,21 @@
 import React, { useRef, useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import catStripes from "./images/cat-stripes.png";
 import cat from "./images/cat.png";
 import useOnScreen from "../../useOnScreen.jsx";
 
 export default function CheshireCat() {
-  const CatRef = useRef();
-  // const CursorRef = useRef();
-  const [pos, setPos] = useState({ left: 0, top: 0})
-
-  const handleMouseMove = (e) => {
-    // const x = '50';
-    // const y = '50';
-    setPos({ left: e.clientX, top: e.clientY})
-
-    CatRef.current.style.clipPath = `circle(10rem at ${pos.left + "px"} ${pos.top + "px"} )`;
-    // CursorRef.current.style.left = x - 80 + "px";
-    // CursorRef.current.style.top = y - 80 + "px";
-  };
+  const a = useRef();
+  const isVisible = useOnScreen(a);
 
   return (
-    <Container onMouseMove={handleMouseMove}>
-      <CatStriped src={catStripes} />
-      <Cat ref={CatRef} src={cat} />
-      {/* <Cursor ref={CursorRef} /> */}
+    <Container ref={a}>
+      {isVisible  &&
+        <>
+          <CatStriped src={catStripes} />
+          <Cat src={cat} />
+        </>
+      }
     </Container>
   );
 }
@@ -39,192 +31,40 @@ const Container = styled.div`
   background-image: linear-gradient(200deg, #043a59, #010d18);
 `;
 
+const showCatStripes = keyframes`
+  0% { clip-path: polygon(80% 95%, 80% 93%, 80% 93%, 80% 100%, 80% 100%); }
+  15% { clip-path: polygon(80% 95%, 80% 93%, 80% 93%, 80% 100%, 80% 100%); }
+  20% { clip-path: polygon(70% 95%, 80% 93%, 80% 93%, 80% 100%, 70% 100%); }
+  25% { clip-path: polygon(77% 93%, 79% 90%, 80% 90%, 80% 100%, 65% 100%); }
+  30% { clip-path: polygon(65% 90%, 79% 90%, 80% 90%, 80% 100%, 65% 100%); }
+  35% { clip-path: polygon(65% 90%, 79% 90%, 81% 90%, 80% 100%, 65% 100%); }
+  40% { clip-path: polygon(58% 90%, 60% 80%, 81% 85%, 80% 100%, 65% 100%); }
+  45% { clip-path: polygon(55% 75%, 83% 88%, 87% 85%, 80% 100%, 65% 100%); }
+  50% { clip-path: polygon(55% 75%, 70% 68%, 90% 82%, 80% 100%, 65% 100%); }
+  55% { clip-path: polygon(70% 66%, 92% 81%, 100% 70%, 80% 100%, 40% 100%); }
+  60% { clip-path: polygon(70% 66%, 73% 62%, 100% 65%, 90% 100%, 40% 100%); }
+  65% { clip-path: polygon(73% 62%, 95% 64%, 100% 53%, 90% 100%, 40% 100%); }
+  70% { clip-path: polygon(72% 63%, 72% 59%, 92% 45%, 100% 100%, 40% 100%); }
+  75% { clip-path: polygon(71% 63%, 74% 48%, 92% 45%, 100% 100%, 43% 100%); }
+  100% { clip-path: polygon(0% 0%, 74% 0%, 92% 45%, 100% 100%, 0% 100%); }
+`
+
 const CatStriped = styled.img`
-  width: 40rem;
+  position: absolute;
+  width: 50%;
+  max-width: 60rem;
+  animation: ${showCatStripes} 5s ease-in-out;
 `;
+
+const showCat = keyframes`
+  0% { opacity: 0}
+  90% { opacity: 0}
+  100% { opacity: 1}
+`
 
 const Cat = styled.img`
   position: absolute;
-  width: 40rem;
-
+  width: 50%;
+  max-width: 60rem;
+  animation: ${showCat} 6s linear;
 `;
-
-// const Cursor = styled.div`
-//   position: absolute;
-//   width: 10rem;
-//   height: 10rem;
-//   border-radius: 50%;
-//   border: 0.5rem solid white;
-// `;
-
-// --- ANDRA ---
-
-// export default function CheshireCat() {
-//   const catImage = useRef();
-//   const cursorRef = useRef();
-
-//   const handleMouseMove = (e) => {
-//     let x = e.clientX;
-//     let y = e.clientY;
-
-//     console.log('y', y)
-
-//     catImage.current.style.clipPath = `circle(10rem at ${x}px ${y}px)`;
-//     cursorRef.current.style.left = x - 80 + "px";
-//     cursorRef.current.style.top = y - 80 + "px";
-//   };
-
-//   return (
-//     <Body onMouseMove={handleMouseMove}>
-//       <CatStripe>
-//         <CatImage src={catStripes} alt="" />
-//       </CatStripe>
-//       <Cat ref={catImage}>
-//         <CatImage src={cat} alt="" />
-//       </Cat>
-//       <CustomCursor ref={cursorRef} />
-//     </Body>
-//   );
-// }
-
-// const Body = styled.div`
-// position: absolute;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   width: 100vw;
-//   height: 100vh;
-//   background-image: linear-gradient(200deg, #043a59, #010d18);
-//   overflow: hidden;
-// `;
-
-// const CatStripe = styled.div`
-//   width: 40rem;
-// `;
-
-// const Cat = styled.div`
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 40rem;
-//   clip-path: circle(0px at 0 0);
-// `;
-
-// const CatImage = styled.img`
-//   width: 100%;
-//   max-width: 60rem;
-// `;
-
-// const CustomCursor = styled.div`
-//   position: fixed;
-//   width: 10rem;
-//   height: 10rem;
-//   border-radius: 50%;
-//   border: 0.5rem solid white;
-//   left: 0;
-//   top: 0;
-// `;
-
-// --- FÖRSTA ---
-
-// export default function CheshireCat() {
-//   const CheshireCatRef = useRef();
-//   const CursorRef = useRef();
-//   const isVisible = useOnScreen(CheshireCatRef);
-//   const [customCursor, setCustomCursor] = useState(false);
-
-//   useEffect(() => {
-//     if (isVisible) {
-//       setCustomCursor(true);
-//       document.addEventListener("mousemove", updateCursorPosition);
-//     } else {
-//       setCustomCursor(false);
-//     }
-//   }, [isVisible]);
-
-//   const updateCursorPosition = (e) => {
-//     const { clientX, clientY } = e;
-
-//       // Eventuellt antal tidigare scener * VH
-//       CursorRef.current.style.left = clientX - 80 + "px";
-//       CursorRef.current.style.top = clientY - 80 + "px";
-
-//   };
-
-//   const renderCat = () => {
-//     return (
-//       <CatContainer>
-//         <CatImage src={catStripes} />
-
-//         <CatImage src={cat} />
-
-//       </CatContainer>
-//     );
-//   };
-
-//   const renderCursor = () => {
-//     return (
-//       <>
-//         {isVisible
-//         ?
-//           <CircleCursor ref={CursorRef}>
-//             <CatContainer>
-
-//             </CatContainer>
-//           </CircleCursor>
-
-//         : <NULL ref={CursorRef} />
-//         }
-//       </>
-//     )
-//   };
-
-//   return (
-//     <Container ref={CheshireCatRef}>
-//       {isVisible && renderCat()}
-//       {renderCursor()}
-//     </Container>
-//   );
-// }
-
-// const Container = styled.div`
-//   position: relative;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   height: 100vh;
-//   width: 100%;
-//   background-image: linear-gradient(200deg, #043a59, #010d18);
-// `;
-
-// const opacity = keyframes`
-//   from { opacity: 0 }
-//   to { opacity: 1 }
-// `;
-
-// const CircleCursor = styled.div`
-//   position: fixed;
-//   z-index: 10;
-//   height: 10rem;
-//   width: 10rem;
-//   border-radius: 50%;
-//   border: 0.5rem solid white;
-//   overflow: hidden;
-// `;
-
-// const NULL = styled.div``;
-
-// const CatContainer = styled.div`
-//   position: relative;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   width: 50%;
-//   animation: ${opacity} 3s linear;
-// `;
-
-// const CatImage = styled.img`
-//   position: absolute;
-//   width: 100%;
-//   max-width: 60rem;
-// `;
