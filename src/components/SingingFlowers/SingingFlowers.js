@@ -6,7 +6,7 @@ import { OrbitControls } from "@react-three/drei";
 import {
   Center,
   OrthographicCamera,
-  PerspectiveCamera,
+  // PerspectiveCamera,
 } from "@react-three/drei";
 
 // import Rose from "./assets/rose.png";
@@ -43,7 +43,6 @@ function SingingFlowers() {
           {/* <PerspectiveCamera makeDefault position={[0, 0, 10]} /> */}
           <Center alignBottom>
             <mesh>
-              {/* <mesh position={[0, 0, 0]}> */}
               {allStems.map((positionX, index) => (
                 <Stem x={positionX} key={index} />
               ))}
@@ -110,7 +109,7 @@ const BigBackgroundImage = styled.img`
 `;
 
 const FlowerContent = styled.div`
-  display: none;
+  display: flex;
   align-items: flex-end;
   width: 100%;
   height: 50%;
