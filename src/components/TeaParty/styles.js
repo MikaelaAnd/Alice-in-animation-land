@@ -76,6 +76,7 @@ export const TeaCup = styled.div`
   position: absolute;
   width: 100%;
   height: 12rem;
+  padding: 1rem;
 `;
 
 export const DrunkMouseContainer = styled.img`
@@ -100,6 +101,7 @@ export const PositionThing = styled.div((props) => ({
   justifyContent: props.position,
   position: "absolute",
   width: "100%",
+  margin: props.margin
 }));
 
 /* ANIMATIONS */
@@ -122,10 +124,3 @@ export function LeftArm({ image }) {
   );
 }
 
-// export function ShowMouse({ image }) {
-//   return (
-//     <Arise>
-//       <DrunkMouseContainer src={image} alt="" />
-//     </Arise>
-//   );
-// }

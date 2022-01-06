@@ -24,6 +24,7 @@ import BrokenPocketWatch from "./images/BrokenPocketWatch.png";
 import DrunkMouse from "./images/DrunkMouse.png";
 import TeaPotLidless from "./images/TeaPotLidLess.png";
 import TeaPotWithLid from "./images/TeaPotWithLid.png";
+import TriplePot from "./images/PouringPot.png";
 import { useState } from "react";
 
 export function TeaParty() {
@@ -81,6 +82,14 @@ export function TeaParty() {
             />
           </PositionThing>
         </TeaCup>
+        <PositionThing position="center" margin="0 0 1rem 0">
+          <Thing
+            src={TriplePot}
+            alt="Triple teapot and cups"
+            width={"12rem"}
+            height={"13rem"}
+          />
+        </PositionThing>
       </Container>
     </Background>
   );
