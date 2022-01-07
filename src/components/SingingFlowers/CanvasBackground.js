@@ -19,8 +19,6 @@ function CanvasBackground() {
   for (let i = 0; i < numberOfStems; i++) {
     allStems.push(i);
   }
-  console.log("test", allStems);
-  console.log(windowSize);
   // }
 
   return (
