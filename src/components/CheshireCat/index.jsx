@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import styled, { keyframes } from "styled-components";
 import catStripes from "./images/cat-stripes.png";
 import cat from "./images/cat.png";
