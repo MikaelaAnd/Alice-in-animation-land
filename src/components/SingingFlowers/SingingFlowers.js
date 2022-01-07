@@ -1,15 +1,8 @@
 import styled, { keyframes } from "styled-components";
 import React from "react";
+import Flowers from "./Flowers";
 import CanvasBackground from "./CanvasBackground";
 
-// import Rose from "./assets/rose.png";
-import Rose from "./assets/rose-after-fill.png";
-import Alice from "./assets/alice.png";
-import Trumpet1 from "./assets/trumpet1.png";
-import Trumpet2 from "./assets/trumpet2.png";
-import Flower1 from "./assets/flower1.png";
-import Flower2 from "./assets/flower2.png";
-// import Flower3 from "./assets/flower3.png";
 import FlowersBackground from "./assets/background-flowers.png";
 import BigFLowers from "./assets/big-flowers.png";
 
@@ -29,19 +22,7 @@ function SingingFlowers() {
         height="100%"
       />
 
-      <FlowerContent>
-        <img src={Alice} alt="" height="50%" />
-        <Miniflowers>
-          <img src={Trumpet1} alt="" height="100%" />
-          <img src={Trumpet2} alt="" height="100%" />
-          <img src={Flower1} alt="" height="100%" />
-          <img src={Flower2} alt="" height="100%" />
-          {/* <img src={Flower3} alt="" height="100%" /> */}
-        </Miniflowers>
-        <RoseDiv>
-          <img src={Rose} alt="" height="100%" />
-        </RoseDiv>
-      </FlowerContent>
+      <Flowers />
     </Root>
   );
 }
