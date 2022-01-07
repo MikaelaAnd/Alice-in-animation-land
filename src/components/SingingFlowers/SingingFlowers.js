@@ -1,13 +1,6 @@
 import styled, { keyframes } from "styled-components";
-import { Canvas } from "@react-three/fiber";
 import React from "react";
-import Stem from "./Stem";
-import { OrbitControls } from "@react-three/drei";
-import {
-  Center,
-  OrthographicCamera,
-  // PerspectiveCamera,
-} from "@react-three/drei";
+import CanvasBackground from "./CanvasBackground";
 
 // import Rose from "./assets/rose.png";
 import Rose from "./assets/rose-after-fill.png";
@@ -21,35 +14,9 @@ import FlowersBackground from "./assets/background-flowers.png";
 import BigFLowers from "./assets/big-flowers.png";
 
 function SingingFlowers() {
-  // const TotalStems = () => {
-  const oneStem = 32;
-  let windowSize = window.innerWidth;
-  const numberOfStems = windowSize / oneStem;
-  let allStems = [];
-
-  for (let i = 0; i < numberOfStems; i++) {
-    allStems.push(i);
-  }
-  console.log("test", allStems);
-  console.log(windowSize);
-  // }
-
   return (
     <Root>
-      <CanvasContainer>
-        <Canvas>
-          <OrbitControls />
-          <OrthographicCamera makeDefault position={[0, 0, 10]} zoom={70} />
-          {/* <PerspectiveCamera makeDefault position={[0, 0, 10]} /> */}
-          <Center alignBottom>
-            <mesh>
-              {allStems.map((positionX, index) => (
-                <Stem x={positionX} key={index} />
-              ))}
-            </mesh>
-          </Center>
-        </Canvas>
-      </CanvasContainer>
+      <CanvasBackground />
 
       <BigBackgroundImage
         src={FlowersBackground}
@@ -91,15 +58,6 @@ const Root = styled.div`
   /* flex-direction: column; */
   align-items: flex-end;
   position: relative;
-`;
-
-const CanvasContainer = styled.div`
-  background: black;
-  position: absolute;
-  width: 100%;
-  z-index: 0;
-  height: 100vh;
-  // {hovered ? aktuell stem = z-index: +1}
 `;
 
 const BigBackgroundImage = styled.img`
