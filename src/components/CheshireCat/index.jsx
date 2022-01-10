@@ -4,13 +4,14 @@ import useOnScreen from "../../useOnScreen.jsx";
 import Cat from "./Cat.jsx";
 import branch from "./images/branch.png";
 import stem from "./images/stem.png";
+import forest from "./images/forest.png";
 
 export default function CheshireCat() {
-  const a = useRef();
-  const isVisible = useOnScreen(a);
+  const CheshireScene = useRef();
+  const isVisible = useOnScreen(CheshireScene);
 
   return (
-    <Container ref={a}>
+    <Container ref={CheshireScene}>
       <Stem>
         <StemImage src={stem} />
       </Stem>
@@ -29,7 +30,10 @@ const Container = styled.div`
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-image: linear-gradient(200deg, #043a59, #010d18);
+  background-image: url(${forest});
+  background-position: top right;
+  background-size: cover;
+  background-repeat: no-repeat;
 `;
 
 const Stem = styled.div`
