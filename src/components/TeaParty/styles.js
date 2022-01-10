@@ -1,15 +1,15 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { arise, bounce } from "../Animations";
 
 export const Background = styled.div`
   display: flex;
   height: 100vh;
-  width: 100%;
+  max-width: 100vw;
   position: relative;
 `;
 
 export const Container = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -17,11 +17,21 @@ export const Container = styled.div`
   position: absolute;
 `;
 
+export const Frame = styled.img`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 80;
+  object-fit: fill;
+`;
+
 export const CharacterContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin-bottom: -1.5rem;
+  z-index: 0;
 `;
 
 export const Table = styled.div`
@@ -31,7 +41,7 @@ export const Table = styled.div`
   height: 8rem;
   border-top-left-radius: 100%;
   border-top-right-radius: 100%;
-  z-index: 80;
+  z-index: 0;
 `;
 
 export const MadHatter = styled.div`
@@ -47,61 +57,65 @@ export const Bunny = styled.div`
 `;
 
 export const Character = styled.img`
-  height: 24rem;
+  height: 20rem;
   width: auto;
   position: relative;
   z-index: 70;
   margin: 0;
+  object-fit: contain;
 `;
 
 export const ArmRight = styled.img`
   height: auto;
-  width: 10rem;
-  left: -6rem;
-  top: 5rem;
+  width: 7rem;
+  left: -5rem;
+  top: 5.2rem;
   position: absolute;
 `;
 
 export const ArmLeft = styled.img`
   height: auto;
-  width: 12rem;
-  right: -9rem;
-  top: 5rem;
+  width: 11rem;
+  right: -8rem;
+  top: 4rem;
   position: absolute;
   z-index: 10;
 `;
 
-export const TeaCup = styled.div`
-  display: flex;
-  position: absolute;
-  width: 100%;
-  height: 12rem;
-  padding: 1rem;
-`;
-
 export const DrunkMouseContainer = styled.img`
-  animation: ${arise} 10s linear 1;
+  animation: ${arise} 5s linear 1;
   display: flex;
-  left: 3.5rem;
-  width: 4rem;
+  width: 3rem;
   position: absolute;
   z-index: 80;
-  top: 2rem;
+  left: 27rem;
+  bottom: -2rem;
+  top: 0.5rem;
 `;
 
 export const Thing = styled.img((props) => ({
   height: props.height,
   width: props.width,
   zIndex: 80,
-  bottom: 0
+  bottom: 0,
+  margin: props.margin,
+  "&:hover": `${
+    props.hover
+      ? css`
+          background-color: rgba(255, 255, 255, 0.351);
+          box-shadow: 0px 0px 5px #fff;
+        `
+      : ""
+  }`,
 }));
 
 export const PositionThing = styled.div((props) => ({
   display: "flex",
-  justifyContent: props.position,
+  justifyContent: props.justify,
+  flexDirection: props.direction,
+  alignItems: props.align,
   position: "absolute",
   width: "100%",
-  margin: props.margin
 }));
 
 /* ANIMATIONS */
@@ -123,4 +137,3 @@ export function LeftArm({ image }) {
     </Bounce>
   );
 }
-
