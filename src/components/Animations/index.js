@@ -12,8 +12,8 @@ export const bounce = keyframes`
 `;
 export const arise = keyframes`
   0% { transform: translateY(0); }
-  50% { transform: translateY(-80px); }
-  100% { transform: translateY(-80px), zIndex: "80" }
+  50% { transform: translateY(-50px); }
+  100% { transform: translateY(-50px), zIndex: "80" }
 `;
 export const bounceX = keyframes`
   0% { transform: translateX(0); }
