@@ -12,14 +12,6 @@ export default function Cat() {
     )
 };
 
-const Container = styled.div`
-  position: absolute;
-  margin-left: auto; 
-  margin-right: auto;
-  width: 50%;
-  max-width: 60rem;
-`;
-
 const showCatStripes = keyframes`
   0% { clip-path: polygon(80% 95%, 80% 93%, 80% 93%, 80% 100%, 80% 100%); }
   15% { clip-path: polygon(80% 95%, 80% 93%, 80% 93%, 80% 100%, 80% 100%); }
