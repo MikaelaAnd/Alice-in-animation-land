@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import styled from "styled-components";
 import CanvasBackground from "./CanvasBackground";
 import SandwichBird from "./SandwichBird";
@@ -11,7 +11,9 @@ import BackStems from "./images/back-stems.png";
 function SingingFlowers() {
   return (
     <Root>
-      <CanvasBackground />
+      <Suspense fallback={<h1>laddas</h1>}>
+        <CanvasBackground />
+      </Suspense>
       <SandwichBird />
       <BigBackgroundImage
         src={FrontStems}

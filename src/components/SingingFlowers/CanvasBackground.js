@@ -16,7 +16,7 @@ function CanvasBackground() {
         {/* <OrthographicCamera makeDefault position={[0, 0, 10]} zoom={70} /> */}
         {/* <PerspectiveCamera makeDefault position={[3, 0, 10]} /> */}
         <Center>
-          <Cloud position={[-4, -2, 0]} />
+          <Cloud position={[-4, -2, 0]} args={[3, 2]} />
         </Center>
       </Canvas>
     </CanvasContainer>
