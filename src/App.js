@@ -8,6 +8,7 @@ import { TeaParty } from "./components/TeaParty";
 import CheshireCat from "./components/CheshireCat";
 import ErrorBoundary from "./ErrorBoundary";
 import { BrowserRouter } from "react-router-dom";
+import LeavesTransition from "./components/Transitions/LeavesTransition";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
           <AliceFalling />
           <MagicFood />
           <SingingFlowers />
+          <LeavesTransition />
           <CheshireCat />
           <TeaParty />
         </ErrorBoundary>
