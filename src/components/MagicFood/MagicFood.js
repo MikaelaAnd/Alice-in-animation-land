@@ -6,7 +6,7 @@ import GlasTable from "./assets/glasTable.png";
 import Bottle from "./assets/bottle.png";
 import Alice from "./assets/alice.png";
 import Cake from "./assets/cake2.png";
-import useOnScreen from "./useOnScreen";
+import useOnScreen from "../../useOnScreen.jsx";
 
 function MagicFood() {
   const [totalHeight, setTotalHeight] = useState(550);

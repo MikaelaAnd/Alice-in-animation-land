@@ -1,42 +1,58 @@
-import React from "react";
-import styled, { keyframes } from "styled-components";
+import React, { useRef } from "react";
+import styled from "styled-components";
+import useOnScreen from "../../useOnScreen.jsx";
+import Cat from "./Cat.jsx";
+import branch from "./images/branch.png";
+import stem from "./images/stem.png";
+import forest from "./images/forest.png";
 
 export default function CheshireCat() {
+  const CheshireScene = useRef();
+  const isVisible = useOnScreen(CheshireScene);
+
   return (
-    <Container>
-      <Frame>
-        <Box></Box>
-      </Frame>
+    <Container ref={CheshireScene}>
+      <Stem>
+        <StemImage src={stem} />
+      </Stem>
+      <Branch>
+        <BranchImage src={branch} />
+      </Branch>
+      {isVisible && <Cat />}
     </Container>
   );
 }
 
 const Container = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100vw;
   height: 100vh;
-  width: 100%;
-  background-image: linear-gradient(200deg, #043a59, #010d18);
+  background-image: url(${forest});
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
 `;
 
-const Frame = styled.div`
-  position: relative;
-  overflow: hidden;
-  height: 10rem;
-  width: 15rem;
-  border: 0.3rem dashed white;
-`;
-
-const move = keyframes`
-    0% { left: 20rem; opacity: 0; }
-    100% { left: 0rem; opacity: 1;}
-`;
-
-const Box = styled.div`
+const Stem = styled.div`
   position: absolute;
-  height: 8rem;
-  width: 10rem;
-  background-color: pink;
-  animation: ${move} 3s linear;
+  width: 100%;
+  height: 100%;
+`;
+
+const StemImage = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+
+const Branch = styled.div`
+  position: absolute;
+  width: 100%;
+  margin-top: 4.5rem;
+`;
+
+const BranchImage = styled.img`
+  width: 100%;
 `;

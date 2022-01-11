@@ -7,6 +7,7 @@ import SingingFlowers from "./components/SingingFlowers/SingingFlowers";
 import Loading from "./Loading";
 import { TeaParty } from "./components/TeaParty";
 import CheshireCat from "./components/CheshireCat";
+import LeavesTransition from "./components/Transitions/LeavesTransition";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
       <Suspense fallback={<Loading />}>
         <SingingFlowers />
       </Suspense>
+      <LeavesTransition />
       <CheshireCat />
       <TeaParty />
     </>
