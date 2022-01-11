@@ -3,8 +3,10 @@ import styled from "styled-components";
 import CanvasBackground from "./CanvasBackground";
 import SandwichBird from "./SandwichBird";
 import Flowers from "./Flowers";
-import FlowersBackground from "./assets/background-flowers.png";
-import BigFLowers from "./assets/big-flowers.png";
+// import FrontStems from "./images/front-stems.png";
+import FrontStems from "./images/front-stems2.png";
+import BigFLowers from "./images/big-flowers.png";
+import BackStems from "./images/back-stems.png";
 
 function SingingFlowers() {
   return (
@@ -12,7 +14,7 @@ function SingingFlowers() {
       <CanvasBackground />
       <SandwichBird />
       <BigBackgroundImage
-        src={FlowersBackground}
+        src={FrontStems}
         alt="Many green stems"
         height="100%"
       />
@@ -29,9 +31,11 @@ function SingingFlowers() {
 export default SingingFlowers;
 
 const Root = styled.div`
-  background: gray;
-  height: calc(100vh + 5.5rem);
-  /* height: 100vh; */
+  background-image: url(${BackStems});
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  height: 100vh;
   display: flex;
   align-items: flex-end;
   position: relative;

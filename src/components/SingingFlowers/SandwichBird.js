@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
-import Sandwish1 from "./assets/sandwich1.png";
-import Sandwish2 from "./assets/sandwich2.png";
-import Sandwish3 from "./assets/sandwich3.png";
+import Sandwish1 from "./images/sandwich1.png";
+import Sandwish2 from "./images/sandwich2.png";
+import Sandwish3 from "./images/sandwich3.png";
 
 const flying = (p) => keyframes`
   0%, 100% {
@@ -66,7 +66,7 @@ let birds = [
     y2: 60,
     flip: flipStartingLeft,
     src: Sandwish2,
-    height: "",
+    height: "15%",
     zIndex: 1,
   },
   {
@@ -76,7 +76,7 @@ let birds = [
     y2: 20,
     flip: flipStartingRight,
     src: Sandwish1,
-    height: "",
+    height: "15%",
     zIndex: 1,
   },
 ];

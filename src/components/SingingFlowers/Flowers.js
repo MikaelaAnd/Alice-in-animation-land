@@ -1,16 +1,15 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-// import Rose from "./assets/rose.png";
-import Rose from "./assets/rose-after-fill.png";
-import Alice from "./assets/alice.png";
-import Trumpet1 from "./assets/trumpet1.png";
-import Trumpet2 from "./assets/trumpet2.png";
-import Flower1 from "./assets/flower1.png";
-import Flower2 from "./assets/flower2.png";
-import Flower3 from "./assets/flower3.png";
-import Flower4 from "./assets/flower4.png";
-import Dogflower from "./assets/dogflower.png";
+import Rose from "./images/rose.png";
+import Alice from "./images/alice.png";
+import Trumpet1 from "./images/trumpet1.png";
+import Trumpet2 from "./images/trumpet2.png";
+import Flower1 from "./images/flower1.png";
+import Flower2 from "./images/flower2.png";
+import Flower3 from "./images/flower3.png";
+import Flower4 from "./images/flower4.png";
+import Dogflower from "./images/dogflower.png";
 
 function Flowers() {
   return (
