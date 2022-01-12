@@ -27,7 +27,7 @@ export default function Keyhole() {
 
   return (
     <Chin y={yValue} mouseDown={mouseDown}>
-      <Circle y={yValue} />
+      <Circle y={yValue} mouseDown={mouseDown}/>
       <Cone
         mouseDown={mouseDown}
         y={yValue}
@@ -40,10 +40,30 @@ export default function Keyhole() {
   );
 }
 
+const shrinkCircle = keyframes`
+  0% { width: calc(2rem + ${(props) => props.y * 0.1 + "rem"}); height: calc(2rem + ${(props) => props.y * 0.1 + "rem"}) }
+  40% { width: 2rem; height: 2rem; }
+  70% { width: 2.5rem; height: 2.5rem; }
+  100% { width: 2rem; height: 2rem; }
+`;
+
+const Circle = styled.div`
+  position: absolute;
+  width: calc(2rem + ${(props) => props.y * 0.1 + "rem"});
+  height: calc(2rem + ${(props) => props.y * 0.1 + "rem"});
+  border-radius: 50%;
+  background: black;
+  animation: ${(props) =>
+    props.mouseDown === false &&
+    css`
+      ${shrinkCircle} .4s ease forwards;
+    `};
+`;
+
 const shrinkChin = keyframes`
   0% { height: calc(5rem + ${(props) => props.y + "rem"}); }
-  40% { height: 5rem; }
-  70% { height: 6rem; }
+  40% { height: 6rem; }
+  70% { height: 7rem; }
   100% { height: 5rem; }
 `;
 
@@ -62,14 +82,6 @@ const Chin = styled.div`
     css`
       ${shrinkChin} .5s ease-in forwards;
     `};
-`;
-
-const Circle = styled.div`
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  background: black;
-  margin-bottom: -1.5rem;
 `;
 
 const shrinkCone = keyframes`
@@ -92,11 +104,13 @@ const shrinkCone = keyframes`
 `;
 
 const Cone = styled.div`
+  z-index: 10;
   border-bottom: calc(3rem + ${(props) => props.y + "rem"}) solid black;
   border-left: 1rem solid transparent;
   border-right: 1rem solid transparent;
-  width: calc(0.5rem + ${(props) => props.y * 0.05 + "rem"});
+  width: calc(0.5rem + ${(props) => props.y * 0.1 + "rem"});
   height: 0;
+  margin-top: 1rem;
   animation: ${(props) =>
     props.mouseDown === false &&
     css`
