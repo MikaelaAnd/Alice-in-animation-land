@@ -8,13 +8,16 @@ import { TeaParty } from "./components/TeaParty";
 import CheshireCat from "./components/CheshireCat";
 import LeavesTransition from "./components/Transitions/LeavesTransition";
 import TheEnd from "./components/TheEnd";
+import BlackFade from "./components/Transitions/BlackFade";
 
 export default function App() {
   return (
     <>
       <GlobalFonts />
       <Intro />
+      <BlackFade />
       <AliceFalling />
+      <BlackFade />
       <MagicFood />
       <SingingFlowers />
       <LeavesTransition />
