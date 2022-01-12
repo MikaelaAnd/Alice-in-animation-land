@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import doorHandle from "./image/doorHandle.png";
+import doorHandle from "./images/doorHandle.png";
 
 export default function DoorHandle() {
   return (
