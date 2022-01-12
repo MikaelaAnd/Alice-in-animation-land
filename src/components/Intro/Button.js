@@ -31,6 +31,7 @@ const colorAndSize = keyframes`
 const TextButton = styled.button`
   display: ${(props) => (props.show ? "block" : "none")};
   position: absolute;
+  z-index: 60;
   bottom: 10%;
   left: 50%;
   transform: translate(-50%, 50%);
