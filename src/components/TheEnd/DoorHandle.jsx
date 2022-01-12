@@ -1,47 +1,71 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import doorHandle from "./images/doorHandle.png";
 
 export default function DoorHandle() {
+  const [mouseDown, setMouseDown] = useState(false);
+  const [startY, setStartY] = useState();
+  const [yValue, setYvalue] = useState(0);
+
+  const HandleMouseDown = (e) => {
+    setMouseDown(true);
+    setStartY(e.pageY);
+  };
+
+  const HandleMouseMove = (e) => {
+    if (!mouseDown) return;
+    const y = e.pageY;
+    const distanceY = y - startY;
+    if (distanceY > 0 && distanceY < 30) {
+      setYvalue(distanceY);
+    }
+  };
+
   return (
     <Container>
-      <FaceTop>
-        <Face src={doorHandle} />
-      </FaceTop>
-      <FaceBottom>
+      <Face src={doorHandle} />
+      <Mouth y={yValue}>
         <Circle />
-        <Cone />
-      </FaceBottom>
+        <Cone
+          mouseDown={mouseDown}
+          y={yValue}
+          onMouseDown={HandleMouseDown}
+          onMouseUp={() => setMouseDown(false)}
+          onMouseOut={() => setMouseDown(false)}
+          onMouseMove={HandleMouseMove}
+        />
+      </Mouth>
     </Container>
   );
 }
 
 const Container = styled.div`
   position: absolute;
-  width: 15rem;
-  border-radius: .5rem;
-  background-image: linear-gradient(to bottom right, #FFA325, #D77D04);
-`;
-
-const FaceTop = styled.div`
   display: flex;
   justify-content: center;
-  height: 18rem;
+  width: 14rem;
+  background: #ffa325;
+  user-drag: none;
+  user-select: none;
 `;
 
 const Face = styled.img`
-  margin-top: -2rem;
+  height: 18rem;
+  margin: -2rem auto 0 auto;
+  user-select: none;
   user-drag: none;
 `;
 
-const FaceBottom = styled.div`
+const Mouth = styled.div`
+  position: absolute;
+  top: 16rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
   width: 100%;
-  height: 5rem;
-  margin: 1rem 0;  
+  height: calc(5rem + ${(props) => props.y + 'rem'});
+  border-radius: 0 0 0.5rem 0.5rem;
+  background: #ffa325;
 `;
 
 const Circle = styled.div`
@@ -49,13 +73,18 @@ const Circle = styled.div`
   height: 2rem;
   border-radius: 50%;
   background: black;
-  margin-bottom: -0.5rem;
+  margin-bottom: -1.5rem;
 `;
 
 const Cone = styled.div`
-  border-bottom: 2rem solid black;
+  border-bottom: calc(3rem + ${(props) => props.y + 'rem'}) solid black;
+  /* border-bottom: 3rem solid black; */
   border-left: 1rem solid transparent;
   border-right: 1rem solid transparent;
-  width: 1rem;
+  width: 0.5rem;
   height: 0;
+
+  :hover {
+    cursor: ${(props) => (props.mouseDown ? "grabbing" : "grab")};
+  }
 `;
