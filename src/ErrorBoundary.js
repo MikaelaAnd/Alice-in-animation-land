@@ -1,4 +1,5 @@
 import { Component } from "react";
+import styled from "styled-components";
 
 class ErrorBoundary extends Component {
   state = {
@@ -17,10 +18,10 @@ class ErrorBoundary extends Component {
   render() {
     if (this.state.hasError) {
       return (
-        <>
-          <h1>Något gick fel</h1>
-          <button onClick={this.reloadPage}>Ladda om</button>
-        </>
+        <StyledArea>
+          <h2>Something seems to have gone wrong</h2>
+          <Button onClick={this.reloadPage}>Reload the animationland!</Button>
+        </StyledArea>
       );
     }
     return this.props.children;
@@ -28,3 +29,21 @@ class ErrorBoundary extends Component {
 }
 
 export default ErrorBoundary;
+
+const StyledArea = styled.div`
+  background: #566cef;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
+
+const Button = styled.button`
+  border: none;
+  border-radius: 4px;
+  background: white;
+  color: #566cef;
+  padding: 10px;
+`;

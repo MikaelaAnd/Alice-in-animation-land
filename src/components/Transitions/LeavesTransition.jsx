@@ -16,6 +16,7 @@ const Transition = styled.div`
   height: 12.5rem;
   background: black;
   z-index: 10;
+  pointer-events: none;
 `;
 
 const LeavesImage = styled.img`

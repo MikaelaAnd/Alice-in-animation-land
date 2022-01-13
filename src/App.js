@@ -16,19 +16,33 @@ export default function App() {
   return (
     <>
       <BrowserRouter>
-       <ErrorBoundary>
-        <GlobalFonts />
-        <Intro />
-        <BlackFade />
-        <AliceFalling />
-        <BlackFade />
-        <MagicFood />
-        <SingingFlowers />
-        <LeavesTransition />
-        <CheshireCat />
-        <TeaParty />
-        <TheEnd />
-       </ErrorBoundary>
+        <ErrorBoundary>
+          <GlobalFonts />
+          <section>
+            <Intro />
+          </section>
+          <BlackFade />
+          <section>
+            <AliceFalling />
+          </section>
+          <BlackFade />
+          <section>
+            <MagicFood />
+          </section>
+          <section>
+            <SingingFlowers />
+          </section>
+          <LeavesTransition />
+          <section>
+            <CheshireCat />
+          </section>
+          <section>
+            <TeaParty />
+          </section>
+          <section>
+            <TheEnd />
+          </section>
+        </ErrorBoundary>
       </BrowserRouter>
     </>
   );
