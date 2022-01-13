@@ -5,6 +5,7 @@ export default function Keyhole() {
   const [mouseDown, setMouseDown] = useState(false);
   const [startY, setStartY] = useState();
   const [yValue, setYvalue] = useState(0);
+  const [keyholeOpen, setKeyholeOpen] = useState(false);
 
   const HandleMouseDown = (e) => {
     setMouseDown(true);
@@ -17,22 +18,33 @@ export default function Keyhole() {
     const totalYDistance = (mouseY - startY) * 0.1;
     const maxY = window.innerHeight * 0.01;
 
-    if (totalYDistance > 0 && totalYDistance < maxY) {
+    if (totalYDistance > 0 && totalYDistance < maxY && !keyholeOpen) {
       setYvalue(totalYDistance);
-    }
+    } else {
+      setKeyholeOpen(true);
+    };
   };
 
   const handleResetMouseDown = () => {
     setMouseDown(false);
-    setTimeout(() => setYvalue(0), 500);
+    if (!keyholeOpen) setTimeout(() => setYvalue(0), 500);
   };
 
   return (
-    <Chin y={yValue} mouseDown={mouseDown}>
-      <Circle y={yValue} mouseDown={mouseDown} />
+    <Chin 
+      y={yValue} 
+      mouseDown={mouseDown} 
+      open={keyholeOpen}
+    >
+      <Circle 
+        y={yValue} 
+        mouseDown={mouseDown} 
+        open={keyholeOpen} 
+      />
       <Cone
-        mouseDown={mouseDown}
         y={yValue}
+        mouseDown={mouseDown}
+        open={keyholeOpen}
         onMouseDown={HandleMouseDown}
         onMouseUp={handleResetMouseDown}
         onMouseOut={handleResetMouseDown}
@@ -43,9 +55,10 @@ export default function Keyhole() {
 }
 
 const shrinkCircle = keyframes`
-  0% { width: calc(2rem + ${(props) =>
-    props.y * 0.2 + "rem"}); height: calc(2rem + ${(props) =>
-  props.y * 0.2 + "rem"}) }
+  0% { 
+    width: calc(2rem + ${(props) => props.y * 0.3 + "rem"}); 
+    height: calc(2rem + ${(props) => props.y * 0.3 + "rem"}) 
+  }
   40% { width: 2rem; height: 2rem; }
   70% { width: 2.5rem; height: 2.5rem; }
   100% { width: 2rem; height: 2rem; }
@@ -58,7 +71,7 @@ const Circle = styled.div`
   border-radius: 50%;
   background: black;
   animation: ${(props) =>
-    props.mouseDown === false &&
+    !props.mouseDown && !props.open &&
     css`
       ${shrinkCircle} .4s ease forwards;
     `};
@@ -82,7 +95,7 @@ const Chin = styled.div`
   border-radius: 0 0 0.5rem 0.5rem;
   background: #ffa325;
   animation: ${(props) =>
-    props.mouseDown === false &&
+    !props.mouseDown && !props.open && 
     css`
       ${shrinkChin} .5s ease-in forwards;
     `};
@@ -126,7 +139,7 @@ const Cone = styled.div`
   height: 0;
   margin-top: 1rem;
   animation: ${(props) =>
-    props.mouseDown === false &&
+    !props.mouseDown && !props.open &&
     css`
       ${shrinkCone} .4s ease forwards;
     `};
