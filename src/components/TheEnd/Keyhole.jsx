@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import styled, { css, keyframes } from "styled-components";
 
-export default function Keyhole({open, setOpen}) {
+export default function Keyhole({ zoom, setZoom}) {
   const [mouseDown, setMouseDown] = useState(false);
   const [startY, setStartY] = useState();
   const [yValue, setYvalue] = useState(0);
+  const [keyholeOpen, setKeyholeOpen] = useState(false);
   
 
   const HandleMouseDown = (e) => {
@@ -18,38 +19,43 @@ export default function Keyhole({open, setOpen}) {
     const totalYDistance = (mouseY - startY) * 0.1;
     const maxY = window.innerHeight * 0.01;
 
-    if (totalYDistance > 0 && totalYDistance < maxY && !open) {
+    if (totalYDistance > 0 && totalYDistance < maxY && !keyholeOpen) {
       setYvalue(totalYDistance);
     } else {
-      setOpen();
+      setKeyholeOpen(true);
     };
   };
 
   const handleResetMouseDown = () => {
     setMouseDown(false);
-    if (!open) setTimeout(() => setYvalue(0), 500);
+    if (!keyholeOpen) setTimeout(() => setYvalue(0), 500);
   };
 
   return (
     <Chin 
       y={yValue} 
       mouseDown={mouseDown} 
-      open={open}
+      open={keyholeOpen}
     >
       <Circle 
         y={yValue} 
         mouseDown={mouseDown} 
-        open={open} 
+        open={keyholeOpen} 
       />
       <Cone
         y={yValue}
         mouseDown={mouseDown}
-        open={open}
+        open={keyholeOpen}
         onMouseDown={HandleMouseDown}
         onMouseUp={handleResetMouseDown}
         onMouseOut={handleResetMouseDown}
         onMouseMove={HandleMouseMove}
-      />
+      >
+        {keyholeOpen && 
+          <Text hide={zoom} onClick={() => setZoom()}>
+            Click to peek
+          </Text>}
+      </Cone>
     </Chin>
   );
 }
@@ -129,12 +135,12 @@ const shrinkCone = keyframes`
 `;
 
 const Cone = styled.div`
-  z-index: 10;
+  position: relative;
+  display: flex;
+  justify-content: center;
   border-bottom: calc(3rem + ${(props) => props.y + "rem"}) solid black;
-  border-left: calc(1rem + ${(props) => props.y * 0.1 + "rem"}) solid
-    transparent;
-  border-right: calc(1rem + ${(props) => props.y * 0.1 + "rem"}) solid
-    transparent;
+  border-left: calc(1rem + ${(props) => props.y * 0.1 + "rem"}) solid transparent;
+  border-right: calc(1rem + ${(props) => props.y * 0.1 + "rem"}) solid transparent;
   width: calc(0.5rem + ${(props) => props.y * 0.2 + "rem"});
   height: 0;
   margin-top: 1rem;
@@ -145,6 +151,27 @@ const Cone = styled.div`
     `};
 
   :hover {
-    cursor: ${(props) => (props.mouseDown ? "grabbing" : "grab")};
+    cursor: ${(props) => (props.open ? 'auto' : props.mouseDown ? "grabbing" : "grab")};
   }
+`;
+
+const showText = (props) => keyframes`
+  from { 
+    opacity: ${props.hide ? 1 : 0 }; 
+    transform: ${props.hide ? 'scale(1)' : 'scale(0)'}; 
+  }
+  to { 
+    opacity: ${props.hide ? 0 : 1 }; 
+    transform: ${props.hide ? 'scale(0)' : 'scale(1)'}; 
+  }
+`;
+
+const Text = styled.p`
+  position: absolute;
+  text-align: center;
+  font-size: 1.4rem;
+  font-family: TitleFont; 
+  color: white;  
+  cursor: pointer;
+  animation: ${(props) => showText(props)} 2s ease forwards;
 `;

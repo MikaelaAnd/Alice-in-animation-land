@@ -4,26 +4,16 @@ import doorHandle from "./images/doorHandle.png";
 import Keyhole from "./Keyhole";
 
 export default function DoorHandle() {
-  const [keyholeOpen, setKeyholeOpen] = useState(false);
+  
   const [zoom, setZoom] = useState(false);
 
-  console.log({zoom})
   return (
     <Container zoom={zoom}>
       <Face src={doorHandle} />
-      <Keyhole open={keyholeOpen} setOpen={() => setKeyholeOpen(true)} />
-      <Button onClick={() => setZoom(true)} />
+      <Keyhole zoom={zoom} setZoom={() => setZoom(true)} />
     </Container>
   );
-}
-
-const Button = styled.div`
-  
-  position: absolute;
-  width: 5rem;
-  height: 5rem;
-  background: pink;
-`;
+};
 
 const zoomIn = keyframes`
  from {
