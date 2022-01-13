@@ -14,8 +14,6 @@ function MagicFood() {
   const isVisible = useOnScreen(MagicFoodRef);
 
   const aliceMoving = (height) => {
-    console.log("heighten", totalHeight);
-
     if (
       (height && totalHeight > 50 && totalHeight < 950) ||
       (totalHeight === 950 && height < 0) ||

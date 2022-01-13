@@ -6,6 +6,8 @@ import MagicFood from "./components/MagicFood/MagicFood";
 import SingingFlowers from "./components/SingingFlowers/SingingFlowers";
 import { TeaParty } from "./components/TeaParty";
 import CheshireCat from "./components/CheshireCat";
+import ErrorBoundary from "./ErrorBoundary";
+import { BrowserRouter } from "react-router-dom";
 import LeavesTransition from "./components/Transitions/LeavesTransition";
 import TheEnd from "./components/TheEnd";
 import BlackFade from "./components/Transitions/BlackFade";
@@ -13,17 +15,21 @@ import BlackFade from "./components/Transitions/BlackFade";
 export default function App() {
   return (
     <>
-      <GlobalFonts />
-      <Intro />
-      <BlackFade />
-      <AliceFalling />
-      <BlackFade />
-      <MagicFood />
-      <SingingFlowers />
-      <LeavesTransition />
-      <CheshireCat />
-      <TeaParty />
-      <TheEnd />
+      <BrowserRouter>
+       <ErrorBoundary>
+        <GlobalFonts />
+        <Intro />
+        <BlackFade />
+        <AliceFalling />
+        <BlackFade />
+        <MagicFood />
+        <SingingFlowers />
+        <LeavesTransition />
+        <CheshireCat />
+        <TeaParty />
+        <TheEnd />
+       </ErrorBoundary>
+      </BrowserRouter>
     </>
   );
 }
