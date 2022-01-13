@@ -7,6 +7,7 @@ import Flowers from "./Flowers";
 import FrontStems from "./images/front-stems2.png";
 import BigFLowers from "./images/big-flowers.png";
 import BackStems from "./images/back-stems.png";
+import Net from "./images/net.png";
 
 function SingingFlowers() {
   return (
@@ -40,7 +41,7 @@ const Root = styled.div`
   height: 100vh;
   display: flex;
   align-items: flex-end;
-  position: relative;
+  cursor: url(${Net}) 40 40, auto;
 `;
 
 const BigBackgroundImage = styled.img`

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import Sandwish1 from "./images/sandwich1.png";
 import Sandwish2 from "./images/sandwich2.png";
@@ -47,7 +48,7 @@ let birds = [
     flip: flipStartingRight,
     src: Sandwish3,
     height: "5%",
-    zIndex: 0,
+    zIndex: 10,
   },
   {
     x1: 10,
@@ -57,7 +58,7 @@ let birds = [
     flip: flipStartingLeft,
     src: Sandwish3,
     height: "9%",
-    zIndex: 1,
+    zIndex: 0,
   },
   {
     x1: 45,
@@ -67,7 +68,7 @@ let birds = [
     flip: flipStartingLeft,
     src: Sandwish2,
     height: "15%",
-    zIndex: 1,
+    zIndex: 0,
   },
   {
     x1: 90,
@@ -77,16 +78,26 @@ let birds = [
     flip: flipStartingRight,
     src: Sandwish1,
     height: "15%",
-    zIndex: 1,
+    zIndex: 10,
   },
 ];
 
 function SandwichBird() {
+  const [isCaptured, setCaptured] = useState(false);
+
+  const captured = (index) => {
+    setCaptured(!isCaptured);
+    birds.splice(index, 1);
+    console.log(index, "dead", isCaptured);
+  };
+
   return (
     <>
       {birds.map((bird, index) => (
         <Bird
           key={index}
+          onPointerOver={() => captured(index)}
+          onClick={() => captured(index)}
           x1={bird.x1}
           x2={bird.x2}
           y1={bird.y1}
