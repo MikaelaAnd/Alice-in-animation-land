@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styled, { css, keyframes } from "styled-components";
 
-export default function Keyhole() {
+export default function Keyhole({open, setOpen}) {
   const [mouseDown, setMouseDown] = useState(false);
   const [startY, setStartY] = useState();
   const [yValue, setYvalue] = useState(0);
-  const [keyholeOpen, setKeyholeOpen] = useState(false);
+  
 
   const HandleMouseDown = (e) => {
     setMouseDown(true);
@@ -18,33 +18,33 @@ export default function Keyhole() {
     const totalYDistance = (mouseY - startY) * 0.1;
     const maxY = window.innerHeight * 0.01;
 
-    if (totalYDistance > 0 && totalYDistance < maxY && !keyholeOpen) {
+    if (totalYDistance > 0 && totalYDistance < maxY && !open) {
       setYvalue(totalYDistance);
     } else {
-      setKeyholeOpen(true);
+      setOpen();
     };
   };
 
   const handleResetMouseDown = () => {
     setMouseDown(false);
-    if (!keyholeOpen) setTimeout(() => setYvalue(0), 500);
+    if (!open) setTimeout(() => setYvalue(0), 500);
   };
 
   return (
     <Chin 
       y={yValue} 
       mouseDown={mouseDown} 
-      open={keyholeOpen}
+      open={open}
     >
       <Circle 
         y={yValue} 
         mouseDown={mouseDown} 
-        open={keyholeOpen} 
+        open={open} 
       />
       <Cone
         y={yValue}
         mouseDown={mouseDown}
-        open={keyholeOpen}
+        open={open}
         onMouseDown={HandleMouseDown}
         onMouseUp={handleResetMouseDown}
         onMouseOut={handleResetMouseDown}

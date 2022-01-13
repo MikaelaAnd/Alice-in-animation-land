@@ -1,16 +1,40 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
+import styled, { css, keyframes} from "styled-components";
 import doorHandle from "./images/doorHandle.png";
 import Keyhole from "./Keyhole";
 
 export default function DoorHandle() {
+  const [keyholeOpen, setKeyholeOpen] = useState(false);
+  const [zoom, setZoom] = useState(false);
+
+  console.log({zoom})
   return (
-    <Container>
+    <Container zoom={zoom}>
       <Face src={doorHandle} />
-      <Keyhole />
+      <Keyhole open={keyholeOpen} setOpen={() => setKeyholeOpen(true)} />
+      <Button onClick={() => setZoom(true)} />
     </Container>
   );
 }
+
+const Button = styled.div`
+  
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  background: pink;
+`;
+
+const zoomIn = keyframes`
+ from {
+  transform: scale(1);
+  top: 40%;
+  }
+ to {
+  transform: scale(60);
+  top: -950%;
+  }
+`;
 
 const Container = styled.div`
   position: absolute;
@@ -20,6 +44,13 @@ const Container = styled.div`
   background: #ffa325;
   user-drag: none;
   user-select: none;
+  transform: scale(1);
+  top: 40%;
+  animation: ${(props) =>
+    props.zoom &&
+    css`
+      ${zoomIn} 4s ease forwards;
+    `};
 `;
 
 const Face = styled.img`
