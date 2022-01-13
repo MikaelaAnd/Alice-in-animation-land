@@ -13,10 +13,12 @@ export default function Keyhole() {
 
   const HandleMouseMove = (e) => {
     if (!mouseDown) return;
-    const y = e.pageY;
-    const distanceY = y - startY;
-    if (distanceY > 0 && distanceY < 15) {
-      setYvalue(distanceY);
+    const mouseY = e.pageY;
+    const totalYDistance = (mouseY - startY) * 0.1;
+    const maxY = window.innerHeight * 0.01;
+
+    if (totalYDistance > 0 && totalYDistance < maxY) {
+      setYvalue(totalYDistance);
     }
   };
 
@@ -27,7 +29,7 @@ export default function Keyhole() {
 
   return (
     <Chin y={yValue} mouseDown={mouseDown}>
-      <Circle y={yValue} mouseDown={mouseDown}/>
+      <Circle y={yValue} mouseDown={mouseDown} />
       <Cone
         mouseDown={mouseDown}
         y={yValue}
@@ -41,7 +43,9 @@ export default function Keyhole() {
 }
 
 const shrinkCircle = keyframes`
-  0% { width: calc(2rem + ${(props) => props.y * 0.1 + "rem"}); height: calc(2rem + ${(props) => props.y * 0.1 + "rem"}) }
+  0% { width: calc(2rem + ${(props) =>
+    props.y * 0.2 + "rem"}); height: calc(2rem + ${(props) =>
+  props.y * 0.2 + "rem"}) }
   40% { width: 2rem; height: 2rem; }
   70% { width: 2.5rem; height: 2.5rem; }
   100% { width: 2rem; height: 2rem; }
@@ -49,8 +53,8 @@ const shrinkCircle = keyframes`
 
 const Circle = styled.div`
   position: absolute;
-  width: calc(2rem + ${(props) => props.y * 0.1 + "rem"});
-  height: calc(2rem + ${(props) => props.y * 0.1 + "rem"});
+  width: calc(2rem + ${(props) => props.y * 0.3 + "rem"});
+  height: calc(2rem + ${(props) => props.y * 0.3 + "rem"});
   border-radius: 50%;
   background: black;
   animation: ${(props) =>
@@ -86,29 +90,39 @@ const Chin = styled.div`
 
 const shrinkCone = keyframes`
   0% { 
-      border-bottom: calc(3rem + ${(props) => props.y + "rem"}) solid black;
-      width: calc(0.5rem + ${(props) => props.y * 0.05 + "rem"}); 
-    }
+    border-bottom: calc(3rem + ${(props) => props.y + "rem"}) solid black;
+    border-left: calc(1rem + ${(props) => props.y * 0.1 + "rem"}) solid transparent;
+    border-right: calc(1rem + ${(props) => props.y * 0.1 + "rem"}) solid transparent;
+    width: calc(0.5rem + ${(props) => props.y * 0.05 + "rem"}); 
+  }
   40% { 
-      border-bottom: 3rem solid black; 
-      width: 0.5rem;
-    }
-    70% {
-        border-bottom: 4rem solid black; 
-        width: 1rem;
-    }
-    100% { 
-        border-bottom: 3rem solid black; 
-        width: 0.5rem;
-      }
+    border-bottom: 3rem solid black; 
+    border-left: 1rem solid transparent;
+    border-right: 1rem solid transparent;
+    width: 0.5rem;
+  }
+  70% {
+    border-bottom: 4rem solid black; 
+    border-left: 1.5rem solid transparent;
+    border-right: 1.5rem solid transparent;
+    width: 1rem;
+  }
+  100% { 
+    border-bottom: 3rem solid black; 
+    border-left: 1rem solid transparent;
+    border-right: 1rem solid transparent;
+    width: 0.5rem;
+  }
 `;
 
 const Cone = styled.div`
   z-index: 10;
   border-bottom: calc(3rem + ${(props) => props.y + "rem"}) solid black;
-  border-left: 1rem solid transparent;
-  border-right: 1rem solid transparent;
-  width: calc(0.5rem + ${(props) => props.y * 0.1 + "rem"});
+  border-left: calc(1rem + ${(props) => props.y * 0.1 + "rem"}) solid
+    transparent;
+  border-right: calc(1rem + ${(props) => props.y * 0.1 + "rem"}) solid
+    transparent;
+  width: calc(0.5rem + ${(props) => props.y * 0.2 + "rem"});
   height: 0;
   margin-top: 1rem;
   animation: ${(props) =>
