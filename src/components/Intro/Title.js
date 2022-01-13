@@ -25,6 +25,7 @@ const titleAnimation = keyframes`
 const TitleText = styled.h1`
   display: ${(props) => (props.show ? "block" : "none")};
   position: absolute;
+  z-index: 60;
   left: 50%;
   transform: translate(-50%, 0%);
   color: white;

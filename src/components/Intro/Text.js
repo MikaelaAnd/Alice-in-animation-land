@@ -36,6 +36,7 @@ const instructionText = keyframes`
 const InstructionText = styled.p`
   display: ${(props) => (props.show ? "block" : "none")};
   position: absolute;
+  z-index: 60;
   left: 50%;
   transform: translate(-50%, 50%);
   color: orange;

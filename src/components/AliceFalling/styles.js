@@ -1,10 +1,6 @@
 import styled from "styled-components";
-import { bounce, pulse, rotate } from "../Animations";
+import { bounce, pulse } from "./FallingAnimations";
 import background from "./images/background.png";
-
-export const Rotate = styled.div`
-  animation: ${rotate} 2s linear infinite;
-`;
 
 export const Bounce = styled.div`
   animation: ${bounce} 2s linear infinite;
@@ -14,20 +10,11 @@ export const Pulse = styled.div`
   animation: ${pulse} 2s infinite;
 `;
 
-
 export function BounceComponent({ image, width, height }) {
   return (
     <Bounce>
       <Item src={image} width={width} height={height} />
     </Bounce>
-  );
-}
-
-export function RotateComponent({ image, width, height }) {
-  return (
-    <Rotate>
-      <Item src={image} width={width} height={height} />
-    </Rotate>
   );
 }
 
