@@ -58,10 +58,19 @@ const FlowerContent = styled.div`
   height: 50%;
   z-index: 1;
   position: relative;
+  pointer-events: none;
 `;
 
 const RoseDiv = styled.div`
   height: 100%;
+
+  :hover {
+    background: pink;
+  }
+
+  @media (max-width: 800px) {
+    margin-bottom: 30%;
+  }
 `;
 
 const moveRight = keyframes`
@@ -93,6 +102,7 @@ const Miniflowers = styled.div`
   > img:nth-child(4) {
     animation: ${moveRight} 2s infinite;
   }
+
   > img:nth-child(2),
   > img:nth-child(5),
   > img:nth-child(6),
@@ -105,4 +115,9 @@ const JammingFlower = styled.img`
   position: absolute;
   bottom: ${(props) => props.bottom}%;
   left: ${(props) => props.left}%;
+
+  @media (max-width: 800px) {
+    bottom: ${(props) => props.bottom}%;
+    left: ${(props) => props.left + 15}%;
+  }
 `;

@@ -3,8 +3,7 @@ import styled from "styled-components";
 import CanvasBackground from "./CanvasBackground";
 import SandwichBird from "./SandwichBird";
 import Flowers from "./Flowers";
-// import FrontStems from "./images/front-stems.png";
-import FrontStems from "./images/front-stems2.png";
+import FrontStems from "./images/front-stems.png";
 import BigFLowers from "./images/big-flowers.png";
 import BackStems from "./images/back-stems.png";
 import Net from "./images/net.png";
@@ -15,6 +14,11 @@ function SingingFlowers() {
       <Suspense fallback={<h1>laddas</h1>}>
         <CanvasBackground />
       </Suspense>
+      <BigBackgroundImage
+        src={BackStems}
+        alt="Many green stems"
+        height="100%"
+      />
       <SandwichBird />
       <BigBackgroundImage
         src={FrontStems}
@@ -34,18 +38,23 @@ function SingingFlowers() {
 export default SingingFlowers;
 
 const Root = styled.div`
-  background-image: url(${BackStems});
-  background-size: cover;
-  background-repeat: no-repeat;
-
+  position: relative;
   height: 100vh;
   display: flex;
   align-items: flex-end;
   cursor: url(${Net}) 40 40, auto;
+
+  @media (max-width: 800px) {
+    overflow: hidden;
+  }
 `;
 
 const BigBackgroundImage = styled.img`
   position: absolute;
   pointer-events: none;
   width: 100%;
+
+  @media (max-width: 800px) {
+    width: auto;
+  }
 `;
