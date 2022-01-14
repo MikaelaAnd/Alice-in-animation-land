@@ -7,7 +7,6 @@ export default function Keyhole({ zoom, setZoom}) {
   const [yValue, setYvalue] = useState(0);
   const [keyholeOpen, setKeyholeOpen] = useState(false);
   
-
   const HandleMouseDown = (e) => {
     setMouseDown(true);
     setStartY(e.pageY);
@@ -58,31 +57,10 @@ export default function Keyhole({ zoom, setZoom}) {
       </Cone>
     </Chin>
   );
-}
+};
 
-const shrinkCircle = keyframes`
-  0% { 
-    width: calc(2rem + ${(props) => props.y * 0.3 + "rem"}); 
-    height: calc(2rem + ${(props) => props.y * 0.3 + "rem"}) 
-  }
-  40% { width: 2rem; height: 2rem; }
-  70% { width: 2.5rem; height: 2.5rem; }
-  100% { width: 2rem; height: 2rem; }
-`;
 
-const Circle = styled.div`
-  position: absolute;
-  width: calc(2rem + ${(props) => props.y * 0.3 + "rem"});
-  height: calc(2rem + ${(props) => props.y * 0.3 + "rem"});
-  border-radius: 50%;
-  background: black;
-  animation: ${(props) =>
-    !props.mouseDown && !props.open &&
-    css`
-      ${shrinkCircle} .4s ease forwards;
-    `};
-`;
-
+// CHIN
 const shrinkChin = keyframes`
   0% { height: calc(5rem + ${(props) => props.y + "rem"}); }
   40% { height: 6rem; }
@@ -107,6 +85,31 @@ const Chin = styled.div`
     `};
 `;
 
+// CIRCLE
+const shrinkCircle = keyframes`
+  0% { 
+    width: calc(2rem + ${(props) => props.y * 0.3 + "rem"}); 
+    height: calc(2rem + ${(props) => props.y * 0.3 + "rem"}) 
+  }
+  40% { width: 2rem; height: 2rem; }
+  70% { width: 2.5rem; height: 2.5rem; }
+  100% { width: 2rem; height: 2rem; }
+`;
+
+const Circle = styled.div`
+  position: absolute;
+  width: calc(2rem + ${(props) => props.y * 0.3 + "rem"});
+  height: calc(2rem + ${(props) => props.y * 0.3 + "rem"});
+  border-radius: 50%;
+  background: black;
+  animation: ${(props) =>
+    !props.mouseDown && !props.open &&
+    css`
+      ${shrinkCircle} .4s ease forwards;
+    `};
+`;
+
+// CONE
 const shrinkCone = keyframes`
   0% { 
     border-bottom: calc(3rem + ${(props) => props.y + "rem"}) solid black;
@@ -155,6 +158,8 @@ const Cone = styled.div`
   }
 `;
 
+
+// TEXT
 const showText = (props) => keyframes`
   from { 
     opacity: ${props.hide ? 1 : 0 }; 

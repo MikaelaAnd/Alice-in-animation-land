@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import styled, { css, keyframes} from "styled-components";
-import doorHandle from "./images/doorHandle.png";
-import Keyhole from "./Keyhole";
+import doorHandle from "../images/doorHandle.png";
+import Keyhole from "./Keyhole.jsx";
 
-export default function DoorHandle() {
-  
-  const [zoom, setZoom] = useState(false);
+export default function DoorHandle({ zoom, setZoom }) {
 
   return (
     <Container zoom={zoom}>
       <Face src={doorHandle} />
-      <Keyhole zoom={zoom} setZoom={() => setZoom(true)} />
+      <Keyhole zoom={zoom} setZoom={setZoom} />
     </Container>
   );
 };
@@ -39,7 +37,7 @@ const Container = styled.div`
   animation: ${(props) =>
     props.zoom &&
     css`
-      ${zoomIn} 4s ease forwards;
+      ${zoomIn} 5s ease forwards;
     `};
 `;
 
