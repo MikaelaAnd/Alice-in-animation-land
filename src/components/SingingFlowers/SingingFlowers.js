@@ -11,7 +11,7 @@ import Net from "./images/net.png";
 function SingingFlowers() {
   return (
     <Root>
-      <Suspense fallback={<h1>laddas</h1>}>
+      <Suspense fallback={<h2>Loading...</h2>}>
         <CanvasBackground />
       </Suspense>
       <BigBackgroundImage
