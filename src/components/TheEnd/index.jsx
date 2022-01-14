@@ -1,26 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import Door from "./Door";
-import DoorHandle from "./DoorHandle";
-
+import DoorScene from "./DoorScene";
+import TeleportationScene from "./TeleportationScene";
 
 export default function TheEnd() {
+  const [zoom, setZoom] = useState(false);
+  const [startTeleportation, setStartTeleportation] = useState(false);
+  const [endTeleportation, setEndTeleportation] = useState(false);
+
+  // Starts teleportation when keyhole zoom is done
+  if (zoom) {
+    setTimeout(() => setStartTeleportation(true), 2000);
+  };
+
+  // Ends teleportation 
+  if (startTeleportation) {
+    setTimeout(() => setEndTeleportation(true), 3000);
+  };
+
   return (
-    <Container>
-      <Door />
-      <DoorHandle />
-    </Container>
+    <Root>
+      <DoorScene 
+        startTeleportation ={startTeleportation}
+        endTeleportation={endTeleportation}
+        zoom={zoom}
+        setZoom={() => setZoom(true)}
+      />
+      <TeleportationScene 
+        startTeleportation={startTeleportation} 
+        endTeleportation={endTeleportation}
+      />
+    </Root>
   );
 }
 
-const Container = styled.div`
+const Root = styled.div`
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   overflow: hidden;
 `;
-
-
