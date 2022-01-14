@@ -12,17 +12,18 @@ export default function LeavesTransition() {
 
 const Transition = styled.div`
   position: relative;
-  width: 100%;
-  height: 12.5rem;
+  display: flex;
+  justify-content: center;
+  height: 11rem;
   background: black;
-  z-index: 10;
+  z-index: 50;
   pointer-events: none;
 `;
 
 const LeavesImage = styled.img`
   position: absolute;
-  left: 50%;
-  right: 50%;
-  bottom: -45.5rem;
-  transform: translateX(-50%);
+  width: 100%;
+  max-width: 100rem;
+  top: 50%;
+  transform: translateY(-50%);
 `;
