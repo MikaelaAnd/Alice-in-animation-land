@@ -2,7 +2,7 @@ import DrunkMouse from "./images/DrunkMouse.png";
 import TeaPotWithLid from "./images/TeaPotWithLid.png";
 import { useState } from "react";
 import TeaPotLidless from "./images/TeaPotLidLess.png";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { arise } from "./TeaAnimations";
 
 export function TeaPotMouse() {
@@ -48,14 +48,4 @@ const Thing = styled.img`
   z-index: 80;
   bottom: 0;
   margin: ${(props) => props.margin};
-  :hover {
-    ${(props) =>
-      props.hover
-        ? css`
-            background-color: rgba(255, 255, 255, 0.351);
-            box-shadow: 0px 0px 5px #fff;
-            border-radius: 70rem;
-          `
-        : ""}
-  }
 `;

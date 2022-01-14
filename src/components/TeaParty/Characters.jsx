@@ -35,9 +35,8 @@ const Wrapper = styled.div`
 
 const CharacterContainer = styled.div`
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  margin-bottom: -1.5rem;
+  margin-bottom: -1.7rem;
   z-index: 0;
 `;
 
@@ -61,8 +60,7 @@ const Bunny = styled.div`
 `;
 
 const Character = styled.img`
-  height: 20rem;
-  width: auto;
+  width: 7.8rem;
   position: relative;
   z-index: 70;
   margin: 0;
@@ -70,17 +68,15 @@ const Character = styled.img`
 `;
 
 const ArmRight = styled.img`
-  height: auto;
-  width: 7rem;
-  left: -5rem;
-  top: 5.2rem;
+  width: 5rem;
+  left: -3.5rem;
+  top: 5rem;
   position: absolute;
 `;
 
 const ArmLeft = styled.img`
-  height: auto;
-  width: 11rem;
-  right: -8rem;
+  width: 8rem;
+  right: -6rem;
   top: 4rem;
   position: absolute;
   z-index: 10;
