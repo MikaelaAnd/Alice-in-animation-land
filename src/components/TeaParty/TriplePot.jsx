@@ -1,8 +1,9 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { Bounce } from "./TeaAnimations";
 import TriplePot from "./images/PouringPot.png";
-import TripleCups from "./images/TripleCups.png";
-import { Smoke } from "./Smoke";
+import BlueCup from "./images/BlueCup.png";
+import YellowCup from "./images/YellowCup.png";
+import PinkCup from "./images/PinkCup.png";
 
 export function TriplePotAndCups() {
   return (
@@ -11,46 +12,49 @@ export function TriplePotAndCups() {
         <Thing
           src={TriplePot}
           alt="Pot with three pour canals"
-          width={"10rem"}
+          width={"11rem"}
           height={"auto"}
         />
       </Bounce>
-      <SmokeContainer>
-        <Smoke />
-        <Smoke />
-        <Smoke />
-      </SmokeContainer>
-      <Thing
-        src={TripleCups}
-        alt="Three cups in different colors"
-        width={"9rem"}
-        height={"auto"}
-      />
+      <PositionThing justify={"center"}>
+        <Thing
+          src={BlueCup}
+          alt={"Blue cup"}
+          width={"5rem"}
+          height={"auto"}
+          index={90}
+        />
+        <Thing
+          src={YellowCup}
+          alt={"Yellow cup"}
+          left={"-2rem"}
+          width={"5rem"}
+          height={"auto"}
+          index={80}
+        />
+        <Thing
+          src={PinkCup}
+          alt={"Pink cup"}
+          left={"-2rem"}
+          width={"5rem"}
+          height={"auto"}
+        />
+      </PositionThing>
     </>
   );
 }
 
-const SmokeContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  position: absolute;
-  z-index: 100;
-  width: 7rem;
-`;
-
 const Thing = styled.img`
   height: ${(props) => props.height};
   width: ${(props) => props.width};
-  z-index: 80;
-  margin: ${(props) => props.margin};
-  :hover {
-    ${(props) =>
-      props.hover
-        ? css`
-            background-color: rgba(255, 255, 255, 0.351);
-            box-shadow: 0px 0px 5px #fff;
-            border-radius: 70rem;
-          `
-        : ""}
-  }
+  z-index: ${(props) => props.index};
+  margin-left: ${(props) => props.left};
+  margin-right: ${(props) => props.right};
+`;
+
+const PositionThing = styled.div`
+  display: flex;
+  justify-content: ${(props) => props.justify};
+  flex-direction: row;
+  align-items: ${(props) => props.align};
 `;

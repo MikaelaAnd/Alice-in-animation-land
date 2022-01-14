@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { TeaDrops } from "./TeaDrops";
 import { TeaPotMouse } from "./TeaPotMouse";
 import { TriplePotAndCups } from "./TriplePot";
 import { Watch } from "./Watch";
@@ -12,11 +13,20 @@ export function TableContent() {
       </PositionThing>
       <PositionThing
         align={"center"}
+        index={80}
         justify={"center"}
-        margin={"0 0 1rem 0"}
         direction={"column"}
       >
         <TriplePotAndCups />
+      </PositionThing>
+      <PositionThing
+        align={"center"}
+        index={70}
+        justify={"center"}
+      >
+        {[...new Array(3)].map((index) => (
+          <TeaDrops key={index} />
+        ))}
       </PositionThing>
       <PositionThing justify={"flex-start"}>
         <TeaPotMouse />
@@ -27,7 +37,6 @@ export function TableContent() {
 
 const TableDiv = styled.div`
   background-color: #ca9088;
-  bottom: 0;
   width: 100%;
   height: 8rem;
   border-top-left-radius: 100%;
@@ -42,4 +51,7 @@ const PositionThing = styled.div`
   align-items: ${(props) => props.align};
   width: 100%;
   position: absolute;
+  z-index: ${(props) => props.index};
+  margin-left: ${(props) => props.left};
+  margin-right: ${(props) => props.right};
 `;

@@ -48,14 +48,4 @@ const Thing = styled.img`
   z-index: 80;
   bottom: 0;
   margin: ${(props) => props.margin};
-  :hover {
-    ${(props) =>
-      props.hover
-        ? css`
-            background-color: rgba(255, 255, 255, 0.351);
-            box-shadow: 0px 0px 5px #fff;
-            border-radius: 70rem;
-          `
-        : ""}
-  }
 `;
