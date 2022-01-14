@@ -2,7 +2,7 @@ import DrunkMouse from "./images/DrunkMouse.png";
 import TeaPotWithLid from "./images/TeaPotWithLid.png";
 import { useState } from "react";
 import TeaPotLidless from "./images/TeaPotLidLess.png";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { arise } from "./TeaAnimations";
 
 export function TeaPotMouse() {
