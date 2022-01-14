@@ -21,7 +21,8 @@ const Transition = styled.div`
 
 const LeavesImage = styled.img`
   position: absolute;
-  bottom: -45.5rem;
   left: 50%;
+  right: 50%;
+  bottom: -45.5rem;
   transform: translateX(-50%);
 `;
