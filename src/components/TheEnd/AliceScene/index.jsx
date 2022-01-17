@@ -35,5 +35,5 @@ const Circle = styled.div`
   width: 100%;
   height: 100%;
   clip-path: circle(0% at 50% 50%);
-  animation: ${expandCircle} 3s ease-in forwards;
+  animation: ${expandCircle} 2s ease-in forwards;
 `;
