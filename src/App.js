@@ -11,6 +11,7 @@ import { BrowserRouter } from "react-router-dom";
 import LeavesTransition from "./components/Transitions/LeavesTransition";
 import TheEnd from "./components/TheEnd";
 import BlackFade from "./components/Transitions/BlackFade";
+import CanvasOcean from "./components/Ocean/CanvasOcean";
 
 export default function App() {
   return (
@@ -28,9 +29,7 @@ export default function App() {
           <BlackFade />
           <section>
             <MagicFood />
-          </section>
-          <section>
-            <SingingFlowers />
+          <CanvasOcean />
           </section>
           <LeavesTransition />
           <section>
