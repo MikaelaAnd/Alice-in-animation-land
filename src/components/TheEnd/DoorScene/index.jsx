@@ -3,8 +3,8 @@ import styled from "styled-components";
 import Door from "./Door";
 import DoorHandle from "./DoorHandle";
 
-export default function DoorScene({ startTeleportation, endTeleportation, zoom, setZoom }) {
-  if (startTeleportation || endTeleportation) return null;
+export default function DoorScene({ showDoor, zoom, setZoom }) {
+  if (!showDoor) return null;
 
   return (
     <DoorContainer>
