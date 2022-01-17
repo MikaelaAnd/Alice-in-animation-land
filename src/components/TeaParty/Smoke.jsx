@@ -2,20 +2,20 @@ import styled, { keyframes } from "styled-components";
 
 export function Smoke() {
   return (
-    <SmokeContainer>
-      <Position position={"center"}>
+    <Container>
+      <PositionItem position={"center"}>
         <Particle color={"#EEEBEB"} height={15} left={10} width={15} />
-      </Position>
-      <Position position={"flex-start"}>
+      </PositionItem>
+      <PositionItem position={"flex-start"}>
         <Particle color={"#E6E6E6"} height={15} left={20} width={15} />
-      </Position>
-      <Position position={"flex-end"}>
+      </PositionItem>
+      <PositionItem position={"flex-end"}>
         <Particle color={"#E6E6E6"} height={20} right={10} width={20} />
-      </Position>
-      <Position position={"center"}>
+      </PositionItem>
+      <PositionItem position={"center"}>
         <Particle color={"#DBDBDB"} height={25} width={25} />
-      </Position>
-    </SmokeContainer>
+      </PositionItem>
+    </Container>
   );
 }
 
@@ -38,7 +38,7 @@ const smoke = keyframes`
     }
 `;
 
-const SmokeContainer = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 4rem;
@@ -47,7 +47,7 @@ const SmokeContainer = styled.div`
   animation: ${smoke} 2s linear infinite;
 `;
 
-const Position = styled.div((props) => ({
+const PositionItem = styled.div((props) => ({
   display: "flex",
   justifyContent: props.position,
 }));

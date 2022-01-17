@@ -9,18 +9,20 @@ import { Smoke } from "./Smoke";
 export function Characters() {
   return (
     <Wrapper>
-      <SmokeContainer>
-        <Smoke />
-        <Smoke />
-      </SmokeContainer>
       <CharacterContainer>
         <Bunny>
-          <Character src={BunnyImg} alt="Bunnys moving arm" />
-          <LeftArm image={BunnyArm} alt="Bunny friend character" />
+          <Character alt="Bunnys moving arm" src={BunnyImg} width={"7rem"} />
+          <BunnyArmContainer>
+            <Smoke />
+            <LeftArm image={BunnyArm} alt="Bunny friend character" />
+          </BunnyArmContainer>
         </Bunny>
         <MadHatter>
-          <RightArm image={ArmImg} alt="Mad Hatters moving arm" />
-          <Character src={HatterImg} alt="Mad Hatter character" />
+          <HatterArmContainer>
+            <Smoke />
+            <RightArm image={ArmImg} alt="Mad Hatters moving arm" />
+          </HatterArmContainer>
+          <Character alt="Mad Hatter character" src={HatterImg} width={"8rem"}  />
         </MadHatter>
       </CharacterContainer>
     </Wrapper>
@@ -28,58 +30,58 @@ export function Characters() {
 }
 
 const Wrapper = styled.div`
-  align-items: flex-start;
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  flex-direction: column;
+`;
+
+const Character = styled.img`
+  width: ${(props) => props.width};
+  z-index: 1;
 `;
 
 const CharacterContainer = styled.div`
   display: flex;
+  width: 50%;
   justify-content: center;
-  margin-bottom: -1.7rem;
-  z-index: 0;
-`;
-
-const SmokeContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  position: absolute;
-  z-index: 100;
-`;
-
-const MadHatter = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-left: 130px;
 `;
 
 const Bunny = styled.div`
   display: flex;
   justify-content: center;
-  margin-right: 120px;
 `;
 
-const Character = styled.img`
-  width: 7.8rem;
-  position: relative;
-  z-index: 70;
-  margin: 0;
-  object-fit: contain;
+const BunnyArmContainer = styled.div`
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  margin-top: -2rem;
+  margin-left: -1.5rem;
+`;
+
+const MadHatter = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const HatterArmContainer = styled.div`
+display: flex;
+align-items: flex-start;
+flex-direction: column;
+margin-top: -2.7rem;
+margin-right: -1.6rem;
 `;
 
 const ArmRight = styled.img`
-  width: 5rem;
-  left: -3.5rem;
-  top: 5rem;
-  position: absolute;
+  width: 6rem;
 `;
 
 const ArmLeft = styled.img`
   width: 8rem;
-  right: -6rem;
-  top: 4rem;
-  position: absolute;
-  z-index: 10;
 `;
 
 function RightArm({ image }) {
