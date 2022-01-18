@@ -28,27 +28,30 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const largeArise = keyframes`
+const ariseHigh = keyframes`
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-70px); }
+  100% { transform: translateY(0) }
+`;
+
+const ariseLow = keyframes`
   0% { transform: translateY(0); }
   50% { transform: translateY(-45px); }
   100% { transform: translateY(0) }
 `;
-const smallArise = keyframes`
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-30px); }
-  100% { transform: translateY(0) }
-`;
 
 const DrunkMouseContainer = styled.img`
-  animation: ${largeArise} 5s linear 1;
+  animation: ${ariseLow} 5s linear 1;
   display: flex;
   width: 3%;
   position: absolute;
   z-index: 2;
   margin-top: 1rem;
 
-  @media (max-width: 900px) {
-    animation: ${smallArise} 5s linear 1;
+  @media (max-width: 820px) {
+    animation: ${ariseHigh} 5s linear 1;
+    width: 10%;
+    margin-top: 1rem;
   }
 `;
 

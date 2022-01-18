@@ -62,6 +62,7 @@ export const FurnitureContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 85%;
+  overflow: hidden;
 `;
 
 export const FurnitureRow = styled.div`

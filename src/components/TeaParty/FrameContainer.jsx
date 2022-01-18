@@ -19,10 +19,15 @@ const Container = styled.div`
   z-index: 90;
   position: absolute;
   pointer-events: none;
+  overflow: hidden;
 `;
 
 const WoodFrame = styled.img`
   display: flex;
-  max-width: 60%;
+  max-width: 50%;
   height: 100%;
+
+  @media (max-width: 820px) {
+    display: none;
+  }
 `;
