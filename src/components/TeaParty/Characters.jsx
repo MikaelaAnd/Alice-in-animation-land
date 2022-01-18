@@ -40,7 +40,7 @@ const Wrapper = styled.div`
 `;
 
 const Character = styled.img`
-  width: 8rem;
+  max-width: 8rem;
   z-index: 1;
 
   @media (max-width: 820px) {
@@ -91,7 +91,7 @@ margin-right: -1.6rem;
 `;
 
 const ArmRight = styled.img`
-  width: 6rem;
+  max-width: 6rem;
 
   @media (max-width: 820px) {
     width: 9rem;
@@ -99,7 +99,7 @@ const ArmRight = styled.img`
 `;
 
 const ArmLeft = styled.img`
-  width: 8rem;
+  max-width: 8rem;
 
   @media (max-width: 820px) {
     width: 13rem;

@@ -43,7 +43,7 @@ const ariseLow = keyframes`
 const DrunkMouseContainer = styled.img`
   animation: ${ariseLow} 5s linear 1;
   display: flex;
-  width: 3%;
+  max-width: 3%;
   position: absolute;
   z-index: 2;
   margin-top: 1rem;

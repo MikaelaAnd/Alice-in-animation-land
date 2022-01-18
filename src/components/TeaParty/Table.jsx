@@ -22,7 +22,7 @@ const Container = styled.div`
 const TableDiv = styled.div`
   background-color: #ca9088;
   width: 100%;
-  height: 34%;
+  max-height: 34%;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -17,7 +17,7 @@ const Container = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-evenly;
-  width: 40%;
+  max-width: 40%;
 
   @media (max-width: 820px) {
     width: 90%;
