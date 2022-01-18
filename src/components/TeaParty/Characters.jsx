@@ -11,7 +11,7 @@ export function Characters() {
     <Wrapper>
       <CharacterContainer>
         <Bunny>
-          <Character alt="Bunnys moving arm" src={BunnyImg} width={"7rem"} />
+          <Character alt="Bunnys moving arm" src={BunnyImg} />
           <BunnyArmContainer>
             <Smoke />
             <LeftArm image={BunnyArm} alt="Bunny friend character" />
@@ -22,7 +22,7 @@ export function Characters() {
             <Smoke />
             <RightArm image={ArmImg} alt="Mad Hatters moving arm" />
           </HatterArmContainer>
-          <Character alt="Mad Hatter character" src={HatterImg} width={"8rem"}  />
+          <Character alt="Mad Hatter character" src={HatterImg}  />
         </MadHatter>
       </CharacterContainer>
     </Wrapper>
@@ -40,8 +40,12 @@ const Wrapper = styled.div`
 `;
 
 const Character = styled.img`
-  width: ${(props) => props.width};
+  width: 8rem;
   z-index: 1;
+
+  @media (max-width: 820px) {
+    width: 11rem;
+  }
 `;
 
 const CharacterContainer = styled.div`
@@ -59,8 +63,13 @@ const BunnyArmContainer = styled.div`
   display: flex;
   align-items: flex-end;
   flex-direction: column;
-  margin-top: -2rem;
-  margin-left: -1.5rem;
+  margin-top: -1.8rem;
+  margin-left: -1.7rem;
+
+  @media (max-width: 820px) {
+    margin-top: -2rem;
+    margin-left: -2.2rem;
+  }
 `;
 
 const MadHatter = styled.div`
@@ -72,16 +81,29 @@ const HatterArmContainer = styled.div`
 display: flex;
 align-items: flex-start;
 flex-direction: column;
-margin-top: -2.7rem;
+margin-top: -2rem;
 margin-right: -1.6rem;
+
+@media (max-width: 820px) {
+  margin-top: -2rem;
+  margin-right: -1.8rem;
+  }
 `;
 
 const ArmRight = styled.img`
   width: 6rem;
+
+  @media (max-width: 820px) {
+    width: 9rem;
+  }
 `;
 
 const ArmLeft = styled.img`
   width: 8rem;
+
+  @media (max-width: 820px) {
+    width: 13rem;
+  }
 `;
 
 function RightArm({ image }) {

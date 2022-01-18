@@ -18,4 +18,8 @@ const Container = styled.div`
   display: flex;
   justify-content: space-evenly;
   width: 40%;
+
+  @media (max-width: 820px) {
+    width: 90%;
+  }
 `;
