@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import * as THREE from "three";
-import { Canvas, extend, useFrame, useLoader } from "@react-three/fiber";
+import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import circleImg from "./images/ellipse.png";
 import { Suspense, useCallback, useMemo, useRef } from "react";
 import { OrbitControls } from "@react-three/drei";
@@ -91,7 +91,18 @@ function Points() {
   );
 }
 
-function CanvasOcean({ isContentSwitched, setOceanSinking }) {
+function CanvasOcean({
+  isWaterContentSwitched,
+  setOceanSinking,
+  isOceanSinking,
+}) {
+  if (!isWaterContentSwitched) {
+    return null;
+  }
+  if (isOceanSinking) {
+    return null;
+  }
+
   return (
     <Container>
       <Canvas
@@ -103,14 +114,14 @@ function CanvasOcean({ isContentSwitched, setOceanSinking }) {
           <Points />
         </Suspense>
       </Canvas>
-      <Plug onClick={setOceanSinking} />
+      <Plug onClick={() => setOceanSinking()} />
     </Container>
   );
 }
 export default CanvasOcean;
 
 const Container = styled.div`
-  background: darkblue;
+  background: #060938;
   width: 100%;
   height: 100vh;
 `;
