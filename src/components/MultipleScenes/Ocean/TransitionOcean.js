@@ -1,6 +1,14 @@
 import styled, { css, keyframes } from "styled-components";
 
-function TransitionOcean({ isOceanRising, isContentSwitched, isOceanSinking }) {
+function TransitionOcean({
+  isOceanRising,
+  isOceanSinking,
+  isWaterContentSwitched,
+}) {
+  if (isWaterContentSwitched && !isOceanSinking) {
+    return null;
+  }
+
   return (
     <Root>
       <Water rise={isOceanRising} sink={isOceanSinking} />
@@ -43,6 +51,7 @@ const Root = styled.div`
   display: flex;
   align-items: end;
   overflow: hidden;
+  pointer-events: none;
 `;
 
 const risingWater = keyframes`
@@ -73,44 +82,40 @@ const movingWaves = (props) => keyframes`
 const Water = styled.div`
   position: relative;
   width: 100%;
-  background: darkblue;
-  /* animation: ${risingWater} 7s infinite linear; */
+  background: #060938;
 
   animation: ${(props) =>
     props.rise &&
     css`
-      ${risingWater} 7s forwards linear;
+      ${risingWater} 4s forwards linear;
     `};
 
   animation: ${(props) =>
     props.sink &&
     css`
-      ${sinkingWater} 7s forwards linear;
+      ${sinkingWater} 4s forwards linear;
     `};
 `;
 
 const Waves = styled.div`
   position: absolute;
-  background: darkblue;
+  background: #060938;
   transform: scale(-1);
   height: 6rem;
   width: 100%;
   transform-origin: bottom;
   opacity: ${(props) => props.opacity};
 
-  /* animation: ${movingWaves} 3s ease-in-out infinite,
-    ${risingWaves} 7s infinite linear; */
-
   animation: ${(props) =>
     props.rise &&
     css`
-      ${movingWaves} 3s ease-in-out infinite, ${risingWaves} 7s forwards linear;
+      ${movingWaves} 3s ease-in-out infinite, ${risingWaves} 4s forwards linear;
     `};
 
   animation: ${(props) =>
     props.sink &&
     css`
-      ${movingWaves} 3s ease-in-out infinite, ${singkingWaves} 7s forwards linear;
+      ${movingWaves} 3s ease-in-out infinite, ${singkingWaves} 4s forwards linear;
     `};
 
   clip-path: polygon(
