@@ -2,6 +2,7 @@ import { OrbitControls, Sky } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import React from 'react'
 import styled from 'styled-components';
+import AliceModel from './AliceModel';
 import Grass from './Grass';
 
 export default function SleepingAlice() {
@@ -11,8 +12,9 @@ export default function SleepingAlice() {
               <OrbitControls />
               <Sky />
               <ambientLight intensity={1}/>
-              <pointLight intensity={2} color={"white"}></pointLight>
+              <pointLight position={[0, 50, 0]} intensity={1} color={"white"}></pointLight>
               <Grass />
+              <AliceModel />
           </Canvas>
         </CanvasContainer>
     )
