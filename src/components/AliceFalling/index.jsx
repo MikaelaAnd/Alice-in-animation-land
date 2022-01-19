@@ -29,8 +29,12 @@ import {
   LargeDoublePaintingRight,
   SmallDoublePaintingLeft,
 } from "./DoublePainting";
-import { LargeClockLeft, SmallClockLeft, SmallClockRight } from "./Clock";
-import { CupDarkLeft, CupLightRight } from "./Cup";
+import {
+  LargeClockRight,
+  SmallClockLeft,
+  SmallClockRight,
+} from "./Clock";
+import { CupDarkLeft, CupDarkRight, CupLightRight } from "./Cup";
 import { Canvas } from "@react-three/fiber";
 import { Stars } from "@react-three/drei";
 
@@ -55,19 +59,20 @@ export default function AliceFalling() {
             <YellowLampLarge />
           </FurnitureRow>
 
-          <FurnitureRow>
-            <LargeClockLeft />
-            <LargePaintingRight />
-          </FurnitureRow>
+          <LargeClockRight />
+          <LargePaintingRight />
+
           <FurnitureRow>
             <CupDarkLeft />
           </FurnitureRow>
           <FurnitureRow>
-          <TeaPotLightEnd />
-          <SmallClockRight />
-          <CupLightRight />
+            <TeaPotLightEnd />
+            <SmallClockRight />
+            <CupLightRight />
           </FurnitureRow>
+          <TeaPotDarkEnd />
           <LargeDoublePaintingLeft />
+          <CupDarkRight />
           <FurnitureRow>
             <GreenLampSmall />
             <TeaPotDarkEnd />
@@ -85,7 +90,7 @@ export default function AliceFalling() {
             <TeaPotLightEnd />
           </FurnitureRow>
           <FurnitureRow>
-          <LargeDoublePaintingRight />
+            <LargeDoublePaintingRight />
             <SmallDoublePaintingLeft />
             <CupDarkLeft />
           </FurnitureRow>
