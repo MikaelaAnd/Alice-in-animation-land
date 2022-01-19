@@ -1,17 +1,16 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
-import { useState } from "react";
-import Background from "./assets/background.jpeg";
-import GlasTable from "./assets/glasTable.png";
-import Bottle from "./assets/bottle.png";
-import Alice from "./assets/alice.png";
-import Cake from "./assets/cake2.png";
-import useOnScreen from "../../useOnScreen.jsx";
+import Background from "./images/background.jpeg";
+import GlasTable from "./images/glasTable.png";
+import Bottle from "./images/bottle.png";
+import Alice from "./images/alice.png";
+import Cake from "./images/cake2.png";
+import useOnScreen from "../../../useOnScreen.jsx";
 
-function MagicFood() {
-  const [totalHeight, setTotalHeight] = useState(550);
+function MagicFood({ setOceanRising }) {
   const MagicFoodRef = useRef();
   const isVisible = useOnScreen(MagicFoodRef);
+  const [totalHeight, setTotalHeight] = useState(550);
 
   const aliceMoving = (height) => {
     if (
@@ -25,6 +24,12 @@ function MagicFood() {
     return totalHeight;
   };
 
+  const fillScreenWithOcean = () => {
+    if (totalHeight === 50) {
+      setOceanRising();
+    }
+  };
+
   return (
     <Room ref={MagicFoodRef}>
       {isVisible && (
@@ -34,6 +39,7 @@ function MagicFood() {
               <Drink
                 onClick={() => {
                   aliceMoving(-100);
+                  fillScreenWithOcean();
                 }}
               >
                 <img src={Bottle} alt="Bottle that Alice drinks" width="100%" />
@@ -142,16 +148,6 @@ const SpinningTable = styled.div`
   animation-duration: 6s;
   width: 15rem;
 `;
-
-// const GrowingAlice = styled.div((props) => ({
-//   height: props.height,
-//   position: "absolute",
-//   bottom: "1rem",
-//   right: "20%",
-//   transform: "translate(50%, 0%)",
-//   animationName: `${display}`,
-//   animationDuration: "5s",
-// }));
 
 const GrowingAlice = styled.div`
   // height: props.height,

@@ -1,74 +1,117 @@
 import styled, { css, keyframes } from "styled-components";
 
-function Ocean() {
+function TransitionOcean({ isOceanRising, isContentSwitched, isOceanSinking }) {
   return (
     <Root>
-      <Water />
-      <Waves opacity={1} leftStart={0} leftMiddle={0} />
-      <Waves opacity={0.5} leftStart={10} leftMiddle={0} />
-      <Waves opacity={0.3} leftStart={-6} leftMiddle={2} />
-      <Waves opacity={0.5} leftStart={1} leftMiddle={10} />
+      <Water rise={isOceanRising} sink={isOceanSinking} />
+      <Waves
+        opacity={1}
+        leftStart={0}
+        leftMiddle={0}
+        rise={isOceanRising}
+        sink={isOceanSinking}
+      />
+      <Waves
+        opacity={0.5}
+        leftStart={10}
+        leftMiddle={0}
+        rise={isOceanRising}
+        sink={isOceanSinking}
+      />
+      <Waves
+        opacity={0.3}
+        leftStart={-6}
+        leftMiddle={2}
+        rise={isOceanRising}
+        sink={isOceanSinking}
+      />
+      <Waves
+        opacity={0.5}
+        leftStart={1}
+        leftMiddle={10}
+        rise={isOceanRising}
+        sink={isOceanSinking}
+      />
     </Root>
   );
 }
-export default Ocean;
+export default TransitionOcean;
 
 const Root = styled.div`
+  position: relative;
   height: 100vh;
-  /* background: pink; */
   display: flex;
   align-items: end;
-  position: relative;
   overflow: hidden;
 `;
 
 const risingWater = keyframes`
-    0% {height: 1%; }
-    100% {height: 100%; }
+  0% { height: calc(0% - 6rem); }
+  100% { height: calc(130% - 6rem); }
 `;
 const risingWaves = keyframes`
-    0% {bottom: 0%; }
-    100% {bottom: 100%; }
+  0% { bottom: 0; }
+  100% { bottom: 130%; }
+`;
+const sinkingWater = keyframes`
+  0% { height: calc(130% - 6rem); }
+  100% { height: calc(0% - 6rem); }
+`;
+const singkingWaves = keyframes`
+  0% { bottom: 130%; }
+  100% { bottom: 0; }
 `;
 const movingWaves = (props) => keyframes`
-    0%, 100% { 
-        left: ${props.leftStart}%; 
-    }
-    50% {  
-        left: ${props.leftMiddle}%; 
-        /* left: ${(props) => props.leftStart}%;  */
-    };
+  0%, 100% { 
+    left: ${props.leftStart}%; 
+  }
+  50% {  
+    left: ${props.leftMiddle}%; 
+  };
 `;
 
 const Water = styled.div`
   position: relative;
   width: 100%;
-  background: blue;
-  /* overflow: hidden; */
-  animation: ${risingWater} 10s infinite;
+  background: darkblue;
+  /* animation: ${risingWater} 7s infinite linear; */
 
-  /* animation: ${(props) =>
-    props.show &&
+  animation: ${(props) =>
+    props.rise &&
     css`
-      ${risingWater} 10s infinite;
-    `}; */
+      ${risingWater} 7s forwards linear;
+    `};
+
+  animation: ${(props) =>
+    props.sink &&
+    css`
+      ${sinkingWater} 7s forwards linear;
+    `};
 `;
 
 const Waves = styled.div`
   position: absolute;
-  background: blue;
+  background: darkblue;
   transform: scale(-1);
   height: 6rem;
   width: 100%;
-  /* bottom: 0; */
+  transform-origin: bottom;
   opacity: ${(props) => props.opacity};
-  animation: ${movingWaves} 3s ease-in-out infinite, ${risingWaves} 10s infinite;
 
-  /* animation: ${(props) =>
-    props.show &&
+  /* animation: ${movingWaves} 3s ease-in-out infinite,
+    ${risingWaves} 7s infinite linear; */
+
+  animation: ${(props) =>
+    props.rise &&
     css`
-      ${movingWaves} 3s ease-in-out infinite, ${risingWaves} 10s infinite;
-    `}; */
+      ${movingWaves} 3s ease-in-out infinite, ${risingWaves} 7s forwards linear;
+    `};
+
+  animation: ${(props) =>
+    props.sink &&
+    css`
+      ${movingWaves} 3s ease-in-out infinite, ${singkingWaves} 7s forwards linear;
+    `};
 
   clip-path: polygon(
     100% 0%,
