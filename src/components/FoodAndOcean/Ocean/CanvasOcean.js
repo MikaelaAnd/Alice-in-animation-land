@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import * as THREE from "three";
 import { Canvas, extend, useFrame, useLoader } from "@react-three/fiber";
-import circleImg from "./ellipse.png";
+import circleImg from "./images/ellipse.png";
 import { Suspense, useCallback, useMemo, useRef } from "react";
 import { OrbitControls } from "@react-three/drei";
 
@@ -19,7 +19,8 @@ function Points() {
 
   let t = 0;
   let f = 0.002;
-  let a = 3;
+  let a = 5;
+  //   let a = 3;
   const graph = useCallback(
     (x, z) => {
       return Math.sin(f * (x ** 2 + z ** 2 + t)) * a;
@@ -28,7 +29,7 @@ function Points() {
   );
 
   const count = 500;
-  const sep = 1;
+  const sep = 0.5;
   //   const count = 100;
   //   const sep = 3;
   let positions = useMemo(() => {
@@ -47,7 +48,7 @@ function Points() {
   }, [count, sep, graph]);
 
   useFrame(() => {
-    t += 50;
+    t += 40;
     // t += 15;
     const positions = bufferRef.current.array;
 
@@ -90,7 +91,7 @@ function Points() {
   );
 }
 
-function CanvasOcean() {
+function CanvasOcean({ isContentSwitched, setOceanSinking }) {
   return (
     <Container>
       <Canvas
@@ -102,6 +103,7 @@ function CanvasOcean() {
           <Points />
         </Suspense>
       </Canvas>
+      <Plug onClick={setOceanSinking} />
     </Container>
   );
 }
@@ -110,5 +112,15 @@ export default CanvasOcean;
 const Container = styled.div`
   background: darkblue;
   width: 100%;
-  height: 90vh;
+  height: 100vh;
+`;
+
+const Plug = styled.div`
+  position: absolute;
+  background: hotpink;
+  height: 4rem;
+  width: 2rem;
+  z-index: 100;
+  bottom: 0;
+  right: 2%;
 `;
