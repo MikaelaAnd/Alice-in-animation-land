@@ -110,24 +110,26 @@ const display = keyframes`
 const Drink = styled.div`
   animation: ${display} 6s ease-in, ${pulse} 2s infinite;
   width: 3rem;
-  margin-bottom: -0.9rem;
+  margin-bottom: -1.2rem;
+  padding: 0.5rem;
 
   :hover {
-    background: rgba(255, 255, 255, 0.351);
     cursor: pointer;
-    box-shadow: 0px 0px 5px #fff;
+    background: radial-gradient(#9198e5, transparent);
+    border-radius: 50%;
   }
 `;
 
 const Cookie = styled.div`
   animation: ${display} 6s ease-in, ${pulse} 2s infinite;
   width: 3rem;
-  margin-bottom: -0.7rem;
+  margin-bottom: -1rem;
+  padding: 0.5rem;
 
   :hover {
-    background: rgba(255, 255, 255, 0.351);
     cursor: pointer;
-    box-shadow: 0px 0px 5px #fff;
+    background: radial-gradient(#9198e5, transparent);
+    border-radius: 50%;
   }
 `;
 
@@ -150,7 +152,6 @@ const SpinningTable = styled.div`
 `;
 
 const GrowingAlice = styled.div`
-  // height: props.height,
   position: absolute;
   bottom: 1rem;
   right: 20%;
