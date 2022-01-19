@@ -25,15 +25,8 @@ export default function App() {
           <BlackFade />
           <section>
             <AliceFalling />
-          </section>
-          <BlackFade />
-          <section>
-            <MagicFood />
-          <CanvasOcean />
-          </section>
-          <LeavesTransition />
-          <section>
-            <CheshireCat />
+
+          <FoodAndOCean />
           </section>
           <section>
             <TeaParty />
