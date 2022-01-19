@@ -57,7 +57,6 @@ export const AliceImg = styled.img`
   @media (min-width: 1180px) {
     left: 50%;
   }
-  /* Något som centrerar Alice */
 `;
 
 export const FurnitureContainer = styled.div`
@@ -66,7 +65,7 @@ export const FurnitureContainer = styled.div`
   width: 50%;
   
   @media (max-width: 768px) {
-    width: 60%;
+    width: 70%;
   }
   @media (min-width: 1190px) {
     width: 30%;
