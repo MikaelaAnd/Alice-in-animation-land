@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import SleepingAlice from "./SleepingAlice";
+import GardenPlatform from "./GardenPlatform";
 
 export default function AliceScene({ showAlice }) {
   if (!showAlice) return null;
@@ -8,7 +8,7 @@ export default function AliceScene({ showAlice }) {
   return (
     <Container>
       <Circle>
-          <SleepingAlice />
+          <GardenPlatform />
       </Circle>
     </Container>
   );

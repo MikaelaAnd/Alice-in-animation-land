@@ -2,11 +2,10 @@ import { OrbitControls, Sky } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import React from 'react'
 import styled from 'styled-components';
-import AliceModel from './AliceModel';
-import CardAce from './CardAce';
+import Models3D from './3D-models';
 import Grass from './Grass';
 
-export default function SleepingAlice() {
+export default function GardenPlatform() {
     return (
         <CanvasContainer>
           <Canvas camera={{ position: [0, 10, 100]}}>
@@ -15,8 +14,7 @@ export default function SleepingAlice() {
               <ambientLight intensity={1}/>
               <pointLight position={[0, 50, 0]} intensity={1} color={"white"}></pointLight>
               <Grass />
-              <AliceModel />
-              <CardAce />
+              <Models3D />
           </Canvas>
         </CanvasContainer>
     )
