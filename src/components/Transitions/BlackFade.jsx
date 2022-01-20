@@ -34,7 +34,7 @@ const FadeTop = styled.div`
 `;
 
 const Black = styled.div`
-  height: 20rem;
+  height: 15rem;
   width: 100%;
   background: black;
 `;

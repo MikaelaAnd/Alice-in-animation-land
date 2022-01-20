@@ -21,4 +21,6 @@ const Wrapper = styled.div`
   width: 100%;
   position: relative;
   overflow: hidden;
+  margin-bottom: 10rem;
+  margin-top: 13rem;
 `;
