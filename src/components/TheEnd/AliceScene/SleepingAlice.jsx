@@ -3,6 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import React from 'react'
 import styled from 'styled-components';
 import AliceModel from './AliceModel';
+import CardAce from './CardAce';
 import Grass from './Grass';
 
 export default function SleepingAlice() {
@@ -15,6 +16,7 @@ export default function SleepingAlice() {
               <pointLight position={[0, 50, 0]} intensity={1} color={"white"}></pointLight>
               <Grass />
               <AliceModel />
+              <CardAce />
           </Canvas>
         </CanvasContainer>
     )

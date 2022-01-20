@@ -5,7 +5,7 @@ import { useGLTF } from '@react-three/drei';
 
 export default function AliceModel({ ...props }) {
   const group = useRef();
-  const { nodes, materials } = useGLTF('../../../aliceModel.glb');
+  const { nodes, materials } = useGLTF('../../../3D-models/aliceModel.glb');
   return (
     <group ref={group} {...props} dispose={null}>
       <group position={[-2.34, 0, -0.57]} rotation={[0, 1, 0]} scale={0.36}>
@@ -22,4 +22,4 @@ export default function AliceModel({ ...props }) {
   )
 };
 
-useGLTF.preload('../../../aliceModel.glb');
+useGLTF.preload('../../../3D-models/aliceModel.glb');
