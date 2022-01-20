@@ -4,6 +4,7 @@ import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import circleImg from "./images/ellipse.png";
 import { Suspense, useCallback, useMemo, useRef } from "react";
 import { OrbitControls } from "@react-three/drei";
+import PlugImg from "./images/plug.png";
 
 // extend({OrbitControls})
 
@@ -114,7 +115,9 @@ function CanvasOcean({
           <Points />
         </Suspense>
       </Canvas>
-      <Plug onClick={() => setOceanSinking()} />
+      <Plug onClick={() => setOceanSinking()}>
+        <img src={PlugImg} alt="Plug" height="100%" />
+      </Plug>
     </Container>
   );
 }
@@ -128,10 +131,13 @@ const Container = styled.div`
 
 const Plug = styled.div`
   position: absolute;
-  background: hotpink;
-  height: 4rem;
-  width: 2rem;
+  height: 8rem;
   z-index: 100;
   bottom: 0;
-  right: 2%;
+  right: 5%;
+  cursor: pointer;
+
+  :hover {
+    bottom: 4%;
+  }
 `;
