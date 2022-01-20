@@ -17,9 +17,9 @@ const Container = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-evenly;
-  max-width: 40%;
+  max-width: 30%;
 
   @media (max-width: 820px) {
-    width: 90%;
+    max-width: 90%;
   }
 `;

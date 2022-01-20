@@ -66,9 +66,13 @@ const BunnyArmContainer = styled.div`
   margin-top: -1.8rem;
   margin-left: -1.7rem;
 
-  @media (max-width: 820px) {
-    margin-top: -2rem;
+  @media (max-width: 768px) {
+    margin-top: -1.5rem;
     margin-left: -2.2rem;
+  }
+  @media (max-width: 820px) {
+    margin-top: -1.4rem;
+    margin-left: -2rem;
   }
 `;
 
@@ -84,8 +88,12 @@ flex-direction: column;
 margin-top: -2rem;
 margin-right: -1.6rem;
 
+@media (max-width: 768px) {
+  margin-top: -2.-2.rem;
+}
+
 @media (max-width: 820px) {
-  margin-top: -2rem;
+  margin-top: -1.9rem;
   margin-right: -1.8rem;
   }
 `;
