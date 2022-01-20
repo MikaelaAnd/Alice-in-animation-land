@@ -34,6 +34,7 @@ const Container = styled.div`
   background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
+  margin-bottom: 9rem;
 `;
 
 const Stem = styled.div`

@@ -16,7 +16,7 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   justify-content: space-between;
-  z-index: 90;
+  z-index: 10;
   position: absolute;
   pointer-events: none;
   overflow: hidden;

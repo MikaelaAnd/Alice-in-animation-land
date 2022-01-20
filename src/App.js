@@ -26,7 +26,9 @@ export default function App() {
             <SingingFlowers />
           <LeavesTransition />
             <CheshireCat />
+          <BlackFade />
             <TeaParty />
+            <BlackFade />
             <TheEnd />
         </ErrorBoundary>
       </BrowserRouter>
