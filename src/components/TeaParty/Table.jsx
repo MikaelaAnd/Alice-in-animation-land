@@ -22,23 +22,10 @@ const Container = styled.div`
 const TableDiv = styled.div`
   background-color: #ca9088;
   width: 100%;
-  height: 17rem;
+  height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 2;
   padding-bottom: 2rem;
-  
-  @media (min-height: 1024px) {
-    height: 23rem;
-  }
-  @media (min-height: 1080px) {
-    height: 25rem;
-  }
-  @media (min-height: 1180px) {
-    height: 28rem;
-  }
-  @media (min-height: 1600px) {
-    height: 42rem;
-  }
 `;

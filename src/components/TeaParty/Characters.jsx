@@ -22,7 +22,7 @@ export function Characters() {
             <Smoke />
             <RightArm image={ArmImg} alt="Mad Hatters moving arm" />
           </HatterArmContainer>
-          <Character alt="Mad Hatter character" src={HatterImg}  />
+          <Character alt="Mad Hatter character" src={HatterImg} />
         </MadHatter>
       </CharacterContainer>
     </Wrapper>
@@ -39,6 +39,13 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
+const CharacterContainer = styled.div`
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  padding-bottom: 16rem;
+`;
+
 const Character = styled.img`
   max-width: 8rem;
   z-index: 1;
@@ -47,13 +54,6 @@ const Character = styled.img`
     width: 11rem;
   }
 `;
-
-const CharacterContainer = styled.div`
-  display: flex;
-  width: 50%;
-  justify-content: center;
-`;
-
 const Bunny = styled.div`
   display: flex;
   justify-content: center;
@@ -82,19 +82,19 @@ const MadHatter = styled.div`
 `;
 
 const HatterArmContainer = styled.div`
-display: flex;
-align-items: flex-start;
-flex-direction: column;
-margin-top: -2rem;
-margin-right: -1.6rem;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-top: -2rem;
+  margin-right: -1.6rem;
 
-@media (max-width: 768px) {
-  margin-top: -2.-2.rem;
-}
+  @media (max-width: 768px) {
+    margin-top: -2-2rem;
+  }
 
-@media (max-width: 820px) {
-  margin-top: -1.9rem;
-  margin-right: -1.8rem;
+  @media (max-width: 820px) {
+    margin-top: -1.9rem;
+    margin-right: -1.8rem;
   }
 `;
 
