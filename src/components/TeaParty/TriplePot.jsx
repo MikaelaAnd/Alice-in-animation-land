@@ -7,12 +7,12 @@ import { TeaDrops } from "./TeaDrops";
 import { Children } from 'react';
 
 export function TriplePotAndCups() {
-  const DATA = [1, 2, 3]
+  const amount = [1, 2, 3]
   return (
     <Container>
       <TeaPot alt="Pot with three pour canals" src={TriplePot} />
       <TeaDropContainer>
-        {Children.toArray(DATA.map(data => <TeaDrops key={data} />))}
+        {Children.toArray(amount.map(id => <TeaDrops key={id} />))}
       </TeaDropContainer>
       <CupContainer>
         <CupWrap>
