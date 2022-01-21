@@ -5,6 +5,7 @@ import circleImg from "./images/ellipse.png";
 import { Suspense, useCallback, useMemo, useRef } from "react";
 import { OrbitControls } from "@react-three/drei";
 import PlugImg from "./images/plug.png";
+import AliceBottle from "./AliceBottle";
 
 // extend({OrbitControls})
 
@@ -111,9 +112,12 @@ function CanvasOcean({
         camera={{ position: [100, 10, 0], fov: 100 }}
       >
         <OrbitControls />
+        <ambientLight intensity={0.5} />
+        <pointLight position={[40, 50, -40]} intensity={0.5} color={"white"} />
         <Suspense fallback={null}>
           <Points />
         </Suspense>
+        <AliceBottle />
       </Canvas>
       <Plug onClick={() => setOceanSinking()}>
         <img src={PlugImg} alt="Plug" height="100%" />
