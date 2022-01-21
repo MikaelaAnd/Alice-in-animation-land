@@ -1,60 +1,69 @@
-import styled from "styled-components";
-import { Bounce } from "./TeaAnimations";
+import styled, { keyframes } from "styled-components";
 import TriplePot from "./images/PouringPot.png";
 import BlueCup from "./images/BlueCup.png";
 import YellowCup from "./images/YellowCup.png";
 import PinkCup from "./images/PinkCup.png";
+import { TeaDrops } from "./TeaDrops";
 
 export function TriplePotAndCups() {
   return (
-    <>
-      <Bounce>
-        <Thing
-          src={TriplePot}
-          alt="Pot with three pour canals"
-          width={"11rem"}
-          height={"auto"}
-        />
-      </Bounce>
-      <PositionThing justify={"center"}>
-        <Thing
-          src={BlueCup}
-          alt={"Blue cup"}
-          width={"5rem"}
-          height={"auto"}
-          index={90}
-        />
-        <Thing
-          src={YellowCup}
-          alt={"Yellow cup"}
-          left={"-2rem"}
-          width={"5rem"}
-          height={"auto"}
-          index={80}
-        />
-        <Thing
-          src={PinkCup}
-          alt={"Pink cup"}
-          left={"-2rem"}
-          width={"5rem"}
-          height={"auto"}
-        />
-      </PositionThing>
-    </>
+    <Container>
+      <TeaPot alt="Pot with three pour canals" src={TriplePot} />
+      <TeaDropContainer>
+        {[...new Array(3)].map((index) => (
+          <TeaDrops key={index} />
+        ))}
+      </TeaDropContainer>
+      <CupContainer>
+        <CupWrap>
+          <Cup src={BlueCup} alt={"Blue cup"} />
+        </CupWrap>
+        <CupWrap>
+          <Cup src={YellowCup} alt={"Yellow cup"} />
+        </CupWrap>
+        <CupWrap>
+          <Cup src={PinkCup} alt={"Pink cup"} />
+        </CupWrap>
+      </CupContainer>
+    </Container>
   );
 }
 
-const Thing = styled.img`
-  height: ${(props) => props.height};
-  width: ${(props) => props.width};
-  z-index: ${(props) => props.index};
-  margin-left: ${(props) => props.left};
-  margin-right: ${(props) => props.right};
+export const bounce = keyframes`
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
 `;
 
-const PositionThing = styled.div`
+const Container = styled.div`
+  align-items: center;
   display: flex;
-  justify-content: ${(props) => props.justify};
-  flex-direction: row;
-  align-items: ${(props) => props.align};
+  flex: 1;
+  flex-direction: column;
+`;
+
+const TeaPot = styled.img`
+  animation: ${bounce} 2s linear infinite;
+  width: 100%;
+  z-index: 1;
+`;
+
+const TeaDropContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: 2rem;
+`;
+
+const CupContainer = styled.div`
+  display: flex;
+  width: 100%;
+`;
+
+const CupWrap = styled.div`
+  flex: 1;
+`;
+
+const Cup = styled.img`
+  width: 100%;
 `;

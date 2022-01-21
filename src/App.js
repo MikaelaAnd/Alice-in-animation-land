@@ -10,6 +10,7 @@ import LeavesTransition from "./components/Transitions/LeavesTransition";
 import TheEnd from "./components/TheEnd";
 import BlackFade from "./components/Transitions/BlackFade";
 import MultipleScenes from "./components/MultipleScenes/MultipleScenes";
+import { TeaParty } from "./components/TeaParty";
 
 export default function App() {
   return (
@@ -23,9 +24,11 @@ export default function App() {
           <BlackFade />
           <MultipleScenes />
           <LeavesTransition />
-          <CheshireCat />
-          <TeaParty />
-          <TheEnd />
+            <CheshireCat />
+          <BlackFade />
+            <TeaParty />
+            <BlackFade />
+            <TheEnd />
         </ErrorBoundary>
       </BrowserRouter>
     </>

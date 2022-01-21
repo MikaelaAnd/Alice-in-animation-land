@@ -2,8 +2,7 @@ import DrunkMouse from "./images/DrunkMouse.png";
 import TeaPotWithLid from "./images/TeaPotWithLid.png";
 import { useState } from "react";
 import TeaPotLidless from "./images/TeaPotLidLess.png";
-import styled from "styled-components";
-import { arise } from "./TeaAnimations";
+import styled, { keyframes } from "styled-components";
 
 export function TeaPotMouse() {
   const [isClicked, setIsClicked] = useState(false);
@@ -14,38 +13,50 @@ export function TeaPotMouse() {
   };
 
   return (
-    <>
+    <Container>
       {isClicked ? (
         <DrunkMouseContainer src={DrunkMouse} alt="Drunk Teapot Mouse" />
       ) : null}
-      <Thing
-        alt="Teacup"
-        height={"auto"}
-        hover
-        onClick={handleClick}
-        src={TeaPotWithLid}
-        width={"7rem"}
-        margin={"0 0 2rem 25rem"}
-      />
-    </>
+      <TeaPot alt="Teapot" onClick={handleClick} src={TeaPotWithLid} />
+    </Container>
   );
 }
 
-const DrunkMouseContainer = styled.img`
-  animation: ${arise} 5s linear 1;
+const Container = styled.div`
+  flex: 1;
   display: flex;
-  width: 3rem;
-  position: absolute;
-  z-index: 80;
-  left: 27rem;
-  bottom: -2rem;
-  top: 0.5rem;
+  justify-content: center;
 `;
 
-const Thing = styled.img`
-  height: ${(props) => props.height};
-  width: ${(props) => props.width};
+const ariseHigh = keyframes`
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-70px); }
+  100% { transform: translateY(0) }
+`;
+
+const ariseLow = keyframes`
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-45px); }
+  100% { transform: translateY(0) }
+`;
+
+const DrunkMouseContainer = styled.img`
+  animation: ${ariseLow} 5s linear 1;
+  display: flex;
+  width: 3%;
+  position: absolute;
+  z-index: 2;
+  margin-top: 1rem;
+
+  @media (max-width: 820px) {
+    animation: ${ariseHigh} 5s linear 1;
+    width: 10%;
+    margin-top: 1rem;
+  }
+`;
+
+const TeaPot = styled.img`
+  width: 100%;
   z-index: 80;
-  bottom: 0;
-  margin: ${(props) => props.margin};
+  cursor: pointer;
 `;

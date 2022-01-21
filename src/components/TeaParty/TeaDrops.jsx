@@ -1,46 +1,30 @@
 import styled, { keyframes } from "styled-components";
+import TeaDrop from "./images/Drop.png";
 
 export function TeaDrops() {
-  return (
-    <Rain>
-      <Drop />
-    </Rain>
-  );
+  return <Drop alt="Teadrop" src={TeaDrop} />;
 }
-
-const Rain = styled.div`
-  display: flex;
-  width: 2.5rem;
-  justify-content: space-around;
-  --duration: 0.5s;
-  --delay: 1s;
-  transform: translate() (10%, 10%) scale() (0.9);
-`;
 
 const fall = keyframes`
     0% {
-      transform: translateY(-70px);
+      transform: translateY(-50px);
     }
     45% {
       transform: translateY(0%);
-      opacity: 0;
-    }
-    46% {
-      opacity: 0%;
+      opacity: 50%;
+      filter: blur(1px)
+
     }
     100% {
-      opacity: 0;
+      opacity: 0%;
     }
   `;
 
-const Drop = styled.div`
-  background-color: #7f3402;
-  width: 4px;
-  height: 33px;
-  border-radius: 100%;
+const Drop = styled.img`
+  width: 5%;
   animation-name: ${fall};
-  animation-duration: var(--duration);
-  animation-delay: var(--delay);
+  animation-duration: 1s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in;
+  transform: translate() (10%, 10%) scale() (0.9);
 `;

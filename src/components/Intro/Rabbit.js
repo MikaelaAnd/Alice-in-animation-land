@@ -5,7 +5,7 @@ import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
 export default function Rabbit({ show }) {
-  const { nodes, materials } = useGLTF('../../rabbitModel.glb');
+  const { nodes, materials } = useGLTF('../../3D-models/rabbitModel.glb');
   const group = useRef();
   const rabbitRef = useRef();
   
@@ -36,4 +36,4 @@ export default function Rabbit({ show }) {
   )
 };
 
-useGLTF.preload('../../rabbitModel.glb');
+useGLTF.preload('../../3D-models/rabbitModel.glb');

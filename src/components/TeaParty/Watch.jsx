@@ -8,23 +8,22 @@ export function Watch() {
     e.target.setAttribute("alt", "Broken pocket watch");
   };
   return (
-    <Thing
-      alt="Pocket watch"
-      height={"auto"}
-      onClick={BreakClock}
-      width={"9rem"}
-      src={PocketWatch}
-      margin={"0 23rem 1rem 0"}
-    />
+    <Container>
+        <Item
+          alt="Pocket watch"
+          onClick={BreakClock}
+          src={PocketWatch}
+        />
+    </Container>
   );
 }
 
-const Thing = styled.img`
+const Container = styled.div`
+  flex: 1;
+`;
 
-  height: ${(props) => props.height};
-  width: ${(props) => props.width};
+const Item = styled.img`
+  width: 100%;
   z-index: 80;
-  bottom: 0;
-  margin: ${(props) => props.margin};
   cursor: pointer;
 `;

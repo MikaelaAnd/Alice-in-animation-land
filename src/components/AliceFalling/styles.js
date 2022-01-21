@@ -29,7 +29,7 @@ export function PulseComponent({ image, width, height }) {
 export const Container = styled.div`
   background-color: black;
   display: flex;
-  height: 330vh;
+  height: 170rem;
   justify-content: center;
   position: relative;
   width: 100%;
@@ -39,12 +39,11 @@ export const BackgroundImage = styled.div`
   background-image: url(${background});
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
   display: flex;
   justify-content: center;
-  height: 330vh;
+  height: 170rem;
   position: absolute;
-  width: 50vw;
+  width: 100%;
 `;
 
 export const AliceImg = styled.img`
@@ -53,21 +52,30 @@ export const AliceImg = styled.img`
   position: sticky;
   top: 20rem;
   z-index: 10;
-  /* Något som centrerar Alice */
   left: 45%;
-  /* transform: translate(-50%, 50%); */
+
+  @media (min-width: 1180px) {
+    left: 50%;
+  }
 `;
 
 export const FurnitureContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 85%;
+  width: 50%;
+  
+  @media (max-width: 768px) {
+    width: 70%;
+  }
+  @media (min-width: 1190px) {
+    width: 30%;
+  }
 `;
 
 export const FurnitureRow = styled.div`
   display: flex;
   flex-direction: row;
-  width: 85%;
+  width: 30%;
 `;
 
 export const Item = styled.img((props) => ({
@@ -78,5 +86,5 @@ export const Item = styled.img((props) => ({
 export const PositionItem = styled.div((props) => ({
   display: "flex",
   justifyContent: props.position,
-  width: "90%",
+  width: "80%",
 }));
