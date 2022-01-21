@@ -33,8 +33,8 @@ function MagicFood({ setOceanRising }) {
   return (
     <Room ref={MagicFoodRef}>
       {isVisible && (
-        <>
-          <div>
+        <AllContent>
+          <div style={{ marginLeft: "10%" }}>
             <Foods>
               <Drink
                 onClick={() => {
@@ -59,7 +59,7 @@ function MagicFood({ setOceanRising }) {
           <GrowingAlice>
             <img src={Alice} alt="" height={aliceMoving()} />
           </GrowingAlice>
-        </>
+        </AllContent>
       )}
     </Room>
   );
@@ -67,17 +67,22 @@ function MagicFood({ setOceanRising }) {
 export default MagicFood;
 
 const Room = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: end;
-  height: 100vh;
-
   background-image: url(${Background});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
 
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  height: 100vh;
+`;
+
+const AllContent = styled.div`
   position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 800px;
 `;
 
 const Foods = styled.div`
