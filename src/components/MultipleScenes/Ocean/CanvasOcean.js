@@ -132,7 +132,7 @@ const Container = styled.div`
 
 const Plug = styled.div`
   position: absolute;
-  height: 8rem;
+  height: 35%;
   z-index: 100;
   bottom: 0;
   right: 5%;
