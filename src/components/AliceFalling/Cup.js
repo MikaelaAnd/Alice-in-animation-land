@@ -1,34 +1,25 @@
-import { BounceComponent, PositionItem, PulseComponent } from "./styles";
-import darkRight from "./images/cupDarkRight.png";
-import darkLeft from "./images/cupDarkLeft.png";
-import lightLeft from "./images/cupLightLeft.png";
-import lightRight from "./images/cupLightRight.png";
+import { BounceComponent, PulseComponent } from "./Animations";
+import darkCup from "./images/cupDarkRight.png";
+import lightCup from "./images/cupLightLeft.png";
+import styled from "styled-components";
 
-export function CupDarkRight() {
+export function CupDark() {
     return(
-        <PositionItem position="flex-end">
-            <BounceComponent image={darkRight} alt="" width="3rem"/>
-        </PositionItem>
+        <Container>
+            <PulseComponent image={darkCup} width="3rem"/>
+        </Container>
     )
 }
-export function CupDarkLeft() {
+
+export function CupLight() {
     return(
-        <PositionItem>
-            <PulseComponent image={darkLeft} alt="" height="4rem" />
-        </PositionItem>
+        <Container>
+            <BounceComponent image={lightCup} height="2rem" />
+        </Container>
     )
 }
-export function CupLightRight() {
-    return(
-        <PositionItem position="flex-end">
-            <BounceComponent image={lightRight} alt="" width="5rem"/>
-        </PositionItem>
-    )
-}
-export function CupLightLeft() {
-    return(
-        <PositionItem>
-            <BounceComponent image={lightLeft} alt="" height="2rem" />
-        </PositionItem>
-    )
-}
+
+const Container = styled.div`
+    display: flex;
+    width: 80%;
+`;

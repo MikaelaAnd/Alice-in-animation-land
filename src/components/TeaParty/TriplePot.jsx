@@ -4,15 +4,15 @@ import BlueCup from "./images/BlueCup.png";
 import YellowCup from "./images/YellowCup.png";
 import PinkCup from "./images/PinkCup.png";
 import { TeaDrops } from "./TeaDrops";
+import { Children } from 'react';
 
 export function TriplePotAndCups() {
+  const amount = [1, 2, 3]
   return (
     <Container>
       <TeaPot alt="Pot with three pour canals" src={TriplePot} />
       <TeaDropContainer>
-        {[...new Array(3)].map((index) => (
-          <TeaDrops key={index} />
-        ))}
+        {Children.toArray(amount.map(id => <TeaDrops key={id} />))}
       </TeaDropContainer>
       <CupContainer>
         <CupWrap>
