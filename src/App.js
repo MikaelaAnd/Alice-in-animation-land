@@ -17,18 +17,15 @@ export default function App() {
       <BrowserRouter>
         <ErrorBoundary>
           <GlobalFonts />
-          <section>
-            <Intro />
-          </section>
+          <Intro />
           <BlackFade />
-          <section>
-            <AliceFalling />
-
+          <AliceFalling />
+          <BlackFade />
           <MultipleScenes />
-          </section>
-          <section>
-            <TheEnd />
-          </section>
+          <LeavesTransition />
+          <CheshireCat />
+          <TeaParty />
+          <TheEnd />
         </ErrorBoundary>
       </BrowserRouter>
     </>

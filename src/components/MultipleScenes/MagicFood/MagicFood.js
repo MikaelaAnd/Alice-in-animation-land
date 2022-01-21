@@ -7,7 +7,7 @@ import Alice from "./images/alice.png";
 import Cake from "./images/cake2.png";
 import useOnScreen from "../../../useOnScreen.jsx";
 
-function MagicFood({ setOceanRising }) {
+function MagicFood({ setOceanRising, setScrolling }) {
   const MagicFoodRef = useRef();
   const isVisible = useOnScreen(MagicFoodRef);
   const [totalHeight, setTotalHeight] = useState(550);
@@ -29,6 +29,10 @@ function MagicFood({ setOceanRising }) {
       setOceanRising();
     }
   };
+
+  if (isVisible) {
+    setTimeout(() => setScrolling(true), 5000);
+  }
 
   return (
     <Room ref={MagicFoodRef}>
@@ -146,8 +150,7 @@ const table = keyframes`
 `;
 
 const SpinningTable = styled.div`
-  animation-name: ${table};
-  animation-duration: 6s;
+  animation: ${table} 6s;
   width: 15rem;
 `;
 
