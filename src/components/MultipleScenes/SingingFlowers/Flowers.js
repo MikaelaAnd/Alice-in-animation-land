@@ -64,12 +64,9 @@ const FlowerContent = styled.div`
 const RoseDiv = styled.div`
   height: 100%;
 
-  :hover {
-    background: pink;
-  }
-
-  @media (max-width: 800px) {
+  @media (max-width: 850px) {
     margin-bottom: 30%;
+    margin-left: -50%;
   }
 `;
 
@@ -116,8 +113,8 @@ const JammingFlower = styled.img`
   bottom: ${(props) => props.bottom}%;
   left: ${(props) => props.left}%;
 
-  @media (max-width: 800px) {
+  @media (max-width: 850px) {
     bottom: ${(props) => props.bottom}%;
-    left: ${(props) => props.left + 15}%;
+    left: ${(props) => props.left + 12}%;
   }
 `;

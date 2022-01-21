@@ -44,7 +44,7 @@ const Root = styled.div`
   align-items: flex-end;
   cursor: url(${Net}) 40 40, auto;
 
-  @media (max-width: 800px) {
+  @media (max-width: 850px) {
     overflow: hidden;
   }
 `;
@@ -54,7 +54,7 @@ const BigBackgroundImage = styled.img`
   pointer-events: none;
   width: 100%;
 
-  @media (max-width: 800px) {
+  @media (max-width: 850px) {
     width: auto;
   }
 `;
