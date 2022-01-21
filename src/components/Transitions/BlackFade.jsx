@@ -15,6 +15,7 @@ export default function BlackFade() {
 
 const Root = styled.div`
   position: relative;
+  pointer-events: none;
   height: 100%;
   width: 100%;
 `;
