@@ -7,7 +7,7 @@ import Alice from "./images/alice.png";
 import Cake from "./images/cake2.png";
 import useOnScreen from "../../../useOnScreen.jsx";
 
-function MagicFood({ setOceanRising, setScrolling }) {
+function MagicFood({ setOceanRising }) {
   const MagicFoodRef = useRef();
   const isVisible = useOnScreen(MagicFoodRef);
   const [totalHeight, setTotalHeight] = useState(550);
@@ -29,10 +29,6 @@ function MagicFood({ setOceanRising, setScrolling }) {
       setOceanRising();
     }
   };
-
-  if (isVisible) {
-    setTimeout(() => setScrolling(true), 5000);
-  }
 
   return (
     <Room ref={MagicFoodRef}>

@@ -20,14 +20,14 @@ export default function App() {
           <Intro />
           <BlackFade />
           <AliceFalling />
-          <BlackFade />
+          {/* <BlackFade /> */}
           <MultipleScenes />
           <LeavesTransition />
-            <CheshireCat />
+          <CheshireCat />
           <BlackFade />
-            <TeaParty />
-            <BlackFade />
-            <TheEnd />
+          <TeaParty />
+          <BlackFade />
+          <TheEnd />
         </ErrorBoundary>
       </BrowserRouter>
     </>
