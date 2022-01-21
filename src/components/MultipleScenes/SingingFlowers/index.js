@@ -29,7 +29,7 @@ function SingingFlowers() {
         src={BigFLowers}
         alt="Big red flowers"
         height="100%"
-        style={{ zIndex: 1 }}
+        style={{ zIndex: 1, maxWidth: "2600px" }}
       />
       <Flowers />
     </Root>
@@ -42,6 +42,7 @@ const Root = styled.div`
   height: 100vh;
   display: flex;
   align-items: flex-end;
+  justify-content: center;
   cursor: url(${Net}) 40 40, auto;
 
   @media (max-width: 850px) {

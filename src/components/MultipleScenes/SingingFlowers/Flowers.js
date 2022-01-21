@@ -14,7 +14,12 @@ import Dogflower from "./images/dogflower.png";
 function Flowers() {
   return (
     <FlowerContent>
-      <img src={Alice} alt="Alice sitting on a leaf" height="70%" />
+      <img
+        src={Alice}
+        alt="Alice sitting on a leaf"
+        height="70%"
+        style={{ zIndex: 1 }}
+      />
       <Miniflowers>
         <JammingFlower
           src={Trumpet1}
