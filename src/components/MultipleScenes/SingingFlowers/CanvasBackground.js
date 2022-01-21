@@ -20,8 +20,8 @@ export default CanvasBackground;
 
 const CanvasContainer = styled.div`
   background: #154f19;
-  /* background: #808bed; */
   position: absolute;
   height: 100vh;
   width: 100%;
+  pointer-events: none;
 `;
