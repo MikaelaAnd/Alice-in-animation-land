@@ -1,17 +1,16 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
-import { useState } from "react";
-import Background from "./assets/background.jpeg";
-import GlasTable from "./assets/glasTable.png";
-import Bottle from "./assets/bottle.png";
-import Alice from "./assets/alice.png";
-import Cake from "./assets/cake2.png";
-import useOnScreen from "../../useOnScreen.jsx";
+import Background from "./images/background.jpeg";
+import GlasTable from "./images/glasTable.png";
+import Bottle from "./images/bottle.png";
+import Alice from "./images/alice.png";
+import Cake from "./images/cake2.png";
+import useOnScreen from "../../../useOnScreen.jsx";
 
-function MagicFood() {
-  const [totalHeight, setTotalHeight] = useState(550);
+function MagicFood({ setOceanRising, setScrolling }) {
   const MagicFoodRef = useRef();
   const isVisible = useOnScreen(MagicFoodRef);
+  const [totalHeight, setTotalHeight] = useState(550);
 
   const aliceMoving = (height) => {
     if (
@@ -25,6 +24,16 @@ function MagicFood() {
     return totalHeight;
   };
 
+  const fillScreenWithOcean = () => {
+    if (totalHeight === 50) {
+      setOceanRising();
+    }
+  };
+
+  if (isVisible) {
+    setTimeout(() => setScrolling(true), 5000);
+  }
+
   return (
     <Room ref={MagicFoodRef}>
       {isVisible && (
@@ -34,6 +43,7 @@ function MagicFood() {
               <Drink
                 onClick={() => {
                   aliceMoving(-100);
+                  fillScreenWithOcean();
                 }}
               >
                 <img src={Bottle} alt="Bottle that Alice drinks" width="100%" />
@@ -104,24 +114,26 @@ const display = keyframes`
 const Drink = styled.div`
   animation: ${display} 6s ease-in, ${pulse} 2s infinite;
   width: 3rem;
-  margin-bottom: -0.9rem;
+  margin-bottom: -1.2rem;
+  padding: 0.5rem;
 
   :hover {
-    background: rgba(255, 255, 255, 0.351);
     cursor: pointer;
-    box-shadow: 0px 0px 5px #fff;
+    background: radial-gradient(#9198e5, transparent);
+    border-radius: 50%;
   }
 `;
 
 const Cookie = styled.div`
   animation: ${display} 6s ease-in, ${pulse} 2s infinite;
   width: 3rem;
-  margin-bottom: -0.7rem;
+  margin-bottom: -1rem;
+  padding: 0.5rem;
 
   :hover {
-    background: rgba(255, 255, 255, 0.351);
     cursor: pointer;
-    box-shadow: 0px 0px 5px #fff;
+    background: radial-gradient(#9198e5, transparent);
+    border-radius: 50%;
   }
 `;
 
@@ -138,23 +150,11 @@ const table = keyframes`
 `;
 
 const SpinningTable = styled.div`
-  animation-name: ${table};
-  animation-duration: 6s;
+  animation: ${table} 6s;
   width: 15rem;
 `;
 
-// const GrowingAlice = styled.div((props) => ({
-//   height: props.height,
-//   position: "absolute",
-//   bottom: "1rem",
-//   right: "20%",
-//   transform: "translate(50%, 0%)",
-//   animationName: `${display}`,
-//   animationDuration: "5s",
-// }));
-
 const GrowingAlice = styled.div`
-  // height: props.height,
   position: absolute;
   bottom: 1rem;
   right: 20%;

@@ -2,15 +2,14 @@ import React from "react";
 import GlobalFonts from "./fonts/fonts";
 import Intro from "./components/Intro/Intro";
 import AliceFalling from "./components/AliceFalling";
-import MagicFood from "./components/MagicFood/MagicFood";
-import SingingFlowers from "./components/SingingFlowers/SingingFlowers";
+import { TeaParty } from "./components/TeaParty";
 import CheshireCat from "./components/CheshireCat";
 import ErrorBoundary from "./ErrorBoundary";
 import { BrowserRouter } from "react-router-dom";
 import LeavesTransition from "./components/Transitions/LeavesTransition";
 import TheEnd from "./components/TheEnd";
 import BlackFade from "./components/Transitions/BlackFade";
-import { TeaParty } from "./components/TeaParty";
+import MultipleScenes from "./components/MultipleScenes/MultipleScenes";
 
 export default function App() {
   return (
@@ -18,12 +17,11 @@ export default function App() {
       <BrowserRouter>
         <ErrorBoundary>
           <GlobalFonts />
-            <Intro />
+          <Intro />
           <BlackFade />
-            <AliceFalling />
+          <AliceFalling />
           <BlackFade />
-            <MagicFood />
-            <SingingFlowers />
+          <MultipleScenes />
           <LeavesTransition />
             <CheshireCat />
           <BlackFade />

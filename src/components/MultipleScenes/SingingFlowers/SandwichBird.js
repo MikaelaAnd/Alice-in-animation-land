@@ -62,7 +62,7 @@ let birds = [
   },
   {
     x1: 45,
-    x2: 90,
+    x2: 85,
     y1: 30,
     y2: 60,
     flip: flipStartingLeft,
@@ -71,7 +71,7 @@ let birds = [
     zIndex: 0,
   },
   {
-    x1: 90,
+    x1: 85,
     x2: 30,
     y1: 40,
     y2: 20,
@@ -88,7 +88,6 @@ function SandwichBird() {
   const captured = (index) => {
     setCaptured(!isCaptured);
     birds.splice(index, 1);
-    console.log(index, "dead", isCaptured);
   };
 
   return (
