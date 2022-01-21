@@ -1,41 +1,25 @@
-import { BounceComponent, PositionItem } from "./styles";
+import styled from "styled-components";
+import { BounceComponent } from "./Animations";
 import PaintingLeft from "./images/paintingLeft.png";
 import PaintingRight from "./images/paintingRight.png";
 
-export function LargePaintingLeft() {
-    return(
-        <>
-        <PositionItem>
-            <BounceComponent image={PaintingRight} height="15rem" />
-        </PositionItem>
-        </>
-    )
-}
-export function LargePaintingRight() {
-    return(
-        <>
-        <PositionItem position="flex-end">
-            <BounceComponent image={PaintingLeft} height="15rem" />
-        </PositionItem>
-        </>
-    )
+export function LargePainting() {
+  return (
+    <Container>
+      <BounceComponent image={PaintingLeft} height="15rem" />
+    </Container>
+  );
 }
 
-export function SmallPaintingLeft() {
-    return(
-        <>
-        <PositionItem>
-            <BounceComponent image={PaintingRight} height="5rem" />
-        </PositionItem>
-        </>
-    ) 
+export function SmallPainting() {
+  return (
+    <Container>
+      <BounceComponent image={PaintingRight} height="5rem" />
+    </Container>
+  );
 }
-export function SmallPaintingRight() {
-    return(
-        <>
-        <PositionItem position="flex-end">
-            <BounceComponent image={PaintingLeft} height="5rem" />
-        </PositionItem>
-        </>
-    ) 
-}
+
+const Container = styled.div`
+  display: flex;
+  width: 80%;
+`;

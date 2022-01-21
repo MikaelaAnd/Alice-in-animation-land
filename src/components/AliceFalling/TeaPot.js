@@ -1,34 +1,25 @@
-import { BounceComponent, PositionItem } from "./styles";
-import dark from "./images/teaPotDark.png";
-import light from "./images/teaPotLight.png";
+import styled from "styled-components";
+import { BounceComponent } from "./Animations";
+import darkTeaPot from "./images/teaPotDark.png";
+import lightTeaPot from "./images/teaPotLight.png";
 
-export function TeaPotDarkStart() {
+export function DarkTeaPot() {
   return (
-    <PositionItem position="flex-start">
-      <BounceComponent image={dark} alt="" width="5rem" />
-    </PositionItem>
-  );
-}
-
-export function TeaPotDarkEnd() {
-  return (
-    <PositionItem position="flex-end">
-      <BounceComponent image={dark} alt="" width="7rem" />
-    </PositionItem>
+    <Container>
+      <BounceComponent image={darkTeaPot} width="5rem" />
+    </Container>
   );
 }
 
-export function TeaPotLightStart() {
+export function LightTeaPot() {
   return (
-    <PositionItem position="flex-start">
-      <BounceComponent image={light} alt="" width="7rem" />
-    </PositionItem>
+    <Container>
+      <BounceComponent image={lightTeaPot} width="7rem" />
+    </Container>
   );
 }
-export function TeaPotLightEnd() {
-  return (
-    <PositionItem position="flex-end">
-      <BounceComponent image={light} alt="" width="7rem" />
-    </PositionItem>
-  );
-}
+
+const Container = styled.div`
+  display: flex;
+  width: 80%;
+`;

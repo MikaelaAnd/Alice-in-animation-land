@@ -1,48 +1,34 @@
 import greenLamp from "./images/greenLamp.png";
 import yellowLamp from "./images/yellowLamp.png";
 import flowerLamp from "./images/flowerLamp.png";
-import { BounceComponent, PositionItem, PulseComponent } from "./styles";
+import { BounceComponent, PulseComponent } from "./Animations";
+import styled from "styled-components";
 
-
-export function GreenLampLarge() {
+export function GreenLamp() {
   return (
-    <PositionItem>
-      <BounceComponent image={greenLamp} width="7rem" height="8rem" />
-    </PositionItem>
-  );
-}
-export function GreenLampSmall() {
-  return (
-    <PositionItem position="flex-end">
+    <Container>
       <PulseComponent image={greenLamp} width="4rem" height="5rem" />
-    </PositionItem>
+    </Container>
   );
 }
-export function FlowerLampLarge() {
+
+export function FlowerLamp() {
   return (
-    <PositionItem position="flex-end">
-      <PulseComponent image={flowerLamp} width="6rem" height="7rem" />
-    </PositionItem>
-  );
-}
-export function FlowerLampSmall() {
-  return (
-    <PositionItem>
+    <Container>
       <BounceComponent image={flowerLamp} width="4rem" height="5rem" />
-    </PositionItem>
+    </Container>
   );
 }
-export function YellowLampLarge() {
+
+export function YellowLamp() {
   return (
-    <PositionItem>
-      <BounceComponent image={yellowLamp} width="4rem" height="6rem" />
-    </PositionItem>
+    <Container>
+      <PulseComponent image={yellowLamp} width="3rem" height="4rem" />
+    </Container>
   );
 }
-export function YellowLampSmall() {
-  return (
-    <PositionItem position="flex-end">
-      <BounceComponent image={yellowLamp} width="3rem" height="4rem" />
-    </PositionItem>
-  );
-}
+
+const Container = styled.div`
+  display: flex;
+  width: 80%;
+`;

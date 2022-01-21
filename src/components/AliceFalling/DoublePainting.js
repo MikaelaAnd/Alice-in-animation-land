@@ -1,32 +1,25 @@
-import { BounceComponent, PositionItem, PulseComponent } from "./styles";
-import PaintingLeft from "./images/doublePaintingLeft.png";
-import PaintingRight from "./images/doublePaintingRight.png";
+import styled from "styled-components";
+import { BounceComponent, PulseComponent } from "./Animations";
+import largeDoublePainting from "./images/doublePaintingLeft.png";
+import smallDoublePainting from "./images/doublePaintingRight.png";
 
-export function LargeDoublePaintingLeft() {
+
+export function LargeDoublePainting() {
   return (
-    <PositionItem>
-      <BounceComponent image={PaintingLeft} alt="" width="13rem" />
-    </PositionItem>
+    <Container>
+      <BounceComponent image={largeDoublePainting} width="13rem" />
+    </Container>
   );
 }
-export function SmallDoublePaintingLeft() {
+export function SmallDoublePainting() {
   return (
-    <PositionItem>
-      <PulseComponent image={PaintingLeft} alt="" width="5rem" />
-    </PositionItem>
+    <Container>
+      <PulseComponent image={smallDoublePainting} width="5rem" />
+    </Container>
   );
 }
-export function LargeDoublePaintingRight() {
-  return (
-    <PositionItem position="flex-end">
-      <BounceComponent image={PaintingRight} alt="" width="13rem" />
-    </PositionItem>
-  );
-}
-export function SmallDoublePaintingRight() {
-  return (
-    <PositionItem position="flex-end">
-      <BounceComponent image={PaintingRight} alt="" width="5rem" />
-    </PositionItem>
-  );
-}
+
+const Container = styled.div`
+    display: flex;
+    width: 80%;
+`;

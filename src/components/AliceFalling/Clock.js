@@ -1,32 +1,24 @@
-import { BounceComponent, PositionItem } from "./styles";
+import styled from "styled-components";
+import { BounceComponent } from "./Animations";
 import clock from "./images/clock.png";
 
-export function LargeClockLeft() {
+export function LargeClock() {
     return(
-        <PositionItem>
-            <BounceComponent image={clock} alt="" />
-        </PositionItem>
+        <Container>
+            <BounceComponent image={clock} />
+        </Container>
     );
 }
 
-export function SmallClockLeft() {
+export function SmallClock() {
     return(
-        <PositionItem>
-            <BounceComponent image={clock} alt="" height="10rem" />
-        </PositionItem>
+        <Container>
+            <BounceComponent image={clock} height="10rem" />
+        </Container>
     );
 }
-export function LargeClockRight() {
-    return(
-        <PositionItem position="flex-end">
-            <BounceComponent image={clock} alt="" />
-        </PositionItem>
-    );
-}
-export function SmallClockRight() {
-    return(
-        <PositionItem position="flex-end">
-            <BounceComponent image={clock} alt="" height="10rem" />
-        </PositionItem>
-    );
-}
+
+const Container = styled.div`
+    display: flex;
+    width: 80%;
+`;
