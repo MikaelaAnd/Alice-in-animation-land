@@ -12,7 +12,7 @@ export default function GardenPlatform() {
               <OrbitControls />
               <Sky />
               <ambientLight intensity={1}/>
-              <pointLight position={[0, 50, 0]} intensity={1} color={"white"}></pointLight>
+              <pointLight position={[0, 50, 0]} intensity={1} color={"white"} />
               <Grass />
               <Models3D />
           </Canvas>
