@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import AliceScene from "./AliceScene";
 import DoorScene from "./DoorScene";
 import Teleportation from "./TeleportationScene";
 
-export default function TheEnd({ removeFade }) {
+export default function TheEnd({ removeFade, restart, fadeOut }) {
   const [zoom, setZoom] = useState(false);
   const [showDoor, setShowDoor] = useState(true);
   const [startTeleportation, setStartTeleportation] = useState(false);
@@ -26,13 +26,14 @@ export default function TheEnd({ removeFade }) {
 
   return (
     <Root>
+      {fadeOut && <FadeOut />}
       <DoorScene 
         showDoor={showDoor}
         zoom={zoom}
         setZoom={() => setZoom(true)}
       />
       <Teleportation startTeleportation={startTeleportation}  />
-      <AliceScene showAlice={showAlice} />
+      <AliceScene showAlice={showAlice} restart={restart} />
     </Root>
   );
 }
@@ -42,4 +43,18 @@ const Root = styled.div`
   height: 100vh;
   width: 100%;
   overflow: hidden;
+`;
+
+const fade = keyframes`
+  0% { opacity: 0;  }
+  100% { opacity: 1;  }
+`;
+
+const FadeOut = styled.div`
+  position: absolute;
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  background: black;
+  animation: ${fade} 2s linear forwards;
 `;

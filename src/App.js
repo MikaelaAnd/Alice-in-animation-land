@@ -13,6 +13,17 @@ import BlackFade from "./components/Transitions/BlackFade";
 
 export default function App() {
   const [showFade, setShowFade] = useState(true);
+  const [restart, setRestart] = useState(false);
+
+  if (restart) {
+    setTimeout(() => {
+      window.location.pathname = "/";
+      // For Safari
+      document.body.scrollTop = 0;
+      // For Chrome, Firefox, IE, and Opera
+      document.documentElement.scrollTop = 0;
+    }, 3000);
+  };
 
   return (
     <>
@@ -29,7 +40,11 @@ export default function App() {
           <BlackFade />
           <TeaParty />
           {showFade && <BlackFade />}
-          <TheEnd removeFade={() => setShowFade(false)} />
+          <TheEnd 
+            removeFade={() => setShowFade(false)} 
+            restart={() => setRestart(true)} 
+            fadeOut={restart}
+          />
         </ErrorBoundary>
       </BrowserRouter>
     </>
