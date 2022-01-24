@@ -5,12 +5,15 @@ import GlasTable from "./images/glasTable.png";
 import Bottle from "./images/bottle.png";
 import Alice from "./images/alice.png";
 import Cake from "./images/cake2.png";
+import ChatBubble from "./images/chat-bubble.png";
 import useOnScreen from "../../../useOnScreen.jsx";
 
 function MagicFood({ setOceanRising }) {
   const MagicFoodRef = useRef();
   const isVisible = useOnScreen(MagicFoodRef);
   const [totalHeight, setTotalHeight] = useState(550);
+  const [visibleChatBubble, setVisibleChatBubble] = useState(false);
+  const [bubblePosition, setBubblePosition] = useState(-40);
 
   const aliceMoving = (height) => {
     if (
@@ -30,6 +33,10 @@ function MagicFood({ setOceanRising }) {
     }
   };
 
+  if (isVisible) {
+    setTimeout(() => setVisibleChatBubble(true), 10000);
+  }
+
   return (
     <Room ref={MagicFoodRef}>
       {isVisible && (
@@ -40,6 +47,7 @@ function MagicFood({ setOceanRising }) {
                 onClick={() => {
                   aliceMoving(-100);
                   fillScreenWithOcean();
+                  setBubblePosition(bubblePosition + 20);
                 }}
               >
                 <img src={Bottle} alt="Bottle that Alice drinks" width="100%" />
@@ -47,6 +55,7 @@ function MagicFood({ setOceanRising }) {
               <Cookie
                 onClick={() => {
                   aliceMoving(+100);
+                  setBubblePosition(bubblePosition - 20);
                 }}
               >
                 <img src={Cake} alt="Cookie that Alice eats" width="100%" />
@@ -57,8 +66,11 @@ function MagicFood({ setOceanRising }) {
             </SpinningTable>
           </div>
           <GrowingAlice>
-            <img src={Alice} alt="" height={aliceMoving()} />
+            <img src={Alice} alt="Alice standing" height={aliceMoving()} />
           </GrowingAlice>
+          <Chat show={visibleChatBubble} top={bubblePosition}>
+            <img src={ChatBubble} alt="ChatBubble" height="100%" />
+          </Chat>
         </AllContent>
       )}
     </Room>
@@ -161,4 +173,12 @@ const GrowingAlice = styled.div`
   right: 20%;
   transform: translate(50%, 0%);
   animation: ${display} 6s;
+`;
+
+const Chat = styled.div`
+  position: absolute;
+  height: 3rem;
+  right: 25%;
+  top: ${(props) => props.top}%;
+  display: ${(props) => (props.show ? "block" : "none")};
 `;
