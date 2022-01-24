@@ -33,7 +33,7 @@ const Container = styled.div`
   user-drag: none;
   user-select: none;
   transform: scale(1);
-  top: 40%;
+  top: 20%;
   animation: ${(props) =>
     props.zoom &&
     css`
