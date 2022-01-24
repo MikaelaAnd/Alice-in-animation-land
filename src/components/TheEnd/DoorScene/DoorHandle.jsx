@@ -42,7 +42,7 @@ const Container = styled.div`
 `;
 
 const Face = styled.img`
-  height: 18rem;
+  width: 16rem;
   margin-top: -2rem;
   user-select: none;
   user-drag: none;
