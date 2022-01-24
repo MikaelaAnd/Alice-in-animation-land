@@ -14,6 +14,7 @@ import BlackFade from "./components/Transitions/BlackFade";
 export default function App() {
   const [showFade, setShowFade] = useState(true);
   const [restart, setRestart] = useState(false);
+  const [isOceanSinking, setOceanSinking] = useState(false);
 
   if (restart) {
     setTimeout(() => {
@@ -25,6 +26,7 @@ export default function App() {
     }, 3000);
   };
 
+
   return (
     <>
       <BrowserRouter>
@@ -34,17 +36,24 @@ export default function App() {
           <BlackFade />
           <AliceFalling />
           <BlackFade />
-          <MultipleScenes />
-          <LeavesTransition />
-          <CheshireCat />
-          <BlackFade />
-          <TeaParty />
-          {showFade && <BlackFade />}
-          <TheEnd 
-            removeFade={() => setShowFade(false)} 
-            restart={() => setRestart(true)} 
-            fadeOut={restart}
+          <MultipleScenes
+            isOceanSinking={isOceanSinking}
+            setOceanSinking={setOceanSinking}
           />
+          {isOceanSinking && (
+            <>
+              <LeavesTransition />
+              <CheshireCat />
+              <BlackFade />
+              <TeaParty />
+              {showFade && <BlackFade />}
+              <TheEnd 
+                removeFade={() => setShowFade(false)} 
+                restart={() => setRestart(true)} 
+                fadeOut={restart}
+              />
+            </>
+          )}
         </ErrorBoundary>
       </BrowserRouter>
     </>

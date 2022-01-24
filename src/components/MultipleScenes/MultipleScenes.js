@@ -5,10 +5,9 @@ import MagicFood from "./MagicFood/MagicFood";
 import CanvasOcean from "./Ocean/CanvasOcean";
 import TransitionOcean from "./Ocean/TransitionOcean";
 
-function MultipleScenes() {
-  const [isOceanRising, setOceanRising] = useState(false);
+function MultipleScenes({ isOceanSinking, setOceanSinking }) {
   const [isWaterContentSwitched, setWaterContentSwiched] = useState(false);
-  const [isOceanSinking, setOceanSinking] = useState(false);
+  const [isOceanRising, setOceanRising] = useState(false);
 
   if (isOceanRising) {
     setTimeout(() => setWaterContentSwiched(true), 4000);
