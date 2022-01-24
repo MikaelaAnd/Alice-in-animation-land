@@ -14,7 +14,7 @@ export default function Grass() {
   return (
     <mesh position={[0, -14.2, 0]}>
       <cylinderGeometry args={[40, 40, 25, 40]} />
-      <meshLambertMaterial color={"#19804E"} />
+      <meshLambertMaterial color={"#1B512A"} />
     </mesh>
   );
 }

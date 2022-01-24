@@ -1,12 +1,12 @@
 import React from "react";
-import AliceModel from "./AliceModel";
+import AliceTree from "./AliceTree";
 import CardAce from "./CardAce";
 import Cards from "./Cards";
 
 export default function Models3D() {
   return (
     <>
-      <AliceModel />
+      <AliceTree />
       <CardAce />
       <Cards />
     </>
