@@ -9,7 +9,7 @@ import {
   FurnitureRowSecond,
   FurnitureRowThird,
 } from "./FurnitureRow";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export default function AliceFalling() {
   const amount = [1, 2, 3];
@@ -36,6 +36,11 @@ export default function AliceFalling() {
     </Container>
   );
 }
+
+export const wiggle = keyframes`
+  0%, 100% { transform: rotate(10deg); }
+  50% { transform: rotate(-10deg); }
+`;
 
 const Container = styled.div`
   background-color: black;
@@ -64,6 +69,7 @@ const AliceImg = styled.img`
   top: 20rem;
   z-index: 10;
   left: 45%;
+  animation: ${wiggle} 1.5s linear infinite;
 
   @media (min-width: 1180px) {
     left: 50%;
@@ -72,13 +78,16 @@ const AliceImg = styled.img`
 const FurnitureContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
   align-items: center;
 
-  @media (max-width: 768px) {
+  @media (min-width: 768px) {
     width: 70%;
   }
-  @media (min-width: 1190px) {
-    width: 30%;
+  @media (max-width: 1190px) {
+    max-width: 45%;
+  }
+  @media (min-width: 1440px) {
+    width: 40%;
   }
 `;
