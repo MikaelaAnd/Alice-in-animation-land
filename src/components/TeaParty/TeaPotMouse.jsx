@@ -26,6 +26,11 @@ const Container = styled.div`
   flex: 1;
   display: flex;
   justify-content: center;
+  :hover {
+    cursor: pointer;
+    background: radial-gradient(white, transparent);
+    border-radius: 50%;
+  }
 `;
 
 const ariseHigh = keyframes`

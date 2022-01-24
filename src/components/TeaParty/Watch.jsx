@@ -20,6 +20,11 @@ export function Watch() {
 
 const Container = styled.div`
   flex: 1;
+  :hover {
+    cursor: pointer;
+    background: radial-gradient(white, transparent);
+    border-radius: 50%;
+  }
 `;
 
 const Item = styled.img`
