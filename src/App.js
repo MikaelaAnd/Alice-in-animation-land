@@ -13,6 +13,7 @@ import BlackFade from "./components/Transitions/BlackFade";
 
 export default function App() {
   const [showFade, setShowFade] = useState(true);
+  const [isOceanSinking, setOceanSinking] = useState(false);
 
   return (
     <>
@@ -23,13 +24,20 @@ export default function App() {
           <BlackFade />
           <AliceFalling />
           <BlackFade />
-          <MultipleScenes />
-          <LeavesTransition />
-          <CheshireCat />
-          <BlackFade />
-          <TeaParty />
-          {showFade && <BlackFade />}
-          <TheEnd removeFade={() => setShowFade(false)} />
+          <MultipleScenes
+            isOceanSinking={isOceanSinking}
+            setOceanSinking={setOceanSinking}
+          />
+          {isOceanSinking && (
+            <>
+              <LeavesTransition />
+              <CheshireCat />
+              <BlackFade />
+              <TeaParty />
+              {showFade && <BlackFade />}
+              <TheEnd removeFade={() => setShowFade(false)} />
+            </>
+          )}
         </ErrorBoundary>
       </BrowserRouter>
     </>
