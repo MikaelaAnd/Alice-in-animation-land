@@ -2,13 +2,13 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import GardenPlatform from "./GardenPlatform";
 
-export default function AliceScene({ showAlice }) {
+export default function AliceScene({ showAlice, restart }) {
   if (!showAlice) return null;
 
   return (
     <Container>
       <Circle>
-          <GardenPlatform />
+          <GardenPlatform restart={restart} />
       </Circle>
     </Container>
   );

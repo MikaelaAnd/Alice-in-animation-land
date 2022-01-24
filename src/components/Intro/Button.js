@@ -3,10 +3,9 @@ import styled, { css, keyframes } from "styled-components";
 
 export default function Button({ hideButton, onClick}) {
     const [showButton, setShowButton] = useState(false);
-
-    setTimeout(() => setShowButton(true), 8000);
-
+    
     if (hideButton) { return null };
+    setTimeout(() => setShowButton(true), 8000);
 
     return (
         <TextButton show={showButton} onClick={onClick}>
@@ -20,7 +19,7 @@ const opacity = keyframes`
   to { opacity: 1; }
 `;
 
-const colorAndSize = keyframes`
+const colorAndPosition = keyframes`
   0% { color: #00A1FF;  bottom: 10%; } 
   40% { color: #00DCB9; bottom: 10%; } 
   45% { color: #00FF8F; bottom: 10.5%; } 
@@ -48,6 +47,6 @@ const TextButton = styled.button`
     `}, ${(props) =>
     props.show &&
     css`
-      ${colorAndSize} 2s linear infinite
+      ${colorAndPosition} 2s linear infinite
     `};
 `;
