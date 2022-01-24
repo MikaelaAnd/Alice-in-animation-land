@@ -22,9 +22,11 @@ const Button = styled.button`
   left: 50%;
   transform: translate(-40%, 50%);
   background: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-family: TitleFont;
+  opacity: 0;
   border: none;
   cursor: pointer;
-  animation: ${opacity} 3s ease-in, ${color} 3s linear infinite;
+  animation: ${opacity} 3s ease-in forwards, ${color} 3s linear infinite;
+  animation-delay: 6s;
 `;
