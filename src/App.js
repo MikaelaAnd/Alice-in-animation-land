@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import ErrorBoundary from "./ErrorBoundary";
 import GlobalFonts from "./fonts/fonts";
@@ -12,6 +12,8 @@ import TheEnd from "./components/TheEnd";
 import BlackFade from "./components/Transitions/BlackFade";
 
 export default function App() {
+  const [showFade, setShowFade] = useState(true);
+
   return (
     <>
       <BrowserRouter>
@@ -26,8 +28,8 @@ export default function App() {
           <CheshireCat />
           <BlackFade />
           <TeaParty />
-          <BlackFade />
-          <TheEnd />
+          {showFade && <BlackFade />}
+          <TheEnd removeFade={() => setShowFade(false)} />
         </ErrorBoundary>
       </BrowserRouter>
     </>
