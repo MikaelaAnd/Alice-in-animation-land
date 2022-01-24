@@ -4,7 +4,7 @@ import AliceScene from "./AliceScene";
 import DoorScene from "./DoorScene";
 import Teleportation from "./TeleportationScene";
 
-export default function TheEnd() {
+export default function TheEnd({ removeFade }) {
   const [zoom, setZoom] = useState(false);
   const [showDoor, setShowDoor] = useState(true);
   const [startTeleportation, setStartTeleportation] = useState(false);
@@ -15,6 +15,7 @@ export default function TheEnd() {
     setTimeout(() => setZoom(false), 2000);
     setTimeout(() => setShowDoor(false), 2000);
     setTimeout(() => setStartTeleportation(true), 2000);
+    setTimeout(() => removeFade(), 2000);
   };
 
   // Shows Alice after teleportation
