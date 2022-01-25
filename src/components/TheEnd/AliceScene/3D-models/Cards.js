@@ -9,8 +9,8 @@ export default function Cards({ ...props }) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group
-        position={[23, -1, -25]}
-        rotation={[0, 3, 0]}
+        position={[8, -1, -22]}
+        rotation={[0, 3.7, 0]}
         scale={[0.1, 0.07, 0.1]}
       >
         <mesh
