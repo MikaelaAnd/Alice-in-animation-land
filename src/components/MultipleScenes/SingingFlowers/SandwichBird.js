@@ -4,6 +4,21 @@ import Sandwish1 from "./images/sandwich1.png";
 import Sandwish2 from "./images/sandwich2.png";
 import Sandwish3 from "./images/sandwich3.png";
 
+const float = keyframes`
+  0% {bottom: 55%; opacity: 0}
+  100% {bottom: 50%; opacity: 1}
+`;
+
+const ScrollDownText = styled.div`
+  display: ${(props) => (props.show ? "block" : "none")};
+  position: absolute;
+  z-index: 50;
+  font-family: "TitleFont";
+  font-size: x-large;
+  color: orange;
+  animation: ${float} 3s infinite;
+`;
+
 const flying = (p) => keyframes`
   0%, 100% {
     left: ${p.x1}% ; 
@@ -84,10 +99,17 @@ let birds = [
 
 function SandwichBird() {
   const [isCaptured, setCaptured] = useState(false);
+  const [isArrow, setIsArrow] = useState(false);
 
   const captured = (index) => {
     setCaptured(!isCaptured);
     birds.splice(index, 1);
+
+    if (!birds.length) {
+      setIsArrow(true);
+      console.log(isArrow);
+      return isArrow;
+    }
   };
 
   return (
@@ -108,6 +130,7 @@ function SandwichBird() {
           zIndex={bird.zIndex}
         />
       ))}
+      <ScrollDownText show={isArrow}>Scroll down</ScrollDownText>
     </>
   );
 }
