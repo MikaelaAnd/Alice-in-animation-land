@@ -16,20 +16,29 @@ function MagicFood({ setOceanRising }) {
   const [bubblePosition, setBubblePosition] = useState(-40);
 
   const aliceMoving = (height) => {
+    const minHeight = 100;
+    const maxHeight = 1000;
+
     if (
-      (height && totalHeight > 50 && totalHeight < 950) ||
-      (totalHeight === 950 && height < 0) ||
-      (totalHeight === 50 && height > 0)
+      (height && totalHeight > minHeight && totalHeight < maxHeight) ||
+      (totalHeight === maxHeight && height < 0) ||
+      (totalHeight === minHeight && height > 0)
     ) {
       setTotalHeight(totalHeight + height);
       return totalHeight;
+    } else if (totalHeight === minHeight) {
+      setOceanRising();
     }
     return totalHeight;
   };
 
-  const fillScreenWithOcean = () => {
-    if (totalHeight === 50) {
-      setOceanRising();
+  const handleBubblePosition = () => {
+    const maxHeight = -139;
+
+    if (bubblePosition === maxHeight) {
+      setBubblePosition(maxHeight);
+    } else {
+      setBubblePosition(bubblePosition - 33);
     }
   };
 
@@ -45,17 +54,16 @@ function MagicFood({ setOceanRising }) {
             <Foods>
               <Drink
                 onClick={() => {
-                  aliceMoving(-100);
-                  fillScreenWithOcean();
-                  setBubblePosition(bubblePosition + 20);
+                  aliceMoving(-150);
+                  setBubblePosition(bubblePosition + 33);
                 }}
               >
                 <img src={Bottle} alt="Bottle that Alice drinks" width="100%" />
               </Drink>
               <Cookie
                 onClick={() => {
-                  aliceMoving(+100);
-                  setBubblePosition(bubblePosition - 20);
+                  aliceMoving(+150);
+                  handleBubblePosition();
                 }}
               >
                 <img src={Cake} alt="Cookie that Alice eats" width="100%" />
@@ -68,7 +76,11 @@ function MagicFood({ setOceanRising }) {
           <GrowingAlice>
             <img src={Alice} alt="Alice standing" height={aliceMoving()} />
           </GrowingAlice>
-          <Chat show={visibleChatBubble} top={bubblePosition}>
+          <Chat
+            show={visibleChatBubble}
+            // style={{ top: `${handleBubblePosition()}` }}
+            top={bubblePosition}
+          >
             <img src={ChatBubble} alt="ChatBubble" height="100%" />
           </Chat>
         </AllContent>
@@ -178,7 +190,7 @@ const GrowingAlice = styled.div`
 const Chat = styled.div`
   position: absolute;
   height: 3rem;
-  right: 25%;
+  right: 30%;
   top: ${(props) => props.top}%;
   display: ${(props) => (props.show ? "block" : "none")};
 `;
