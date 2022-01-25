@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Door from "./Door";
 import DoorHandle from "./DoorHandle";
+import Text from "./Text";
 
 export default function DoorScene({ showDoor, zoom, setZoom }) {
   if (!showDoor) return null;
@@ -9,6 +10,7 @@ export default function DoorScene({ showDoor, zoom, setZoom }) {
   return (
     <DoorContainer>
       <Door />
+      <Text />
       <DoorHandle zoom={zoom} setZoom={setZoom} />
     </DoorContainer>
   );

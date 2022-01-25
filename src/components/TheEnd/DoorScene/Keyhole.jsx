@@ -175,7 +175,7 @@ const showText = (props) => keyframes`
 const Text = styled.p`
   position: absolute;
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1rem;
   font-family: TitleFont; 
   color: white;  
   cursor: pointer;
