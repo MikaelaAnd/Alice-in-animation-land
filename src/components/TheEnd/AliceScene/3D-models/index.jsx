@@ -4,6 +4,7 @@ import CardAce from "./CardAce";
 import Cards from "./Cards";
 import Flowers3 from "./Flowers3";
 import Flowers9 from "./Flowers9";
+import Zzz from "./Zzz";
 
 export default function Models3D() {
   const renderFlowers = () => {
@@ -15,7 +16,7 @@ export default function Models3D() {
         <Flowers3 position={[25, -1.6, -15]} rotation={3} />
         <Flowers9 position={[5, -1.6, 10]} rotation={4.3} />
         <Flowers9 position={[-25, -1.6, 10]} rotation={2} />
-        <Flowers9 position={[-10, -1.6, -30]} rotation={4.3} />
+        <Flowers9 position={[-20, -1.6, -25]} rotation={4.3} />
         <Flowers9 position={[12, -1.6, -25]} rotation={-2} />
       </>
     );
@@ -26,6 +27,7 @@ export default function Models3D() {
       <AliceTree />
       <CardAce />
       <Cards />
+      <Zzz />
       {renderFlowers()}
     </>
   );
