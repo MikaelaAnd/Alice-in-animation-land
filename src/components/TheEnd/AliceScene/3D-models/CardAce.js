@@ -9,8 +9,8 @@ export default function CardAce({ ...props }) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group
-        position={[15, 0.4, -15]}
-        rotation={[1, 0, 1]}
+        position={[15, 0.7, -28]}
+        rotation={[0.9, 0.1, 0.9]}
         scale={[2.28, 0.03, 2.87]}
       >
         <mesh geometry={nodes.Cube_1.geometry} material={materials.White} />
