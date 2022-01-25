@@ -33,7 +33,7 @@ const Container = styled.div`
   user-drag: none;
   user-select: none;
   transform: scale(1);
-  top: 40%;
+  top: 20%;
   animation: ${(props) =>
     props.zoom &&
     css`
@@ -42,7 +42,7 @@ const Container = styled.div`
 `;
 
 const Face = styled.img`
-  height: 18rem;
+  width: 16rem;
   margin-top: -2rem;
   user-select: none;
   user-drag: none;

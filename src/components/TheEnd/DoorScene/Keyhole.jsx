@@ -70,13 +70,14 @@ const shrinkChin = keyframes`
 
 const Chin = styled.div`
   position: absolute;
-  top: 16rem;
+  top: 13rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   height: calc(5rem + ${(props) => props.y + "rem"});
   border-radius: 0 0 0.5rem 0.5rem;
+  padding-top: 1rem;
   background: #ffa325;
   animation: ${(props) =>
     !props.mouseDown && !props.open && 
