@@ -19,21 +19,20 @@ function Points() {
   const imgTex = useLoader(THREE.TextureLoader, circleImg);
   const bufferRef = useRef();
 
-  let t = 0;
+  let speed = 0;
   let f = 0.002;
   let a = 5;
-  //   let a = 3;
   const graph = useCallback(
     (x, z) => {
-      return Math.sin(f * (x ** 2 + z ** 2 + t)) * a;
+      return Math.sin(f * (x ** 2 + z ** 2 + speed)) * a;
     },
-    [t, f, a]
+    [speed, f, a]
   );
 
-  const count = 500;
-  const sep = 0.5;
-  //   const count = 100;
-  //   const sep = 3;
+  // const count = 500;
+  const sep = 1.5;
+  const count = 100;
+  // const sep = 3;
   let positions = useMemo(() => {
     let positions = [];
 
@@ -50,7 +49,7 @@ function Points() {
   }, [count, sep, graph]);
 
   useFrame(() => {
-    t += 40;
+    speed += 40;
     // t += 15;
     const positions = bufferRef.current.array;
 
@@ -83,7 +82,7 @@ function Points() {
         attach="material"
         map={imgTex}
         color={0x00aaff}
-        size={0.5}
+        size={3}
         sizeAttenuation
         transparent={false}
         alphaTest={0.5}
@@ -128,7 +127,8 @@ function CanvasOcean({
 export default CanvasOcean;
 
 const Container = styled.div`
-  background: #060938;
+  /* background: #060938; */
+  background: #536eff;
   width: 100%;
   height: 100vh;
   scroll-snap-align: start;
