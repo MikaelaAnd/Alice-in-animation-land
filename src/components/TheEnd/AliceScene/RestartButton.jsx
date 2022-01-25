@@ -18,9 +18,9 @@ const opacity = keyframes`
 
 const Button = styled.button`
   position: absolute;
-  bottom: 10%;
+  bottom: 15%;
   left: 50%;
-  transform: translate(-40%, 50%);
+  transform: translate(-50%, 50%);
   background: none;
   font-size: 2rem;
   font-family: TitleFont;
