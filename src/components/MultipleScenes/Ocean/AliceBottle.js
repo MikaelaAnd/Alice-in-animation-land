@@ -2,15 +2,22 @@
 
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 
 export default function AliceBottle({ ...props }) {
   const group = useRef();
   const { nodes, materials } = useGLTF(
     "../../../../../3D-models/aliceBottle.glb"
   );
+
+  useFrame(state => {
+    const time = state.clock.getElapsedTime();
+    group.current.position.y = group.current.position.y + Math.sin(time*2)/30;
+  })
+
   return (
     <group ref={group} {...props} dispose={null}>
-      <group position={[0, 10, 0]} rotation={[0, 2.5, 0]} scale={[4, 4.19, 4]}>
+      <group position={[0, 5, 0]} rotation={[0, 2.5, 0]} scale={[4, 4.19, 4]}>
         <mesh
           geometry={nodes.Cylinder003.geometry}
           material={materials.Material}
