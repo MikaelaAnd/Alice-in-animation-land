@@ -42,10 +42,34 @@ function Flowers() {
           bottom={15}
           left={40}
         />
-        <JammingFlower src={Flower1} alt="" height="30%" bottom={7} left={30} />
-        <JammingFlower src={Flower2} alt="" height="30%" bottom={7} left={35} />
-        <JammingFlower src={Flower3} alt="" height="30%" bottom={7} left={43} />
-        <JammingFlower src={Flower4} alt="" height="30%" bottom={7} left={48} />
+        <JammingFlower
+          src={Flower1}
+          alt="Small yellow flower"
+          height="30%"
+          bottom={7}
+          left={30}
+        />
+        <JammingFlower
+          src={Flower2}
+          alt="Small purple flower"
+          height="30%"
+          bottom={7}
+          left={35}
+        />
+        <JammingFlower
+          src={Flower3}
+          alt="Small blue flower"
+          height="30%"
+          bottom={7}
+          left={43}
+        />
+        <JammingFlower
+          src={Flower4}
+          alt="Small pink flower"
+          height="30%"
+          bottom={7}
+          left={48}
+        />
       </Miniflowers>
       <RoseDiv>
         <img src={Rose} alt="A big rose singing" height="100%" />

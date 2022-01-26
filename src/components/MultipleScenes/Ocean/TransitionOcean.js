@@ -34,7 +34,7 @@ function TransitionOcean({
         sink={isOceanSinking}
       />
       <Waves
-        opacity={0.5}
+        opacity={0.6}
         leftStart={1}
         leftMiddle={10}
         rise={isOceanRising}

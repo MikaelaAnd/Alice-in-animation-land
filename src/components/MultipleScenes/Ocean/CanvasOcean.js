@@ -21,10 +21,8 @@ function Points() {
     [speed, f, a]
   );
 
-  // const count = 500;
   const sep = 1.5;
   const count = 100;
-  // const sep = 3;
   let positions = useMemo(() => {
     let positions = [];
 
@@ -42,7 +40,6 @@ function Points() {
 
   useFrame(() => {
     speed += 40;
-    // t += 15;
     const positions = bufferRef.current.array;
 
     let i = 0;
@@ -121,11 +118,15 @@ export default CanvasOcean;
 
 const Container = styled.div`
   background: #060938;
-  /* background: #536eff; */
   width: 100%;
   height: 100vh;
   scroll-snap-align: start;
 `;
+
+const fadeIn = keyframes`
+  0% {opacity: 0}
+  100% {opacity: 1}
+  `;
 
 const Plug = styled.div`
   position: absolute;
@@ -134,15 +135,13 @@ const Plug = styled.div`
   bottom: 1%;
   right: 5%;
   cursor: pointer;
+  opacity: 0;
+  animation: ${fadeIn} 6s linear forwards;
+  animation-delay: 2s;
 
   :hover {
     bottom: 3%;
   }
-`;
-
-const fadeIn = keyframes`
-  0% {opacity: 0}
-  100% {opacity: 1}
 `;
 
 const InstructionText = styled.p`
@@ -152,10 +151,9 @@ const InstructionText = styled.p`
   transform: translate(-50%, 0%);
   color: orange;
   font-family: arial;
-  /* font-family: "TitleFont"; */
   font-size: medium;
   user-select: none;
   opacity: 0;
   animation: ${fadeIn} 6s linear forwards;
-  animation-delay: 5s;
+  animation-delay: 2s;
 `;
