@@ -99,16 +99,15 @@ let birds = [
 
 function SandwichBird() {
   const [isCaptured, setCaptured] = useState(false);
-  const [isArrow, setIsArrow] = useState(false);
+  const [isText, setIsText] = useState(false);
 
   const captured = (index) => {
     setCaptured(!isCaptured);
     birds.splice(index, 1);
 
     if (!birds.length) {
-      setIsArrow(true);
-      console.log(isArrow);
-      return isArrow;
+      setIsText(true);
+      return isText;
     }
   };
 
@@ -130,7 +129,7 @@ function SandwichBird() {
           zIndex={bird.zIndex}
         />
       ))}
-      <ScrollDownText show={isArrow}>Scroll down</ScrollDownText>
+      <ScrollDownText show={isText}>Scroll down</ScrollDownText>
     </>
   );
 }

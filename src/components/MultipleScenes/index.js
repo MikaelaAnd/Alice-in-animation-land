@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import SingingFlowers from "./SingingFlowers";
-import MagicFood from "./MagicFood/MagicFood";
+import MagicFood from "./MagicFood";
 import CanvasOcean from "./Ocean/CanvasOcean";
 import TransitionOcean from "./Ocean/TransitionOcean";
 
