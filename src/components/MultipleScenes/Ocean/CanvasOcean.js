@@ -1,19 +1,11 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import * as THREE from "three";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
-import circleImg from "./images/ellipse.png";
 import { Suspense, useCallback, useMemo, useRef } from "react";
 import { OrbitControls } from "@react-three/drei";
+import circleImg from "./images/ellipse2.png";
 import PlugImg from "./images/plug.png";
 import AliceBottle from "./AliceBottle";
-
-// extend({OrbitControls})
-
-// function CameraControls() {
-//     return (
-//         <orbitControls />
-//     )
-// }
 
 function Points() {
   const imgTex = useLoader(THREE.TextureLoader, circleImg);
@@ -118,6 +110,7 @@ function CanvasOcean({
         </Suspense>
         <AliceBottle />
       </Canvas>
+      <InstructionText>Rotate and zoom</InstructionText>
       <Plug onClick={() => setOceanSinking()}>
         <img src={PlugImg} alt="Plug" height="100%" />
       </Plug>
@@ -127,8 +120,8 @@ function CanvasOcean({
 export default CanvasOcean;
 
 const Container = styled.div`
-  /* background: #060938; */
-  background: #536eff;
+  background: #060938;
+  /* background: #536eff; */
   width: 100%;
   height: 100vh;
   scroll-snap-align: start;
@@ -138,11 +131,31 @@ const Plug = styled.div`
   position: absolute;
   height: 35%;
   z-index: 100;
-  bottom: 0;
+  bottom: 1%;
   right: 5%;
   cursor: pointer;
 
   :hover {
-    bottom: 4%;
+    bottom: 3%;
   }
+`;
+
+const fadeIn = keyframes`
+  0% {opacity: 0}
+  100% {opacity: 1}
+`;
+
+const InstructionText = styled.p`
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  color: orange;
+  font-family: arial;
+  /* font-family: "TitleFont"; */
+  font-size: medium;
+  user-select: none;
+  opacity: 0;
+  animation: ${fadeIn} 6s linear forwards;
+  animation-delay: 5s;
 `;
