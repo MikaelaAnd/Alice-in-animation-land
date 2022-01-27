@@ -13,7 +13,6 @@ function MagicFood({ setOceanRising }) {
   const isVisible = useOnScreen(MagicFoodRef);
   const [totalHeight, setTotalHeight] = useState(550);
   const [visibleChatBubble, setVisibleChatBubble] = useState(false);
-  const [bubblePosition, setBubblePosition] = useState(-40);
 
   const aliceMoving = (height) => {
     const minHeight = 100;
@@ -32,16 +31,6 @@ function MagicFood({ setOceanRising }) {
     return totalHeight;
   };
 
-  const handleBubblePosition = () => {
-    const maxHeight = -139;
-
-    if (bubblePosition === maxHeight) {
-      setBubblePosition(maxHeight);
-    } else {
-      setBubblePosition(bubblePosition - 33);
-    }
-  };
-
   if (isVisible) {
     setTimeout(() => setVisibleChatBubble(true), 10000);
   }
@@ -55,7 +44,6 @@ function MagicFood({ setOceanRising }) {
               <Drink
                 onClick={() => {
                   aliceMoving(-150);
-                  setBubblePosition(bubblePosition + 33);
                 }}
               >
                 <img src={Bottle} alt="Bottle that Alice drinks" width="100%" />
@@ -63,7 +51,6 @@ function MagicFood({ setOceanRising }) {
               <Cookie
                 onClick={() => {
                   aliceMoving(+150);
-                  handleBubblePosition();
                 }}
               >
                 <img src={Cake} alt="Cookie that Alice eats" width="100%" />
@@ -73,16 +60,14 @@ function MagicFood({ setOceanRising }) {
               <img src={GlasTable} alt="Glas table" width="100%" />
             </SpinningTable>
           </div>
-          <GrowingAlice>
-            <img src={Alice} alt="Alice standing" height={aliceMoving()} />
-          </GrowingAlice>
-          <Chat
-            show={visibleChatBubble}
-            // style={{ top: `${handleBubblePosition()}` }}
-            top={bubblePosition}
-          >
-            <img src={ChatBubble} alt="ChatBubble" height="100%" />
-          </Chat>
+          <AliceAndChatBubble>
+            <Chat show={visibleChatBubble}>
+              <img src={ChatBubble} alt="ChatBubble" height="100%" />
+            </Chat>
+            <GrowingAlice>
+              <img src={Alice} alt="Alice standing" height={aliceMoving()} />
+            </GrowingAlice>
+          </AliceAndChatBubble>
         </AllContent>
       )}
     </Room>
@@ -100,6 +85,7 @@ const Room = styled.div`
   align-items: end;
   justify-content: center;
   height: 100vh;
+  overflow: hidden;
 `;
 
 const AllContent = styled.div`
@@ -179,18 +165,22 @@ const SpinningTable = styled.div`
   width: 15rem;
 `;
 
-const GrowingAlice = styled.div`
+const AliceAndChatBubble = styled.div`
   position: absolute;
+  display: flex;
   bottom: 1rem;
-  right: 20%;
   transform: translate(50%, 0%);
+  right: 25%;
+  align-items: flex-start;
+  pointer-events: none;
+`;
+
+const GrowingAlice = styled.div`
   animation: ${display} 6s;
 `;
 
 const Chat = styled.div`
-  position: absolute;
   height: 3rem;
-  right: 30%;
-  top: ${(props) => props.top}%;
+  margin-top: 1rem;
   display: ${(props) => (props.show ? "block" : "none")};
 `;
