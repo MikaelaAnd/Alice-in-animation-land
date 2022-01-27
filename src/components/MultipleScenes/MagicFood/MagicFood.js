@@ -182,6 +182,5 @@ const GrowingAlice = styled.div`
 const Chat = styled.div`
   height: 3rem;
   margin-top: 1rem;
-  margin-right: -2rem;
   display: ${(props) => (props.show ? "block" : "none")};
 `;
