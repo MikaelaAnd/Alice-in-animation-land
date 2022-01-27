@@ -2,6 +2,7 @@ import React from "react";
 import AliceTree from "./AliceTree";
 import CardAce from "./CardAce";
 import Cards from "./Cards";
+import Caterpillar from "./Caterpillar";
 import Flowers3 from "./Flowers3";
 import Flowers9 from "./Flowers9";
 import Zzz from "./Zzz";
@@ -28,6 +29,7 @@ export default function Models3D() {
       <CardAce />
       <Cards />
       <Zzz />
+      <Caterpillar />
       {renderFlowers()}
     </>
   );

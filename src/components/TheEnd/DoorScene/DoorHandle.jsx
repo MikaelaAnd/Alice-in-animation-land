@@ -1,17 +1,20 @@
 import React from "react";
-import styled, { css, keyframes} from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import doorHandle from "../images/doorHandle.png";
 import Keyhole from "./Keyhole.jsx";
+import Text from "./Text";
 
 export default function DoorHandle({ zoom, setZoom }) {
-
   return (
     <Container zoom={zoom}>
-      <Face src={doorHandle} />
+      <Text />
+      <FaceContainer>
+        <Face src={doorHandle} />
+      </FaceContainer>
       <Keyhole zoom={zoom} setZoom={setZoom} />
     </Container>
   );
-};
+}
 
 const zoomIn = keyframes`
  from {
@@ -27,13 +30,14 @@ const zoomIn = keyframes`
 const Container = styled.div`
   position: absolute;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  width: 14rem;
-  background: #ffa325;
+  align-items: center;
+  width: 18rem;
   user-drag: none;
   user-select: none;
   transform: scale(1);
-  top: 20%;
+  top: 10%;
   animation: ${(props) =>
     props.zoom &&
     css`
@@ -41,8 +45,15 @@ const Container = styled.div`
     `};
 `;
 
+const FaceContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  background: #ffa325;
+  width: 80%;
+`;
+
 const Face = styled.img`
-  width: 16rem;
+  width: 17rem;
   margin-top: -2rem;
   user-select: none;
   user-drag: none;

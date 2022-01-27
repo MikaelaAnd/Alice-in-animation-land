@@ -4,7 +4,7 @@ import ErrorBoundary from "./ErrorBoundary";
 import GlobalFonts from "./fonts/fonts";
 import Intro from "./components/Intro/Intro";
 import AliceFalling from "./components/AliceFalling";
-import MultipleScenes from "./components/MultipleScenes/MultipleScenes";
+import MultipleScenes from "./components/MultipleScenes";
 import LeavesTransition from "./components/Transitions/LeavesTransition";
 import CheshireCat from "./components/CheshireCat";
 import { TeaParty } from "./components/TeaParty";
@@ -24,8 +24,7 @@ export default function App() {
       // For Chrome, Firefox, IE, and Opera
       document.documentElement.scrollTop = 0;
     }, 3000);
-  };
-
+  }
 
   return (
     <>
@@ -47,9 +46,9 @@ export default function App() {
               <BlackFade />
               <TeaParty />
               {showFade && <BlackFade />}
-              <TheEnd 
-                removeFade={() => setShowFade(false)} 
-                restart={() => setRestart(true)} 
+              <TheEnd
+                removeFade={() => setShowFade(false)}
+                restart={() => setRestart(true)}
                 fadeOut={restart}
               />
             </>
